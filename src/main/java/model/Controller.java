@@ -1,7 +1,14 @@
 package model;
 
 
+import java.util.Map;
+
 public class Controller {
+    Line defaultLine;
+    Line reserveLine;
+
+    Map<TypeOfLine,>
+
     void SendMassege(Message message){
 
     }
@@ -11,6 +18,8 @@ public class Controller {
     void getAddress(){
 
     }
+
+
 
     void ChangeTheLine(){
         if (Line==TypeOfLine.A) Line=TypeOfLine.B;
