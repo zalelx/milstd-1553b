@@ -2,7 +2,16 @@ package model;
 
 
 public class Controller {
-    void SendMassege();
+    void SendMassege(Message message){
+
+    }
+    void handleMessage(Message message){
+
+    }
+    void getAddress(){
+
+    }
+
     void ChangeTheLine();
     int GetAnsWord();
     void Block();
