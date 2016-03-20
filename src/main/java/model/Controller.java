@@ -30,7 +30,9 @@ public class Controller {
     }
 
     void TestMKO(){
+        ArrayList <Integer> ar=new ArrayList<>(32);//сюда номера устрйоств помещаем, которые не отвечают
         int c=0;
+        int j=0;
         for(i=0;i<31;i++){
             int k=0;
             if(!SendMassage()){
@@ -40,15 +42,29 @@ public class Controller {
             }
             // у нас сбой,если k==1 как раз решим, повторно если уйдет
 
-
             // у нас отказ или генерация
-            if (k==2)
+            if (k==2) {
+                ar[j]=i;
+                c++;
+                j++;
+                if (c==15){
+                    void FindGenerationObject();
+                }
+                else continue;
+
+            }
+            }
+        // обработка отказавших
+        for (int l=0;l<j;l++){
+            int num=ar[l];
+            ChangeTheLine();
+            SendMassage(); // здесь как-то номер num должен учитываться в функции отсылки
+        }
+
+        }
 
 
-
-                int GetAnsWord();
     void FindGenerationObject();
-
-
+    int GetAnsWord();
 
 }
