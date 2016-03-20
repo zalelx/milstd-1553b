@@ -1,4 +1,6 @@
-package model;
+package model.message;
+
+import model.message.messageCommand;
 
 public interface Message {
     int PAUSE_TIME = 12;
@@ -7,7 +9,7 @@ public interface Message {
 
     int getTime();
     int getAddress();
-    int getCommand();
+    messageCommand getCommand();
     boolean getState();
 
 }

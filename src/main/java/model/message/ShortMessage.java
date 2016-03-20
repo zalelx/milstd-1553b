@@ -1,7 +1,7 @@
-package model;
+package model.message;
 
 public class ShortMessage implements Message {
-    int command;
+    messageCommand command;
     int address;
     boolean state;
 
@@ -17,7 +17,7 @@ public class ShortMessage implements Message {
     }
 
     @Override
-    public int getCommand() {
+    public messageCommand getCommand() {
         return command;
     }
 

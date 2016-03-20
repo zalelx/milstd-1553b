@@ -1,8 +1,8 @@
-package model;
+package model.message;
 
-public class LongMessage implements Message{
+public class LongMessage implements Message {
     int infoWords;
-    int command;
+    messageCommand command;
     int address;
     boolean state;
 
@@ -17,7 +17,7 @@ public class LongMessage implements Message{
     }
 
     @Override
-    public int getCommand() {
+    public messageCommand getCommand() {
         return command;
     }
 
@@ -30,7 +30,7 @@ public class LongMessage implements Message{
         return infoWords;
     }
 
-    public LongMessage(int infoWords, int command, int address) {
+    public LongMessage(int infoWords, messageCommand command, int address) {
         this.infoWords = infoWords;
         this.command = command;
         this.address = address;

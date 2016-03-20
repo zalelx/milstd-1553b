@@ -1,5 +1,7 @@
 package model;
 
+import model.message.Message;
+
 import java.util.ArrayList;
 
 public class Line {
@@ -9,7 +11,7 @@ public class Line {
 
     public void addListener(Listener listener) throws Exception {
         int address = list.size();
-        if (address >= 0 && address < 32)
+        if (address >= 0 && address <= 32)
             list.add(listener);
         else throw new Exception("Wrong amount of listeners!");
     }
