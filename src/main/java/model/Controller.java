@@ -48,7 +48,7 @@ public class Controller {
                 c++;
                 j++;
                 if (c==15){
-                    void FindGenerationObject();
+                     FindGenerationObject();
                 }
                 else continue;
 
