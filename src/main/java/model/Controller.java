@@ -33,7 +33,7 @@ public class Controller {
         ArrayList <Integer> ar=new ArrayList<>(32);//сюда номера устрйоств помещаем, которые не отвечают
         int c=0;
         int j=0;
-        for(i=0;i<31;i++){
+        for(i=0;i<32;i++){
             int k=0;
             if(!SendMassage()){
                 k++;                            //если один раз не прошло
@@ -55,16 +55,37 @@ public class Controller {
             }
             }
         // обработка отказавших
-        for (int l=0;l<j;l++){
+        for (int l=0;l<j;l++)
             int num=ar[l];
             ChangeTheLine();
             SendMassage(); // здесь как-то номер num должен учитываться в функции отсылки
         }
 
+
+    void FindGenerationObject(){
+        int gennumb;
+
+        //блокируем все ОУ
+        ChangeTheLine();
+        for(int i=0;i<32;i++){
+            SendMassage();   // сообщение massege.command=NumberOfCommand.BLOCK;
         }
 
+        // поочередно включаем и пытаемся проветси обмен
+        ChangeTheLine();
+        SendMassage();// сообщение massege.command=NumberOfCommand.GIVE_ANSWORD;
 
-    void FindGenerationObject();
-    int GetAnsWord();
+        EndDevice.handleMassage();// как то обработается на ОУ
+        if() continue;
+        else{
+            gennumb=i;
+            system.out.println('Генератор найден!Его номер:' + gennumb);
+            SendMassage(); // // сообщение massege.command=NumberOfCommand.BLOCK;
+        }
 
-}
+    }
+
+
+
+
+
