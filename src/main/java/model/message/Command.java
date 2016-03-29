@@ -1,5 +1,5 @@
 package model.message;
 
-public enum messageCommand {
+public enum Command {
     GIVE_ANSWER, BLOCK, UNBLOCK, GIVE_INFORMATION
 }

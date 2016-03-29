@@ -1,38 +1,23 @@
 package model;
 
 import model.message.Message;
-
 import java.util.ArrayList;
 
 public class Line {
-    TypeOfLine type;
+    private ArrayList<Port> list = new ArrayList<>();
+    private Message message;
 
-    ArrayList<Listener> list = new ArrayList<>();
 
-    public void addListener(Listener listener) throws Exception {
-        int address = list.size();
-        if (address >= 0 && address <= 32)
-            list.add(listener);
-        else throw new Exception("Wrong amount of listeners!");
+    public void addPort(Port port) {
+        list.add(port);
     }
 
-    public void broadcastMessage(Message message) throws Exception {
-        int address = message.getAddress();
-        if (address >= 0 && address < 32)
-            list.get(address).handleMessage(type, message);
-        else throw new Exception("Wrong address!");
+    public void broadcastMessage(Message message) {
+        this.message = message;
+        list.forEach(Port::handleMessage);
     }
 
-
-    public TypeOfLine getType() {
-        return type;
-    }
-
-    public void setType(TypeOfLine type) {
-        this.type = type;
-    }
-
-    public Line(TypeOfLine type) {
-        this.type = type;
+    public Message getMessage() {
+        return message;
     }
 }

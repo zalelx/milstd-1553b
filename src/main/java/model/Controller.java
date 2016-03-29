@@ -1,7 +1,8 @@
 package model;
 
-import model.message.ShortMessage;
-import model.message.messageCommand;
+import model.message.Command;
+import model.message.CommandMessage;
+import model.message.Message;
 
 import java.util.ArrayList;
 
@@ -9,33 +10,36 @@ import java.util.ArrayList;
 public class Controller implements Device{
     AddressBook addressBook;
 
-    void sendShortMessage(int address, messageCommand command) throws Exception {
-        Line line = addressBook.getLine(address);
-        line.broadcastMessage(new ShortMessage());
+    public void sendMessage(Message message) {
+        addressBook.sendMessage(message);
     }
 
-    void getAddress() {
-
+    @Override
+    public void handleMessage(Message message) {
+        //todo добавить обработку пришедшего сообщения
     }
 
-
-    void ChangeTheLine() {
-        if (Line == TypeOfLine.A) Line = TypeOfLine.B;
-        else Line = TypeOfLine.A;
-        return;
+    void changeLine(int address) {
+        addressBook.changeLine(address);
     }
 
-
-    void Block() {
-        Massage.command = messageCommand.BLOCK;
+    void block(int address) {
+        try {
+            sendMessage(new CommandMessage(address, Command.BLOCK));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    void Unblock() {
-
-        Massage.command = messageCommand.UNBLOCK;
+    void unblock(int address) {
+        try {
+            sendMessage(new CommandMessage(address, Command.UNBLOCK));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    void TestMKO() {
+    void testMKO() {
         ArrayList<Integer> ar = new ArrayList<>(32);//сюда номера устрйоств помещаем, которые не отвечают
         int c = 0;
         int j = 0;
@@ -54,7 +58,7 @@ public class Controller implements Device{
                 c++;
                 j++;
                 if (c == 15) {
-                    FindGenerationObject();
+                    findGenerationObject();
                 } else continue;
 
             }
@@ -66,8 +70,7 @@ public class Controller implements Device{
         SendMassage(); // здесь как-то номер num должен учитываться в функции отсылки
     }
 
-
-    void FindGenerationObject() {
+    private void findGenerationObject() {
         int gennumb;
 
         //блокируем все ОУ
@@ -84,14 +87,9 @@ public class Controller implements Device{
         if () continue;
         else {
             gennumb = i;
-            system.out.println('Генератор найден!Его номер:' + gennumb);
+            System.out.println('Генератор найден!Его номер:' + gennumb);
             SendMassage(); // // сообщение massege.command=messageCommand.BLOCK;
         }
 
     }
 }
-
-
-
-
-
