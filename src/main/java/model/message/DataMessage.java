@@ -1,9 +1,11 @@
 package model.message;
 
-public class DataMessage implements Message {
-    private int address;
+import model.Address;
 
-    public DataMessage(int address) {
+public class DataMessage implements Message {
+    private Address address;
+
+    public DataMessage(Address address) {
         this.address = address;
     }
 
@@ -13,12 +15,12 @@ public class DataMessage implements Message {
     }
 
     @Override
-    public int getAddress() {
+    public Address getAddress() {
         return address;
     }
 
     @Override
-    public void setAddress(int address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }

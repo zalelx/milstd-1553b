@@ -1,11 +1,12 @@
 package model;
 
 import model.message.Message;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class AddressBook {
-    private Map<Integer, Port> book;
+    private Map <Address, Port> book;
     private Port defaultLine;
     private Port reserveLine;
 
@@ -13,24 +14,24 @@ public class AddressBook {
         book = new HashMap<>();
         defaultLine = portA;
         reserveLine = portB;
-        for (int i = 0; i < amountOfEndDevices; i++) {
-            book.put(i, portA);
+        for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
+            try {
+                book.put(new Address(i), portA);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public void changeLine(int address){
-        if (address < 0 && address >= 32)
-            return;
+    public void changeLine(Address address) {
         book.put(address, (book.get(address) == defaultLine) ? defaultLine : reserveLine);
     }
 
-    private Port getPort(int address){ //throws Exception {
-        //if (address < 0 && address >= 32)
-          //  throw new Exception("Wrong address!");
+    private Port getPort(Address address) {
         return book.get(address);
     }
 
-    public void sendMessage(Message message) {// throws Exception {
+    public void sendMessage(Message message) {
         getPort(message.getAddress()).broadcastMessage(message);
     }
 }

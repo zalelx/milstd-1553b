@@ -7,8 +7,12 @@ import model.message.Message;
 import java.util.ArrayList;
 
 
-public class Controller implements Device{
-    AddressBook addressBook;
+public class Controller implements Device {
+    private AddressBook addressBook;
+
+    public Controller(AddressBook addressBook) {
+        this.addressBook = addressBook;
+    }
 
     public void sendMessage(Message message) {
         addressBook.sendMessage(message);
@@ -19,13 +23,13 @@ public class Controller implements Device{
         //todo добавить обработку пришедшего сообщения
     }
 
-    void changeLine(int address) {
+    void changeLine(Address address) {
         addressBook.changeLine(address);
     }
 
     void block(int address) {
         try {
-            sendMessage(new CommandMessage(address, Command.BLOCK));
+            sendMessage(new CommandMessage(new Address(address), Command.BLOCK));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,10 +37,11 @@ public class Controller implements Device{
 
     void unblock(int address) {
         try {
-            sendMessage(new CommandMessage(address, Command.UNBLOCK));
+            sendMessage(new CommandMessage(new Address(address), Command.UNBLOCK));
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     void testMKO() {
@@ -87,7 +92,7 @@ public class Controller implements Device{
         if () continue;
         else {
             gennumb = i;
-            System.out.println('Генератор найден!Его номер:' + gennumb);
+            System.out.println("Генератор найден!Его номер:" + gennumb);
             SendMassage(); // // сообщение massege.command=messageCommand.BLOCK;
         }
 

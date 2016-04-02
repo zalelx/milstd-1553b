@@ -6,6 +6,21 @@ import model.message.Message;
 public class Port {
     private Device device;
     private Line line;
+    private PortStatus status;
+
+    public Port(Line line, Device device) {
+        this.line = line;
+        this.device = device;
+        this.status = PortStatus.OK;
+    }
+
+    public PortStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(PortStatus status) {
+        this.status = status;
+    }
 
     public Line getLine() {
         return line;
