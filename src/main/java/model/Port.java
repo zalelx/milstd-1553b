@@ -7,11 +7,16 @@ public class Port {
     private Device device;
     private Line line;
     private PortStatus status;
+    private boolean isGenerator = false;
 
     public Port(Line line, Device device) {
         this.line = line;
         this.device = device;
         this.status = PortStatus.OK;
+    }
+
+    public void setGenerator(boolean generator) {
+        isGenerator = generator;
     }
 
     public PortStatus getStatus() {
