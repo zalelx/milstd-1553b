@@ -48,57 +48,74 @@ public class Controller implements Device {
 
     }
 
-    void testMKO() {
-        ArrayList<Integer> ar = new ArrayList<>(32);//сюда номера устрйоств помещаем, которые не отвечают
+    void testMKO(int amountOfEndDevices) {
+        ArrayList<Address> ar = new ArrayList<>(32);//сюда адреса устрйоств помещаем, которые не отвечают
         int c = 0;
         int j = 0;
-        for (i = 0; i < 32; i++) {
-            int k = 0;
-            if (!SendMassage()) {
-                k++;                            //если один раз не прошло
-                if (!SendMassage())              // пробуем еще раз
+        int k;//счетчик
+        for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
+            sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
+            k = 0;
+            switch (lastAnswer) {
+                case BUSY: {//если занят, просто посылаем второй раз, флажок занятости должен сниматься
+                    sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
+                    break;
+                }
+                case READY:
+                    sendMessage(new CommandMessage(new Address(i), Command.GIVE_INFORMATION));
+                    break;
+
+                default:// если не приходит ответного слова
                     k++;
-            }
-            // у нас сбой,если k==1 как раз решим, повторно если уйдет
-
-            // у нас отказ или генерация
-            if (k == 2) {
-                ar[j] = i;
-                c++;
-                j++;
-                if (c == 15) {
-                    findGenerationObject();
-                } else continue;
-
+                    if (k == 2) {// отказ или генерация
+                        ar.set(j,new Address(i));
+                        c++;
+                        j++;
+                    } else {
+                        sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
+                    }
             }
         }
-        // обработка отказавших
-        for (int l = 0; l < j; l++)
-            int num = ar[l];
-        ChangeTheLine();
-        SendMassage(); // здесь как-то номер num должен учитываться в функции отсылки
+        if (c >= 3) findGenerationObject(amountOfEndDevices);// если 3 ОУ в отказе, то признак генерации
+        // меньше 3, то сбой и переходим на резервную линию
+        else {
+            for (int l = 0; l < j; l++) {
+                Address num = ar.get(l);
+                changeLine(num);
+                sendMessage(new CommandMessage(num, Command.GIVE_ANSWER));
+            }
+
+        }
     }
 
-    private void findGenerationObject() {
-        int gennumb;
 
-        //блокируем все ОУ
-        ChangeTheLine();
-        for (int i = 0; i < 32; i++) {
-            SendMassage();   // сообщение massege.command=messageCommand.BLOCK;
+    private void findGenerationObject(int amountOfDevices){
+        int numberofgen;
+        //нужно заблокировать все ОУ,для этого меняем линию и шлем БЛОКИ
+        for (int i=Address.MIN_ADDRESS;i<=amountOfDevices;i++)
+        {
+            changeLine(new Address(i));
+            sendMessage(new CommandMessage(new Address(i),Command.BLOCK));
         }
 
-        // поочередно включаем и пытаемся проветси обмен
-        ChangeTheLine();
-        SendMassage();// сообщение massege.command=messageCommand.GIVE_ANSWORD;
+        //включаем поочередно ОУ, причем по первоначальной линии
+        for (int i=Address.MIN_ADDRESS;i<=amountOfDevices;i++)
+        {
+            changeLine(new Address(i));
+            sendMessage(new CommandMessage(new Address(i),Command.UNBLOCK));
+            sendMessage(new CommandMessage(new Address(i),Command.GIVE_ANSWER));
+            switch(lastAnswer)
+            {
+                case BUSY:break;
+                case READY:break;
+                default:
+                    numberofgen=i;// Нашли генерящее ОУ
+                    System.out.println("Генератор найден!Его номер:" + numberofgen);
+                    sendMessage(new CommandMessage(new Address(i),Command.BLOCK));
+            }
 
-        EndDevice.handleMassage();// как то обработается на ОУ
-        if () continue;
-        else {
-            gennumb = i;
-            System.out.println("Генератор найден!Его номер:" + gennumb);
-            SendMassage(); // // сообщение massege.command=messageCommand.BLOCK;
         }
 
     }
 }
+
