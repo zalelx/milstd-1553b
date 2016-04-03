@@ -1,5 +1,5 @@
 package model.message;
 
-public enum Answer {
-    BUSY, READY;
+public enum Answer implements Status {
+    BUSY, READY, SEND_INFO
 }

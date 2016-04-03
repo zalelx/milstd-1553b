@@ -29,6 +29,11 @@ public class AnswerMessage implements Message {
         return address;
     }
 
+    @Override
+    public Status getStatus() {
+        return answer;
+    }
+
     public void setAddress(Address address) {
         this.address = address;
     }

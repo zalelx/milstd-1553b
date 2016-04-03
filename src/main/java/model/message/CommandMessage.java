@@ -29,6 +29,11 @@ public class CommandMessage implements Message {
         return address;
     }
 
+    @Override
+    public Status getStatus() {
+        return command;
+    }
+
     public void setAddress(Address address) {
         this.address = address;
     }

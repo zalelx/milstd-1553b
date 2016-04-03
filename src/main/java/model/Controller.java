@@ -1,5 +1,6 @@
 package model;
 
+import model.message.Answer;
 import model.message.Command;
 import model.message.CommandMessage;
 import model.message.Message;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 
 public class Controller implements Device {
     private AddressBook addressBook;
+    private Answer lastAnswer;
 
     public Controller(AddressBook addressBook) {
         this.addressBook = addressBook;
@@ -20,7 +22,7 @@ public class Controller implements Device {
 
     @Override
     public void handleMessage(Message message) {
-        //todo добавить обработку пришедшего сообщения
+        lastAnswer = (Answer) message.getStatus();
     }
 
     void changeLine(Address address) {

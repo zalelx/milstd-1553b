@@ -1,5 +1,5 @@
 package model.message;
 
-public enum Command {
+public enum Command implements Status {
     GIVE_ANSWER, BLOCK, UNBLOCK, GIVE_INFORMATION
 }
