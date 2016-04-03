@@ -1,10 +1,10 @@
 package view;
 
 public class TimeLogger {
-    int currentTime = 0;
-    //blabla
-    public static void log(int time){
-        System.out.println(time);
+    private static int currentTime = 0;
 
+    public static void log(String string, int time){
+        currentTime += time;
+        System.out.println(string + "   Time: " + currentTime);
     }
 }
