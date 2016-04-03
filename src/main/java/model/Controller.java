@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Controller implements Device {
     private AddressBook addressBook;
     private Answer lastAnswer;
+    private Address myAddress = new Address(Address.CONTROLLER_ADDRESS);
 
     public Controller(AddressBook addressBook) {
         this.addressBook = addressBook;
@@ -22,7 +23,8 @@ public class Controller implements Device {
 
     @Override
     public void handleMessage(Message message) {
-        lastAnswer = (Answer) message.getStatus();
+        if (message.getAddress().equals(myAddress)  || message.getAddress().getValue() == Address.BROADCAST_ADDRESS)
+            lastAnswer = (Answer) message.getStatus();
     }
 
     void changeLine(Address address) {

@@ -1,5 +1,5 @@
 package model;
 
 public enum PortStatus {
-    OK, DENIAL, FAILURE,BLOCK
+    OK, DENIAL, FAILURE, BLOCK
 }

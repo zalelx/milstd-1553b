@@ -1,19 +1,32 @@
 package model;
 
+import view.TimeLogger;
+
 public class Address {
     final static int MIN_ADDRESS = 1;
     final static int MAX_ADDRESS = 32;
-    final static int BROADCAST_ADDRESS = 33;
-    final static int CONTROLLER_ADDRESS = 0;
+    final static int BROADCAST_ADDRESS = MAX_ADDRESS + 1;
+    final static int CONTROLLER_ADDRESS = MIN_ADDRESS - 1;
 
     private int value;
 
-    public Address(int value) throws Exception {
-        if (value < CONTROLLER_ADDRESS && value > BROADCAST_ADDRESS) throw new Exception("Bad index" + value);
+    public Address(int value) {
+        if (value < CONTROLLER_ADDRESS && value > BROADCAST_ADDRESS)
+            TimeLogger.log("Bad index", value);
         this.value = value;
     }
 
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Address address = (Address) o;
+
+        return value == address.value;
     }
 }
