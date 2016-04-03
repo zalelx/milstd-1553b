@@ -4,7 +4,7 @@ import view.TimeLogger;
 
 public class Address {
     final static int MIN_ADDRESS = 1;
-    final static int MAX_ADDRESS = 32;
+    private final static int MAX_ADDRESS = 32;
     final static int BROADCAST_ADDRESS = MAX_ADDRESS + 1;
     final static int CONTROLLER_ADDRESS = MIN_ADDRESS - 1;
 
@@ -16,7 +16,7 @@ public class Address {
         this.value = value;
     }
 
-    public int getValue() {
+    int getValue() {
         return value;
     }
 
@@ -28,5 +28,10 @@ public class Address {
         Address address = (Address) o;
 
         return value == address.value;
+    }
+
+    @Override
+    public String toString() {
+        return Integer.toString(value);
     }
 }

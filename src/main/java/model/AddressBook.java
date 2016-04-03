@@ -23,15 +23,15 @@ public class AddressBook {
         }
     }
 
-    public void changeLine(Address address) {
-        book.put(address, (book.get(address) == defaultLine) ? defaultLine : reserveLine);
+    void changeLine(Address address) {
+        book.put(address, (book.get(address).equals(defaultLine)) ? defaultLine : reserveLine);
     }
 
     private Port getPort(Address address) {
         return book.get(address);
     }
 
-    public void sendMessage(Message message) {
+    void sendMessage(Message message) {
         getPort(message.getAddress()).broadcastMessage(message);
     }
 }

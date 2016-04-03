@@ -13,11 +13,11 @@ public class EndDevice implements Device {
 
     private boolean isPreparedToSendInfo = true;
 
-    public EndDevice(Address address, Port portA, Port portB) {
-        this.defaultLine = portA;
-        this.reserveLine = portB;
-        current = portA;
-        myAddress = address;
+    public EndDevice(Address address, Line lineA, Line lineB) {
+        this.defaultLine = new Port(lineA, this, "Port A " + address.toString());
+        this.reserveLine = new Port(lineB, this, "Port B " + address.toString());
+        this.current = defaultLine;
+        this.myAddress = address;
     }
 
     public void sendMessage(Message message) {
@@ -48,12 +48,12 @@ public class EndDevice implements Device {
     }
 
     private void unblock() {
-        current.setStatus(PortStatus.OK);
+        current.block();
         current = (current == defaultLine) ? reserveLine : defaultLine;
     }
 
     private void block() {
-        current.setStatus(PortStatus.BLOCK);
+        current.unblock();
         current = (current == defaultLine) ? reserveLine : defaultLine;
     }
 

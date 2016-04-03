@@ -7,4 +7,8 @@ public class TimeLogger {
         currentTime += time;
         System.out.println(string + "   Time: " + currentTime);
     }
+
+    public static void log(String string) {
+        System.out.println(string + "   Time: " + currentTime);
+    }
 }

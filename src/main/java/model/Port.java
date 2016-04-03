@@ -2,17 +2,25 @@ package model;
 
 
 import model.message.Message;
+import view.TimeLogger;
 
 public class Port {
     private Device device;
     private Line line;
     private PortStatus status;
     private boolean isGenerator = false;
+    private String name;
 
-    public Port(Line line, Device device) {
+    Port(Line line, Device device, String name) {
         this.line = line;
         this.device = device;
         this.status = PortStatus.OK;
+        this.name = name;
+    }
+
+    public Port(Line line, String name) {
+        this.name = name;
+        this.line = line;
     }
 
     public void setGenerator(boolean generator) {
@@ -43,11 +51,42 @@ public class Port {
         this.device = device;
     }
 
-    public void handleMessage() {
-        device.handleMessage(line.getMessage());
+    void handleMessage() {
+        switch (status) {
+            case FAILURE:
+                status = PortStatus.OK;
+                break;
+            case OK:
+                device.handleMessage(line.getMessage());
+                TimeLogger.log(name + " message handle");
+                break;
+            default:
+                break;
+        }
+
     }
 
-    public void broadcastMessage(Message message){
-        line.broadcastMessage(message);
+    void broadcastMessage(Message message) {
+        switch (status) {
+            case OK:
+                line.broadcastMessage(message);
+                TimeLogger.log(name + " message send");
+                break;
+            default:
+                break;
+        }
+    }
+
+    void unblock() {
+        if (isGenerator)
+            status = PortStatus.GENERATION;
+        else status = PortStatus.OK;
+        TimeLogger.log(name + " unblocked");
+    }
+
+    void block() {
+        if (status != PortStatus.DENIAL)
+            status = PortStatus.BLOCK;
+        TimeLogger.log(name + " blocked");
     }
 }
