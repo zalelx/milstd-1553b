@@ -17,14 +17,17 @@ public class Controller implements Device {
         this.addressBook = addressBook;
     }
 
+    public Address getMyAddress() {
+        return myAddress;
+    }
+
     public void sendMessage(Message message) {
         addressBook.sendMessage(message);
     }
 
     @Override
     public void handleMessage(Message message) {
-        if (message.getAddress().equals(myAddress) || message.getAddress().getValue() == Address.BROADCAST_ADDRESS)
-            lastAnswer = (Answer) message.getStatus();
+        lastAnswer = (Answer) message.getStatus();
     }
 
     private void changeLine(Address address) {
@@ -39,11 +42,11 @@ public class Controller implements Device {
         sendMessage(new CommandMessage(new Address(address), Command.UNBLOCK));
     }
 
-    void testMKO(int amountOfEndDevices) {
+    public void testMKO(int amountOfEndDevices) {
         ArrayList<Address> ar = new ArrayList<>(32);//сюда адреса устрйоств помещаем, которые не отвечают
         int c = 0;
         int j = 0;
-        int k;//счетчик
+        int k; //счетчик
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
             k = 0;
@@ -75,7 +78,6 @@ public class Controller implements Device {
                 changeLine(num);
                 sendMessage(new CommandMessage(num, Command.GIVE_ANSWER));
             }
-
         }
     }
 

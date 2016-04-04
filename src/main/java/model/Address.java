@@ -34,4 +34,9 @@ public class Address {
     public String toString() {
         return Integer.toString(value);
     }
+
+    @Override
+    public int hashCode() {
+        return value;
+    }
 }

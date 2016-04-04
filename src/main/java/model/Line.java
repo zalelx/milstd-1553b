@@ -20,8 +20,11 @@ public class Line {
 
     void broadcastMessage(Message message) {
         this.message = message;
-        TimeLogger.log(name + " Message sent", message.getTime());
-        list.forEach(Port::handleMessage);
+        TimeLogger.log(name + " Message broadcast", message.getTime());
+        for (Port port:
+             list) {
+            port.handleMessage();
+        }
     }
 
     public Message getMessage() {

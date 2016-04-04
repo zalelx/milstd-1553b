@@ -20,6 +20,11 @@ public class DataMessage implements Message {
     }
 
     @Override
+    public Status getStatus() {
+        return null;
+    }
+
+    @Override
     public void setAddress(Address address) {
         this.address = address;
     }

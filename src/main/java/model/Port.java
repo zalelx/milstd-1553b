@@ -7,20 +7,25 @@ import view.TimeLogger;
 public class Port {
     private Device device;
     private Line line;
-    private PortStatus status;
+    private PortStatus status = PortStatus.OK;
+    ;
     private boolean isGenerator = false;
     private String name;
+    private Address myAddress;
 
     Port(Line line, Device device, String name) {
         this.line = line;
         this.device = device;
-        this.status = PortStatus.OK;
         this.name = name;
     }
 
     public Port(Line line, String name) {
         this.name = name;
         this.line = line;
+    }
+
+    public void setMyAddress(Address myAddress) {
+        this.myAddress = myAddress;
     }
 
     public void setGenerator(boolean generator) {
@@ -52,25 +57,27 @@ public class Port {
     }
 
     void handleMessage() {
-        switch (status) {
-            case FAILURE:
-                status = PortStatus.OK;
-                break;
-            case OK:
-                device.handleMessage(line.getMessage());
-                TimeLogger.log(name + " message handle");
-                break;
-            default:
-                break;
+        if (line.getMessage().getAddress().equals(myAddress)
+                || line.getMessage().getAddress().getValue() == Address.BROADCAST_ADDRESS) {
+            switch (status) {
+                case OK:
+                    TimeLogger.log(name + " message handle");
+                    device.handleMessage(line.getMessage());
+                    break;
+                case FAILURE:
+                    status = PortStatus.OK;
+                    break;
+                default:
+                    break;
+            }
         }
-
     }
 
     void broadcastMessage(Message message) {
         switch (status) {
             case OK:
-                line.broadcastMessage(message);
                 TimeLogger.log(name + " message send");
+                line.broadcastMessage(message);
                 break;
             default:
                 break;
