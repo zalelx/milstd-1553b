@@ -46,22 +46,24 @@ public class Controller implements Device {
         ArrayList<Address> ar = new ArrayList<>(32);//сюда адреса устрйоств помещаем, которые не отвечают
         int c = 0;
         int j = 0;
-        int k; //счетчик
+        int amountOfSilencedDevices;
+
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-            k = 0;
+            amountOfSilencedDevices = 0; //счетчик
             switch (lastAnswer) {
-                case BUSY: {//если занят, просто посылаем второй раз, флажок занятости должен сниматься
+                case BUSY: //если занят, просто посылаем второй раз, флажок занятости должен сниматься
                     sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
                     break;
-                }
+                
                 case READY:
                     sendMessage(new CommandMessage(new Address(i), Command.GIVE_INFORMATION));
                     break;
 
-                default:// если не приходит ответного слова
-                    k++;
-                    if (k == 2) {// отказ или генерация
+                default:
+                    // если не приходит ответного слова
+                    amountOfSilencedDevices++;
+                    if (amountOfSilencedDevices == 2) {// отказ или генерация
                         ar.set(j, new Address(i));
                         c++;
                         j++;
