@@ -4,6 +4,7 @@ import model.message.Answer;
 import model.message.AnswerMessage;
 import model.message.Command;
 import model.message.Message;
+import view.TimeLogger;
 
 public class EndDevice implements Device {
     private Port defaultPort;
@@ -26,6 +27,7 @@ public class EndDevice implements Device {
 
     @Override
     public void handleMessage(Message message, Port port) {
+        TimeLogger.delay(12);
         current = port; // сохраняем порт, на который пришло сообщение
         switch ((Command) message.getStatus()) {
             case BLOCK:
