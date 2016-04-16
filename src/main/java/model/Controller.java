@@ -4,6 +4,7 @@ import model.message.Answer;
 import model.message.Command;
 import model.message.CommandMessage;
 import model.message.Message;
+import view.TimeLogger;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,7 @@ public class Controller implements Device {
     @Override
     public void handleMessage(Message message, Port port) {
         lastAnswer = (Answer) message.getStatus();
+        TimeLogger.delay(1000);
     }
 
     private void changeLine(Address address) {
