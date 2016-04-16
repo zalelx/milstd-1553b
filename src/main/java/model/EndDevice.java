@@ -28,7 +28,6 @@ public class EndDevice implements Device {
     @Override
     public void handleMessage(Message message, Port port) {
         TimeLogger.delay(12);
-        current = port; // сохраняем порт, на который пришло сообщение
         switch ((Command) message.getStatus()) {
             case BLOCK:
                 block();
