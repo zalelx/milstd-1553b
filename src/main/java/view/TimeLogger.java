@@ -5,11 +5,11 @@ public class TimeLogger {
 
     public static void log(String string, int time){
         currentTime += time;
-        System.out.println(string + "   Time: " + currentTime);
+        log(string);
     }
 
     public static void log(String string) {
-        System.out.println(string + "   Time: " + currentTime);
+        System.out.printf("%-30s %s %d\n", string, "Time:", currentTime);
     }
 
     public static void delay(int delay){
