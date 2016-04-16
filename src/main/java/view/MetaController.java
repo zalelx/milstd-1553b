@@ -1,8 +1,6 @@
 package view;
 
 import model.*;
-import model.message.Command;
-import model.message.CommandMessage;
 
 import java.util.ArrayList;
 
@@ -58,10 +56,11 @@ class MetaController {
         devices.get(numberOfDevice).setPreparedToSendInfo(status);
     }
 
-    void setPortStatusLineA(){
-
+    void setPortStatusLineA(int numberOfDevice, PortStatus status){
+        devices.get(numberOfDevice).getDefaultPort().setStatus(status);
     }
-    void setPortStatusLineB(){
 
+    void setPortStatusLineB(int numberOfDevice, PortStatus status){
+        devices.get(numberOfDevice).getReservePort().setStatus(status);
     }
 }
