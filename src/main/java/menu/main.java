@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package sample;
+package menu;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,7 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("sample.fxml"));
+        Parent root = (Parent)FXMLLoader.load(this.getClass().getResource("/menu/sample.fxml"));
         primaryStage.setTitle("Таблица состояний");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

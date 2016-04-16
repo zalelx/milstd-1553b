@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package sample;
+package menu;
 
 import java.net.URL;
 import java.util.ResourceBundle;
