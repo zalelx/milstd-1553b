@@ -25,7 +25,8 @@ public class EndDevice implements Device {
     }
 
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message, Port port) {
+        current = port; // сохраняем порт, на который пришло сообщение
         switch ((Command) message.getStatus()) {
             case BLOCK:
                 block();

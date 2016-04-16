@@ -8,7 +8,7 @@ public class Port {
     private Device device;
     private Line line;
     private PortStatus status = PortStatus.OK;
-    ;
+
     private boolean isGenerator = false;
     private String name;
     private Address myAddress;
@@ -62,7 +62,7 @@ public class Port {
             switch (status) {
                 case OK:
                     TimeLogger.log(name + " message handle");
-                    device.handleMessage(line.getMessage());
+                    device.handleMessage(line.getMessage(), this);
                     break;
                 case FAILURE:
                     status = PortStatus.OK;
