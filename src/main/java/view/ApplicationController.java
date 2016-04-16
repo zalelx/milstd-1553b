@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package menu;
+package view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 
-public class Controller implements Initializable {
+public class ApplicationController implements Initializable {
     @FXML
     public ComboBox<String> A1;
     @FXML
@@ -273,7 +273,7 @@ public class Controller implements Initializable {
     public RadioButton OffOy32;
     ObservableList<String> Status = FXCollections.observableArrayList(new String[]{"Работа", "Генерация", "Отказ", "Сбой"});
 
-    public Controller() {
+    public ApplicationController() {
     }
 
     public void initialize(URL location, ResourceBundle resources) {
