@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <SplitPane dividerPositions="0.6123032904148784" layoutY="-1.0" prefHeight="561.0" prefWidth="701.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <AnchorPane BorderPane.alignment="CENTER">
+                     <children>
+                        <ScrollPane layoutY="20.0" prefHeight="559.0" prefViewportHeight="452.0" prefViewportWidth="423.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0" prefWidth="423.0" AnchorPane.bottomAnchor="87.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       1" GridPane.rowIndex="1" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       2" GridPane.rowIndex="2" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       3" GridPane.rowIndex="3" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       4" GridPane.rowIndex="4" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       5" GridPane.rowIndex="5" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       6" GridPane.rowIndex="6" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       7" GridPane.rowIndex="7" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       8" GridPane.rowIndex="8" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       9" GridPane.rowIndex="9" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       10" GridPane.rowIndex="10" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       11" GridPane.rowIndex="11" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       12" GridPane.rowIndex="12" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       13" GridPane.rowIndex="13" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       14" GridPane.rowIndex="14" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       15" GridPane.rowIndex="15" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       16" GridPane.rowIndex="16" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       17" GridPane.rowIndex="17" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       18" GridPane.rowIndex="18" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       19" GridPane.rowIndex="19" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       20" GridPane.rowIndex="20" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       21" GridPane.rowIndex="21" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       22" GridPane.rowIndex="22" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       23" GridPane.rowIndex="23" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       24" GridPane.rowIndex="24" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       25" GridPane.rowIndex="25" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       26" GridPane.rowIndex="26" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       27" GridPane.rowIndex="27" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       28" GridPane.rowIndex="28" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       29" GridPane.rowIndex="29" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       30" GridPane.rowIndex="30" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       31" GridPane.rowIndex="31" />
+                                    <Label prefHeight="18.0" prefWidth="73.0" text="       32" GridPane.rowIndex="32" />
+
+                                                      <Label prefHeight="50.0" prefWidth="188.0" text="         Линия А" GridPane.columnIndex="3" />
+                                    <Label prefHeight="126.0" prefWidth="180.0" text="           Линия В" GridPane.columnIndex="4" />
+                                    <Label prefHeight="37.0" prefWidth="71.0" text="  № ОУ" />
+                                    <ComboBox fx:id="A1" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="B1" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="A2" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="B2" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                    <ComboBox fx:id="A3" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <ComboBox fx:id="B3" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                    <ComboBox fx:id="A4" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                    <ComboBox fx:id="B4" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                    <ComboBox fx:id="A5" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                    <ComboBox fx:id="B5" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                    <ComboBox fx:id="A6" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                    <ComboBox fx:id="B6" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                                    <ComboBox fx:id="A7" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                                    <ComboBox fx:id="B7" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                                    <ComboBox fx:id="A8" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                                    <ComboBox fx:id="B8" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+                                    <ComboBox fx:id="A9" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                                    <ComboBox fx:id="B9" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+                                    <ComboBox fx:id="A10" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                                    <ComboBox fx:id="B10" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="10" />
+                                    <ComboBox fx:id="A11" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+                                    <ComboBox fx:id="B11" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="11" />
+                                    <ComboBox fx:id="A12" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="12" />
+                                    <ComboBox fx:id="B12" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="12" />
+                                    <ComboBox fx:id="A13" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+                                    <ComboBox fx:id="B13" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="13" />
+                                    <ComboBox fx:id="A14" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="14" />
+                                    <ComboBox fx:id="B14" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="14" />
+                                    <ComboBox fx:id="A15" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+                                    <ComboBox fx:id="B15" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="15" />
+                                    <ComboBox fx:id="A16" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="16" />
+                                    <ComboBox fx:id="B16" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="16" />
+                                    <ComboBox fx:id="A17" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="17" />
+                                    <ComboBox fx:id="B17" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="17" />
+                                    <ComboBox fx:id="A18" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="18" />
+                                    <ComboBox fx:id="B18" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="18" />
+                                    <ComboBox fx:id="A19" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="19" />
+                                    <ComboBox fx:id="B19" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="19" />
+                                    <ComboBox fx:id="A20" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="20" />
+                                    <ComboBox fx:id="B20" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="20" />
+                                    <ComboBox fx:id="A21" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="21" />
+                                    <ComboBox fx:id="B21" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="21" />
+                                    <ComboBox fx:id="A22" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="22" />
+                                    <ComboBox fx:id="B22" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="22" />
+                                    <ComboBox fx:id="A23" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="23" />
+                                    <ComboBox fx:id="B23" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="23" />
+                                    <ComboBox fx:id="A24" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="24" />
+                                    <ComboBox fx:id="B24" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="24" />
+                                    <ComboBox fx:id="A25" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="25" />
+                                    <ComboBox fx:id="B25" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="25" />
+                                    <ComboBox fx:id="A26" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="26" />
+                                    <ComboBox fx:id="B26" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="26" />
+                                    <ComboBox fx:id="A27" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="27" />
+                                    <ComboBox fx:id="B27" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="27" />
+                                    <ComboBox fx:id="A28" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="28" />
+                                    <ComboBox fx:id="B28" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="28" />
+                                    <ComboBox fx:id="A29" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="29" />
+                                    <ComboBox fx:id="B29" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="29" />
+                                    <ComboBox fx:id="A30" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="30" />
+                                    <ComboBox fx:id="B30" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="30" />
+                                    <ComboBox fx:id="A31" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="31" />
+                                    <ComboBox fx:id="B31" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="31" />
+                                    <ComboBox fx:id="A32" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="3" GridPane.rowIndex="32" />
+                                    <ComboBox fx:id="B32" prefHeight="25.0" prefWidth="120.0" GridPane.columnIndex="4" GridPane.rowIndex="32" />
+                                    <RadioButton fx:id="OffOy1" mnemonicParsing="false" onAction="#OffOy1" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy1" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy1" mnemonicParsing="false" onAction="#OnOy1" toggleGroup="$oy1" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy2" mnemonicParsing="false" onAction="#OnOy2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy2" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy2" mnemonicParsing="false" onAction="#OffOy2" toggleGroup="$oy2" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy3" mnemonicParsing="false" onAction="#OffOy3" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy3" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy3" mnemonicParsing="false" onAction="#OnOy3" toggleGroup="$oy3" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy4" mnemonicParsing="false" onAction="#OnOy4" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy4" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy4" mnemonicParsing="false" onAction="#OffOy4" toggleGroup="$oy4" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy5" mnemonicParsing="false" onAction="#OffOy5" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy5" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy5" mnemonicParsing="false" onAction="#OnOy5" toggleGroup="$oy5" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy6" mnemonicParsing="false" onAction="#OnOy6" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy6" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy6" mnemonicParsing="false" onAction="#OffOy6" toggleGroup="$oy6" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy7" mnemonicParsing="false" onAction="#OffOy7" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy7" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy7" mnemonicParsing="false" onAction="#OnOy7" toggleGroup="$oy7" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy8" mnemonicParsing="false" onAction="#OnOy8" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy8" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy8" mnemonicParsing="false" onAction="#OffOy8" toggleGroup="$oy8" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy9" mnemonicParsing="false" onAction="#OffOy9" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy9" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy9" mnemonicParsing="false" onAction="#OnOy9" toggleGroup="$oy9" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy10" mnemonicParsing="false" onAction="#OnOy10" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy10" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy10" mnemonicParsing="false" onAction="#OffOy10" toggleGroup="$oy10" GridPane.columnIndex="2" GridPane.rowIndex="10">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy11" mnemonicParsing="false" onAction="#OffOy11" GridPane.columnIndex="2" GridPane.rowIndex="11">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy11" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy11" mnemonicParsing="false" onAction="#OnOy11" toggleGroup="$oy11" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy12" mnemonicParsing="false" onAction="#OnOy12" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy12" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy12" mnemonicParsing="false" onAction="#OffOy12" toggleGroup="$oy12" GridPane.columnIndex="2" GridPane.rowIndex="12">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy13" mnemonicParsing="false" onAction="#OffOy13" GridPane.columnIndex="2" GridPane.rowIndex="13">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy13" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy13" mnemonicParsing="false" onAction="#OnOy13" toggleGroup="$oy13" GridPane.columnIndex="1" GridPane.rowIndex="13">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy14" mnemonicParsing="false" onAction="#OnOy14" GridPane.columnIndex="1" GridPane.rowIndex="14">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy14" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy14" mnemonicParsing="false" onAction="#OffOy14" toggleGroup="$oy14" GridPane.columnIndex="2" GridPane.rowIndex="14">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy15" mnemonicParsing="false" onAction="#OffOy15" GridPane.columnIndex="2" GridPane.rowIndex="15">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy15" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy15" mnemonicParsing="false" onAction="#OnOy15" toggleGroup="$oy15" GridPane.columnIndex="1" GridPane.rowIndex="15">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy16" mnemonicParsing="false" onAction="#OnOy16" GridPane.columnIndex="1" GridPane.rowIndex="16">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy16" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy16" mnemonicParsing="false" onAction="#OffOy16" toggleGroup="$oy16" GridPane.columnIndex="2" GridPane.rowIndex="16">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy17" mnemonicParsing="false" onAction="#OffOy17" GridPane.columnIndex="2" GridPane.rowIndex="17">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy17" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy17" mnemonicParsing="false" onAction="#OnOy17" toggleGroup="$oy17" GridPane.columnIndex="1" GridPane.rowIndex="17">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy18" mnemonicParsing="false" onAction="#OnOy18" GridPane.columnIndex="1" GridPane.rowIndex="18">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy18" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy18" mnemonicParsing="false" onAction="#OffOy18" toggleGroup="$oy18" GridPane.columnIndex="2" GridPane.rowIndex="18">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy19" mnemonicParsing="false" onAction="#OffOy19" GridPane.columnIndex="2" GridPane.rowIndex="19">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy19" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy19" mnemonicParsing="false" onAction="#OnOy19" toggleGroup="$oy19" GridPane.columnIndex="1" GridPane.rowIndex="19">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy20" mnemonicParsing="false" onAction="#OnOy20" GridPane.columnIndex="1" GridPane.rowIndex="20">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy20" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy20" mnemonicParsing="false" onAction="#OffOy20" toggleGroup="$oy20" GridPane.columnIndex="2" GridPane.rowIndex="20">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy21" mnemonicParsing="false" onAction="#OffOy21" GridPane.columnIndex="2" GridPane.rowIndex="21">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy21" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy21" mnemonicParsing="false" onAction="#OnOy21" toggleGroup="$oy21" GridPane.columnIndex="1" GridPane.rowIndex="21">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy22" mnemonicParsing="false" onAction="#OnOy22" GridPane.columnIndex="1" GridPane.rowIndex="22">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy22" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy22" mnemonicParsing="false" onAction="#OffOy22" toggleGroup="$oy22" GridPane.columnIndex="2" GridPane.rowIndex="22">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy23" mnemonicParsing="false" onAction="#OffOy23" GridPane.columnIndex="2" GridPane.rowIndex="23">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy23" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy23" mnemonicParsing="false" onAction="#OnOy23" toggleGroup="$oy23" GridPane.columnIndex="1" GridPane.rowIndex="23">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy24" mnemonicParsing="false" onAction="#OnOy24" GridPane.columnIndex="1" GridPane.rowIndex="24">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy24" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy24" mnemonicParsing="false" onAction="#OffOy24" toggleGroup="$oy24" GridPane.columnIndex="2" GridPane.rowIndex="24">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy25" mnemonicParsing="false" onAction="#OffOy25" GridPane.columnIndex="2" GridPane.rowIndex="25">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy25" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy25" mnemonicParsing="false" onAction="#OnOy25" toggleGroup="$oy25" GridPane.columnIndex="1" GridPane.rowIndex="25">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy26" mnemonicParsing="false" onAction="#OnOy26" GridPane.columnIndex="1" GridPane.rowIndex="26">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy26" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy26" mnemonicParsing="false" onAction="#OffOy26" toggleGroup="$oy26" GridPane.columnIndex="2" GridPane.rowIndex="26">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy27" mnemonicParsing="false" onAction="#OffOy27" GridPane.columnIndex="2" GridPane.rowIndex="27">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy27" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy27" mnemonicParsing="false" onAction="#OnOy27" toggleGroup="$oy27" GridPane.columnIndex="1" GridPane.rowIndex="27">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy28" mnemonicParsing="false" onAction="#OnOy28" GridPane.columnIndex="1" GridPane.rowIndex="28">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy28" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy28" mnemonicParsing="false" onAction="#OffOy28" toggleGroup="$oy28" GridPane.columnIndex="2" GridPane.rowIndex="28">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy29" mnemonicParsing="false" onAction="#OffOy29" GridPane.columnIndex="2" GridPane.rowIndex="29">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy29" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy29" mnemonicParsing="false" onAction="#OnOy29" toggleGroup="$oy29" GridPane.columnIndex="1" GridPane.rowIndex="29">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy30" mnemonicParsing="false" onAction="#OnOy30" GridPane.columnIndex="1" GridPane.rowIndex="30">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy30" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy30" mnemonicParsing="false" onAction="#OffOy30" toggleGroup="$oy30" GridPane.columnIndex="2" GridPane.rowIndex="30">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy31" mnemonicParsing="false" onAction="#OffOy31" GridPane.columnIndex="2" GridPane.rowIndex="31">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy31" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy31" mnemonicParsing="false" onAction="#OnOy31" toggleGroup="$oy31" GridPane.columnIndex="1" GridPane.rowIndex="31">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OnOy32" mnemonicParsing="false" onAction="#OnOy32" GridPane.columnIndex="1" GridPane.rowIndex="32">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="oy32" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="OffOy32" mnemonicParsing="false" onAction="#OffOy32" toggleGroup="$oy32" GridPane.columnIndex="2" GridPane.rowIndex="32">
+                                       <GridPane.margin>
+                                          <Insets left="5.0" />
+                                       </GridPane.margin>
+                                    </RadioButton>
+                                    <Label text="Вкл" GridPane.columnIndex="1" />
+                                    <Label text="Выкл" GridPane.columnIndex="2" />
+
+
+
+
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="50.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="30.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="150.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+               <bottom>
+                  <HBox BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="OK" layoutX="14.0" layoutY="508.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" text="ОК" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
+                           <HBox.margin>
+                              <Insets left="0" />
+                           </HBox.margin></Button>
+                     </children>
+                  </HBox>
+               </bottom>
+            </BorderPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ScrollBar orientation="VERTICAL" prefHeight="559.0" prefWidth="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
