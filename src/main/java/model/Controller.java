@@ -26,7 +26,7 @@ public class Controller implements Device {
     }
 
     @Override
-    public void handleMessage(Message message) {
+    public void handleMessage(Message message, Port port) {
         lastAnswer = (Answer) message.getStatus();
     }
 

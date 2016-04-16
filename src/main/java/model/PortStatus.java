@@ -1,5 +1,5 @@
 package model;
 
-enum PortStatus {
+public enum PortStatus {
     OK, DENIAL, FAILURE, BLOCK, GENERATION
 }
