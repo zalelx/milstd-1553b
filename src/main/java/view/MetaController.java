@@ -23,6 +23,7 @@ class MetaController {
         portA.setDevice(controller);
         portB.setDevice(controller);
         portB.setMyAddress(controller.getMyAddress());
+        portA.setMyAddress(controller.getMyAddress());
         lineA.addPort(addressBook.getDefaultPort());
         lineB.addPort(addressBook.getReservePort());
 
