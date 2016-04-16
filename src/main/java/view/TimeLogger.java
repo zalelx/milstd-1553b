@@ -11,4 +11,8 @@ public class TimeLogger {
     public static void log(String string) {
         System.out.println(string + "   Time: " + currentTime);
     }
+
+    public static void delay(int delay){
+        currentTime += delay;
+    }
 }
