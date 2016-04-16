@@ -1,16 +1,15 @@
 package model;
 
-import model.message.Answer;
-import model.message.AnswerMessage;
-import model.message.Command;
-import model.message.Message;
+import model.message.*;
 import view.TimeLogger;
+import java.util.Random;
 
 public class EndDevice implements Device {
     private Port defaultPort;
     private Port reservePort;
     private Port current;
     private boolean isPreparedToSendInfo = true;
+    private Address controllerAddress = new Address(0);
 
     public EndDevice(Address address, Line lineA, Line lineB) {
         this.defaultPort = new Port(lineA, this, "Port A " + address.toString());
@@ -27,7 +26,7 @@ public class EndDevice implements Device {
 
     @Override
     public void handleMessage(Message message, Port port) {
-        TimeLogger.delay(12);
+        TimeLogger.delay((new Random()).nextInt(8) + 4);
         switch ((Command) message.getStatus()) {
             case BLOCK:
                 block();
@@ -37,12 +36,14 @@ public class EndDevice implements Device {
                 break;
             case GIVE_ANSWER:
                 if (isPreparedToSendInfo)
-                    sendMessage(new AnswerMessage(new Address(0), Answer.READY));
+                    sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
                 else
-                    sendMessage(new AnswerMessage(new Address(0), Answer.BUSY));
+                    sendMessage(new AnswerMessage(controllerAddress, Answer.BUSY));
                 break;
             case GIVE_INFORMATION:
-                // todo добавить выдачу информации
+                int amountOfInfoMessages = (new Random()).nextInt(31) + 1;
+                sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
+                for (int i = 0; i < amountOfInfoMessages; i++) sendMessage(new DataMessage(controllerAddress));
                 break;
 
         }
