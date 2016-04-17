@@ -32,7 +32,8 @@ public class AddressBook {
     }
 
     void changeLine(Address address) {
-        book.put(address, (book.get(address).equals(defaultPort)) ? defaultPort : reservePort);
+        book.put(address,
+                (book.get(address).equals(defaultPort)) ? reservePort : defaultPort);
     }
 
     private Port getPort(Address address) {
