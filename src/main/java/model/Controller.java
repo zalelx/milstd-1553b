@@ -46,45 +46,42 @@ public class Controller implements Device {
 
     public void testMKO(int amountOfEndDevices) {
         ArrayList<Address> ar = new ArrayList<>(32);//сюда адреса устрйоств помещаем, которые не отвечают
-        int c = 0;
         int j = 0;
-        int amountOfSilencedDevices;
-
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-            amountOfSilencedDevices = 0; //счетчик
-            switch (lastAnswer) {
-                case BUSY: //если занят, просто посылаем второй раз, флажок занятости должен сниматься
-                    sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-                    break;
-                
-                case READY:
-                    sendMessage(new CommandMessage(new Address(i), Command.GIVE_INFORMATION));
-                    break;
-
-                default:
-                    // если не приходит ответного слова
-                    amountOfSilencedDevices++;
-                    if (amountOfSilencedDevices == 2) {// отказ или генерация
-                        ar.set(j, new Address(i));
-                        c++;
-                        j++;
-                    } else {
+            if (lastAnswer == null) {
+                sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
+                if (lastAnswer == null) {// отказ или генерация
+                    ar.add(j, new Address(i));
+                    j++;
+                }
+            } else {
+                switch (lastAnswer) {
+                    case BUSY: {//если занят, просто посылаем второй раз, флажок занятости должен сниматься
                         sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
+                        //lastAnswer = null;
+                        break;
                     }
+                    case READY:
+                        sendMessage(new CommandMessage(new Address(i), Command.GIVE_INFORMATION));
+                        //lastAnswer = null;
+                        break;
+
+                }
             }
         }
-        if (c >= 3) findGenerationObject(amountOfEndDevices);// если 3 ОУ в отказе, то признак генерации
+
+        if (j >= 3) findGenerationObject(amountOfEndDevices);// если 3 ОУ в отказе, то признак генерации
             // меньше 3, то сбой и переходим на резервную линию
         else {
-            for (int l = 0; l < j; l++) {
+            for (int l = 0; l <= j; l++) {
                 Address num = ar.get(l);
                 changeLine(num);
                 sendMessage(new CommandMessage(num, Command.GIVE_ANSWER));
             }
         }
     }
-
+    
     private void findGenerationObject(int amountOfDevices) {
         int numberOfGen;
         //нужно заблокировать все ОУ,для этого меняем линию и шлем БЛОКИ
@@ -98,19 +95,22 @@ public class Controller implements Device {
             changeLine(new Address(i));
             sendMessage(new CommandMessage(new Address(i), Command.UNBLOCK));
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
+            if (lastAnswer == null) {
+                numberOfGen = i;// Нашли генерящее ОУ
+                System.out.println("Генератор найден!Его номер:" + numberOfGen);
+                sendMessage(new CommandMessage(new Address(i), Command.BLOCK));
+            }
             switch (lastAnswer) {
                 case BUSY:
                     break;
                 case READY:
                     break;
-                default:
-                    numberOfGen = i;// Нашли генерящее ОУ
-                    System.out.println("Генератор найден!Его номер:" + numberOfGen);
-                    sendMessage(new CommandMessage(new Address(i), Command.BLOCK));
+
             }
 
         }
+    }
+
 
     }
-}
 

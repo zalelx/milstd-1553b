@@ -20,5 +20,8 @@ public class Main /*extends Application*/{
         //launch(args);
         MetaController metaController = new MetaController();
         metaController.init(4);
+        metaController.setGeneratorLineA(1,true);
+        metaController.controller.testMKO(4);
+
     }
 }
