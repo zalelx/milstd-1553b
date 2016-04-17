@@ -87,9 +87,12 @@ public class Port {
     void unblock() {
         if (isGenerator)
             status = PortStatus.GENERATION;
-        else status = PortStatus.OK;
-        TimeLogger.log(name + " unblocked");
+        else {
+            status = PortStatus.OK;
+            TimeLogger.log(name + " unblocked");
+        }
     }
+
 
     void block() {
         if (status != PortStatus.DENIAL)

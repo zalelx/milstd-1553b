@@ -14,8 +14,8 @@ class MetaController {
         this.devices = new ArrayList<>(amountOfEndDevices);
         this.lineA = new Line("Line A");
         this.lineB = new Line("Line B");
-        Port portA = new Port(lineA, "Control. Port A");
-        Port portB = new Port(lineB, "Control. Port B");
+        Port portA = new Port(lineA, "Ctrl Port A");
+        Port portB = new Port(lineB, "Ctrl Port B");
 
         AddressBook addressBook = new AddressBook(amountOfEndDevices, portA, portB);
         this.controller = new Controller(addressBook);

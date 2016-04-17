@@ -44,19 +44,25 @@ public class Controller implements Device {
         sendMessage(new CommandMessage(new Address(address), Command.UNBLOCK));
     }
 
+    Answer getLastAnswer(){
+        Answer ret  = this.lastAnswer;
+        this.lastAnswer = null;
+        return ret;
+    }
+
     public void testMKO(int amountOfEndDevices) {
         ArrayList<Address> ar = new ArrayList<>(32);//сюда адреса устрйоств помещаем, которые не отвечают
         int j = 0;
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-            if (lastAnswer == null) {
+            if (getLastAnswer() == null) {
                 sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-                if (lastAnswer == null) {// отказ или генерация
+                if (getLastAnswer() == null) {// отказ или генерация
                     ar.add(j, new Address(i));
                     j++;
                 }
             } else {
-                switch (lastAnswer) {
+                switch (getLastAnswer()) {
                     case BUSY: {//если занят, просто посылаем второй раз, флажок занятости должен сниматься
                         sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
                         //lastAnswer = null;
@@ -71,7 +77,10 @@ public class Controller implements Device {
             }
         }
 
-        if (j >= 3) findGenerationObject(amountOfEndDevices);// если 3 ОУ в отказе, то признак генерации
+        if (j >= 3){
+            TimeLogger.log("START SEARCHING GENERATOR");
+            findGenerationObject(amountOfEndDevices);// если 3 ОУ в отказе, то признак генерации
+        }
             // меньше 3, то сбой и переходим на резервную линию
         else {
             for (int l = 0; l <= j; l++) {
@@ -92,20 +101,22 @@ public class Controller implements Device {
 
         //включаем поочередно ОУ, причем по первоначальной линии
         for (int i = Address.MIN_ADDRESS; i <= amountOfDevices; i++) {
-            //changeLine(new Address(i));
             sendMessage(new CommandMessage(new Address(i), Command.UNBLOCK));
+            changeLine(new Address(i));
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-            if (lastAnswer == null) {
+            if (getLastAnswer() == null) {
                 numberOfGen = i;// Нашли генерящее ОУ
-                System.out.println("Генератор найден!Его номер:" + numberOfGen);
+                TimeLogger.log("GENERATOR FOUND. ED#" + numberOfGen);
                 sendMessage(new CommandMessage(new Address(i), Command.BLOCK));
             }
-            switch (lastAnswer) {
-                case BUSY:
-                    break;
-                case READY:
-                    break;
+            else{
+                switch (getLastAnswer()) {
+                    case BUSY:
+                        break;
+                    case READY:
+                        break;
 
+                }
             }
 
         }
