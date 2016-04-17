@@ -33,9 +33,11 @@ class MetaController {
             lineB.addPort(newDevice.getReservePort());
             devices.add(newDevice);
         }
+
     }
 
     void setGeneratorLineA(int numberOfDevice, boolean isGenerator){
+        numberOfDevice --;
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(isGenerator);
         for (EndDevice d:
@@ -45,6 +47,7 @@ class MetaController {
     }
 
     void setGeneratorLineB(int numberOfDevice, boolean isGenerator){
+        numberOfDevice --;
         Port target = devices.get(numberOfDevice).getReservePort();
         target.setGenerator(isGenerator);
         for (EndDevice d:
@@ -54,14 +57,17 @@ class MetaController {
     }
 
     void setPreparedToSendInfo (int numberOfDevice, boolean status){
+        numberOfDevice --;
         devices.get(numberOfDevice).setPreparedToSendInfo(status);
     }
 
     void setPortStatusLineA(int numberOfDevice, PortStatus status){
+        numberOfDevice --;
         devices.get(numberOfDevice).getDefaultPort().setStatus(status);
     }
 
     void setPortStatusLineB(int numberOfDevice, PortStatus status){
+        numberOfDevice --;
         devices.get(numberOfDevice).getReservePort().setStatus(status);
     }
 }

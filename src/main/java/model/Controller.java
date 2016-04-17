@@ -44,8 +44,8 @@ public class Controller implements Device {
         sendMessage(new CommandMessage(new Address(address), Command.UNBLOCK));
     }
 
-    Answer getLastAnswer(){
-        Answer ret  = this.lastAnswer;
+    Answer getLastAnswer() {
+        Answer ret = this.lastAnswer;
         this.lastAnswer = null;
         return ret;
     }
@@ -74,16 +74,15 @@ public class Controller implements Device {
                         sendMessage(new CommandMessage(new Address(i), Command.GIVE_INFORMATION));
                         //lastAnswer = null;
                         break;
-
                 }
             }
         }
 
-        if (j >= 3){
+        if (j >= 3) {
             TimeLogger.log("START SEARCHING GENERATOR");
             findGenerationObject(amountOfEndDevices);// если 3 ОУ в отказе, то признак генерации
         }
-            // меньше 3, то сбой и переходим на резервную линию
+        // меньше 3, то сбой и переходим на резервную линию
         else {
             for (int l = 0; l <= j; l++) {
                 Address num = ar.get(l);
@@ -92,7 +91,7 @@ public class Controller implements Device {
             }
         }
     }
-    
+
     private void findGenerationObject(int amountOfDevices) {
         int numberOfGen;
         //нужно заблокировать все ОУ,для этого меняем линию и шлем БЛОКИ
@@ -112,8 +111,7 @@ public class Controller implements Device {
                 numberOfGen = i;// Нашли генерящее ОУ
                 TimeLogger.log("GENERATOR FOUND. ED#" + numberOfGen);
                 sendMessage(new CommandMessage(new Address(i), Command.BLOCK));
-            }
-            else {
+            } else {
                 switch (answer) {
                     case BUSY:
                         break;
@@ -125,7 +123,5 @@ public class Controller implements Device {
 
         }
     }
-
-
-    }
+}
 
