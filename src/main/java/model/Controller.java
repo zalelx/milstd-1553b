@@ -55,14 +55,16 @@ public class Controller implements Device {
         int j = 0;
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-            if (getLastAnswer() == null) {
+            Answer answer = getLastAnswer();
+
+            if (answer == null) {
                 sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
                 if (getLastAnswer() == null) {// отказ или генерация
                     ar.add(j, new Address(i));
                     j++;
                 }
             } else {
-                switch (getLastAnswer()) {
+                switch (answer) {
                     case BUSY: {//если занят, просто посылаем второй раз, флажок занятости должен сниматься
                         sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
                         //lastAnswer = null;
@@ -104,13 +106,15 @@ public class Controller implements Device {
             sendMessage(new CommandMessage(new Address(i), Command.UNBLOCK));
             changeLine(new Address(i));
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-            if (getLastAnswer() == null) {
+
+            Answer answer = getLastAnswer();
+            if (answer == null) {
                 numberOfGen = i;// Нашли генерящее ОУ
                 TimeLogger.log("GENERATOR FOUND. ED#" + numberOfGen);
                 sendMessage(new CommandMessage(new Address(i), Command.BLOCK));
             }
-            else{
-                switch (getLastAnswer()) {
+            else {
+                switch (answer) {
                     case BUSY:
                         break;
                     case READY:
