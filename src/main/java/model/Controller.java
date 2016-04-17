@@ -92,7 +92,7 @@ public class Controller implements Device {
 
         //включаем поочередно ОУ, причем по первоначальной линии
         for (int i = Address.MIN_ADDRESS; i <= amountOfDevices; i++) {
-            changeLine(new Address(i));
+            //changeLine(new Address(i));
             sendMessage(new CommandMessage(new Address(i), Command.UNBLOCK));
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
             if (lastAnswer == null) {

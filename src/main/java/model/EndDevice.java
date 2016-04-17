@@ -58,8 +58,8 @@ public class EndDevice implements Device {
     }
 
     private void unblock() {
-        current.unblock();
         current = (current == defaultPort) ? reservePort : defaultPort;
+        current.unblock();
     }
 
     private void block() {
