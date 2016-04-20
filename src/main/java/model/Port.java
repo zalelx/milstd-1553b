@@ -93,7 +93,6 @@ public class Port {
         }
     }
 
-
     void block() {
         if (status != PortStatus.DENIAL)
             status = PortStatus.BLOCK;

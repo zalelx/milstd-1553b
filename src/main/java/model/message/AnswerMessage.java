@@ -11,14 +11,6 @@ public class AnswerMessage implements Message {
         this.answer = answer;
     }
 
-    public Answer getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(Answer answer) {
-        this.answer = answer;
-    }
-
     @Override
     public int getTime() {
         return MESSAGE_TIME;

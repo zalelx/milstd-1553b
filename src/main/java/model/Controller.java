@@ -23,13 +23,13 @@ public class Controller implements Device {
     }
 
     public void sendMessage(Message message) {
+        TimeLogger.delay(1000);
         addressBook.sendMessage(message);
     }
 
     @Override
     public void handleMessage(Message message, Port port) {
         lastAnswer = (Answer) message.getStatus();
-        TimeLogger.delay(1000);
     }
 
     private void changeLine(Address address) {
@@ -46,12 +46,15 @@ public class Controller implements Device {
 
     Answer getLastAnswer() {
         Answer ret = this.lastAnswer;
+        addressBook.getDefaultPort().getLine().setMessage(null);
+        addressBook.getReservePort().getLine().setMessage(null);
         this.lastAnswer = null;
         return ret;
     }
 
     public void testMKO(int amountOfEndDevices) {
-        ArrayList<Address> ar = new ArrayList<>(32);//сюда адреса устрйоств помещаем, которые не отвечают
+        TimeLogger.log("START TEST_MKO");
+        ArrayList<Address> ar = new ArrayList<>();//сюда адреса устрйоств помещаем, которые не отвечают
         int j = 0;
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
@@ -59,14 +62,21 @@ public class Controller implements Device {
 
             if (answer == null) {
                 sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-                if (getLastAnswer() == null) {// отказ или генерация
+                if (getLastAnswer() == null) {
+                    TimeLogger.log("NOT RESPONSE ED#" + i);
                     ar.add(j, new Address(i));
                     j++;
+                    if (j >= 3) {
+                        TimeLogger.log("START SEARCHING GENERATOR");
+                        findGenerationObject(amountOfEndDevices);// если 3 ОУ в отказе, то признак генерации
+                        break;
+                    }
                 }
             } else {
                 switch (answer) {
-                    case BUSY: {//если занят, просто посылаем второй раз, флажок занятости должен сниматься
-                        sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
+                    case BUSY: {
+                        //если занят, просто посылаем второй раз, флажок занятости должен сниматься
+                        //sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
                         //lastAnswer = null;
                         break;
                     }
@@ -77,18 +87,11 @@ public class Controller implements Device {
                 }
             }
         }
-
-        if (j >= 3) {
-            TimeLogger.log("START SEARCHING GENERATOR");
-            findGenerationObject(amountOfEndDevices);// если 3 ОУ в отказе, то признак генерации
-        }
         // меньше 3, то сбой и переходим на резервную линию
-        else {
-            for (int l = 0; l <= j; l++) {
-                Address num = ar.get(l);
-                changeLine(num);
-                sendMessage(new CommandMessage(num, Command.GIVE_ANSWER));
-            }
+        for (Address a : ar) {
+            changeLine(a);
+            sendMessage(new CommandMessage(a, Command.GIVE_ANSWER));
+            // todo добавить проверку ответа
         }
     }
 
@@ -109,7 +112,9 @@ public class Controller implements Device {
             Answer answer = getLastAnswer();
             if (answer == null) {
                 numberOfGen = i;// Нашли генерящее ОУ
+                // todo добавить проверку на сбой
                 TimeLogger.log("GENERATOR FOUND. ED#" + numberOfGen);
+                changeLine(new Address(i));
                 sendMessage(new CommandMessage(new Address(i), Command.BLOCK));
             } else {
                 switch (answer) {
@@ -120,7 +125,6 @@ public class Controller implements Device {
 
                 }
             }
-
         }
     }
 }
