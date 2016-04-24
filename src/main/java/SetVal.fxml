@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="363.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="281.0" layoutY="167.0" prefHeight="171.0" prefWidth="363.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text layoutX="21.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите количество ОУ:" wrappingWidth="320.13671875">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <TextField layoutX="62.0" layoutY="95.0" prefHeight="25.0" prefWidth="143.0" />
+            <Button layoutX="260.0" layoutY="95.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="59.0" text="OK" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

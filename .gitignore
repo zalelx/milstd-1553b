@@ -1,11 +1,3 @@
-.idea/.name
-.idea/compiler.xml
-.idea/modules.xml
-.idea/workspace.xml
-.idea/vcs.xml
-.idea/encodings.xml
-.idea/milstd-1553b.iml
-.idea/misc.xml
-.idea/copyright/profiles_settings.xml
-.idea/
-production/*
+.idea/*
+out/production/*
+*.iml
