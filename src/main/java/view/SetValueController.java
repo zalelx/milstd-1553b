@@ -1,18 +1,48 @@
 package view;
 
 import javafx.fxml.FXML;
-import javax.swing.JTextField;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 
 public class SetValueController {
-    JTextField jt= new JTextField(10);
     @FXML
-    public void GetValue(){
-       String a=jt.getText();
-       int value=Integer.parseInt(a);
-        FXMLLoader loader= new FXMLLoader(this.getClass().getResource("/fxml/newmenu.fxml"));
+    private TextField amountOfEDTextField = new TextField();
+
+    private int amountOfED;
+
+    @FXML
+    public void getValue() {
+        String a = amountOfEDTextField.getText();
+        try {
+            amountOfED = Integer.parseInt(a);
+            if (amountOfED > 32 || amountOfED < 0) {
+                throw new NumberFormatException();
+            }
+            showNewMenu();
+        } catch (NumberFormatException e) {
+            amountOfEDTextField.setText("Неверное значение");
+        }
     }
 
+    private void showNewMenu() {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/newmenu.fxml"));
+        try {
+            Stage mainMenu = new Stage();
+            mainMenu.setTitle("MILSTD-1553b");
+            mainMenu.setScene(new Scene(loader.load()));
+            mainMenu.setResizable(false);
+            NewMenuController controller = loader.getController();
+            controller.setAmountOfED(amountOfED);
+            mainMenu.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
