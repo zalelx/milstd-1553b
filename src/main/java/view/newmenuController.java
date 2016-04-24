@@ -10,5 +10,4 @@ public class newmenuController {
         FXMLLoader loader= new FXMLLoader(this.getClass().getResource("/fxml/SetStatus.fxml"));
 
     }
-
 }
