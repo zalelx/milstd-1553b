@@ -10,76 +10,82 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newmenuController">
    <children>
-      <AnchorPane layoutX="228.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
-                     <rotationAxis>
-                        <Point3D />
-                     </rotationAxis>
-                  </Rectangle>
-                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
-                     <rotationAxis>
-                        <Point3D />
-                     </rotationAxis>
-                  </Rectangle>
-                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="289.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
-                     <rotationAxis>
-                        <Point3D />
-                     </rotationAxis>
-                  </Rectangle>
-                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
-                     <rotationAxis>
-                        <Point3D />
-                     </rotationAxis>
-                  </Rectangle>
-                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <Line endX="500.0" layoutX="263.0" layoutY="243.0" startX="-100.0" />
+      <Line endX="20.0" layoutX="643.0" layoutY="122.0" rotate="90.0" />
+      <Line endX="20.0" layoutX="585.0" layoutY="122.0" rotate="90.0" />
+      <Line endX="20.0" layoutX="527.0" layoutY="122.0" rotate="90.0" />
+      <Line endX="20.0" layoutX="468.0" layoutY="122.0" rotate="90.0" />
       <Line endX="520.0" layoutX="265.0" layoutY="263.0" startX="-80.0" />
+      <Line endX="20.0" layoutX="410.0" layoutY="122.0" rotate="90.0" />
+      <Line endX="20.0" layoutX="353.0" layoutY="122.0" rotate="90.0" />
+      <Line endX="20.0" layoutX="293.0" layoutY="122.0" rotate="90.0" />
+      <Line endX="20.0" layoutX="233.0" layoutY="122.0" rotate="90.0" AnchorPane.topAnchor="121.5" />
+      <Line endX="500.0" layoutX="263.0" layoutY="243.0" startX="-100.0" />
+      <AnchorPane fx:id="ED1" layoutX="228.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ED2" layoutX="289.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
       <Line endX="500.0" layoutX="263.0" layoutY="353.0" startX="-100.0" />
       <Line endX="520.0" layoutX="265.0" layoutY="373.0" startX="-80.0" />
       <Line endX="500.0" layoutX="264.0" layoutY="463.0" startX="-100.0" />
@@ -98,9 +104,41 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="349.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED3" layoutX="349.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle fx:id="ED3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ED4" layoutX="405.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -132,9 +170,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="405.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED5" layoutX="464.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -166,9 +203,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="464.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED6" layoutX="523.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -200,9 +236,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="523.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED7" layoutX="581.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -234,9 +269,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="581.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED8" layoutX="640.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -268,9 +302,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="640.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED9" layoutX="228.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -302,9 +335,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="228.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED10" layoutX="289.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -336,9 +368,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="289.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED11" layoutX="349.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -370,9 +401,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="349.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED12" layoutX="405.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -404,9 +434,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="405.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED13" layoutX="464.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -438,9 +467,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="464.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED14" layoutX="523.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -472,9 +500,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="523.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED15" layoutX="581.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -506,9 +533,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="581.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED16" layoutX="640.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -540,9 +566,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="640.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED17" layoutX="228.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -574,9 +599,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="228.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED18" layoutX="289.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -608,9 +632,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="289.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED19" layoutX="349.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -642,9 +665,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="349.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED20" layoutX="405.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -676,9 +698,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="405.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED21" layoutX="464.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -710,9 +731,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="464.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED22" layoutX="523.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -744,9 +764,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="523.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED23" layoutX="581.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -778,9 +797,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="581.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED24" layoutX="640.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -812,9 +830,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="640.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED25" layoutX="228.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -846,9 +863,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="228.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED26" layoutX="289.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -880,9 +896,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="289.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED27" layoutX="349.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -914,9 +929,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="349.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED28" layoutX="405.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -948,43 +962,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="405.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED29" layoutX="464.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
-                     <rotationAxis>
-                        <Point3D />
-                     </rotationAxis>
-                  </Rectangle>
-                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
-                     <rotationAxis>
-                        <Point3D />
-                     </rotationAxis>
-                  </Rectangle>
-                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="464.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -1018,9 +997,8 @@
       </AnchorPane>
       <AnchorPane layoutX="523.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+            <AnchorPane fx:id="ED30" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
@@ -1050,9 +1028,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="581.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED31" layoutX="581.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -1084,9 +1061,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="640.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED32" layoutX="640.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -1118,5 +1094,61 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Line endX="28.0" layoutX="231.0" layoutY="228.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="291.0" layoutY="228.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="351.0" layoutY="228.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="405.0" layoutY="228.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="465.0" layoutY="228.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="525.0" layoutY="228.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="580.0" layoutY="228.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="640.0" layoutY="228.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="228.0" layoutY="338.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="288.0" layoutY="338.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="350.0" layoutY="338.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="405.0" layoutY="338.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="465.0" layoutY="338.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="525.0" layoutY="338.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="580.0" layoutY="338.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="640.0" layoutY="338.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="228.0" layoutY="448.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="288.0" layoutY="448.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="350.0" layoutY="448.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="405.0" layoutY="448.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="465.0" layoutY="448.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="523.0" layoutY="448.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="580.0" layoutY="448.0" rotate="90.0" />
+      <Line endX="28.0" layoutX="640.0" layoutY="448.0" rotate="90.0" />
+      <Line endX="36.0" layoutX="248.0" layoutY="134.0" rotate="90.0" />
+      <Line endX="36.0" layoutX="308.0" layoutY="134.0" rotate="90.0" />
+      <Line endX="36.0" layoutX="368.0" layoutY="134.0" rotate="90.0" />
+      <Line endX="36.0" layoutX="423.0" layoutY="134.0" rotate="90.0" />
+      <Line endX="36.0" layoutX="483.0" layoutY="134.0" rotate="90.0" />
+      <Line endX="36.0" layoutX="540.0" layoutY="134.0" rotate="90.0" />
+      <Line endX="36.0" layoutX="600.0" layoutY="134.0" rotate="90.0" />
+      <Line endX="36.0" layoutX="660.0" layoutY="134.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="241.0" layoutY="238.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="300.0" layoutY="238.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="363.0" layoutY="238.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="420.0" layoutY="238.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="475.0" layoutY="238.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="535.0" layoutY="238.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="595.0" layoutY="238.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="653.0" layoutY="238.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="241.0" layoutY="348.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="300.0" layoutY="348.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="363.0" layoutY="348.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="420.0" layoutY="348.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="475.0" layoutY="348.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="535.0" layoutY="348.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="595.0" layoutY="348.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="653.0" layoutY="348.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="241.0" layoutY="458.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="300.0" layoutY="458.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="363.0" layoutY="458.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="420.0" layoutY="458.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="475.0" layoutY="458.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="535.0" layoutY="458.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="595.0" layoutY="458.0" rotate="90.0" />
+      <Line endX="48.0" layoutX="653.0" layoutY="458.0" rotate="90.0" />
    </children>
 </AnchorPane>
