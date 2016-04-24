@@ -9,7 +9,7 @@ class NewMenuController {
 
     @FXML
     public void SetStatus() {
-        FXMLLoader loader= new FXMLLoader(this.getClass().getResource("/fxml/SetStatus.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/SetStatus.fxml"));
 
     }
 

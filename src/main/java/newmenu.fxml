@@ -8,15 +8,15 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="newmenuController">
    <children>
-      <AnchorPane layoutX="139.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane layoutX="228.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c36060" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#31f5a3" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -30,7 +30,7 @@
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ad1ee" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -44,13 +44,13 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="203.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane layoutX="289.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c36060" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#31f5a3" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -64,7 +64,7 @@
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ad1ee" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -78,13 +78,33 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="264.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <Line endX="500.0" layoutX="263.0" layoutY="243.0" startX="-100.0" />
+      <Line endX="520.0" layoutX="265.0" layoutY="263.0" startX="-80.0" />
+      <Line endX="500.0" layoutX="263.0" layoutY="353.0" startX="-100.0" />
+      <Line endX="520.0" layoutX="265.0" layoutY="373.0" startX="-80.0" />
+      <Line endX="500.0" layoutX="264.0" layoutY="463.0" startX="-100.0" />
+      <Line endX="520.0" layoutX="265.0" layoutY="483.0" startX="-80.0" />
+      <Line endX="530.0" layoutX="255.0" layoutY="153.0" startX="-100.0" />
+      <Line endX="510.0" layoutX="253.0" layoutY="133.0" startX="-100.0" />
+      <Line endX="110.0" layoutX="709.0" layoutY="188.0" rotate="90.0" />
+      <Line endX="110.0" layoutX="731.0" layoutY="208.0" rotate="90.0" />
+      <Line endX="110.0" layoutX="130.0" layoutY="318.0" rotate="90.0" />
+      <Line endX="110.0" layoutX="108.0" layoutY="298.0" rotate="90.0" />
+      <Line endX="110.0" layoutX="710.0" layoutY="408.0" rotate="90.0" />
+      <Line endX="110.0" layoutX="730.0" layoutY="428.0" rotate="90.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="14.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="140.0" />
+      <Text layoutX="23.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Контроллер" wrappingWidth="140.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <AnchorPane layoutX="349.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c36060" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#31f5a3" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -98,7 +118,7 @@
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ad1ee" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -112,13 +132,13 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="325.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane layoutX="405.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c36060" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#31f5a3" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -132,7 +152,7 @@
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ad1ee" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -146,13 +166,13 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="389.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane layoutX="464.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c36060" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#31f5a3" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -166,7 +186,7 @@
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ad1ee" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -180,13 +200,13 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="447.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane layoutX="523.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c36060" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#31f5a3" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -200,7 +220,7 @@
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ad1ee" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -214,13 +234,13 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="506.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane layoutX="581.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c36060" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#31f5a3" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -234,7 +254,7 @@
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ad1ee" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -248,13 +268,13 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="566.0" layoutY="102.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane layoutX="640.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c36060" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#31f5a3" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
@@ -268,7 +288,823 @@
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2ad1ee" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="228.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="289.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="349.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="405.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="464.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="523.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="581.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="640.0" layoutY="163.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="228.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="289.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="349.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="405.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="464.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="523.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="581.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="640.0" layoutY="273.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="228.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="289.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="349.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="405.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="464.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="523.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="581.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="5.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="640.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#SetStatus" prefHeight="50.0" prefWidth="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
                         <Point3D />
                      </rotationAxis>
