@@ -2,7 +2,9 @@ package view;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 
 public class NewMenuController {
     private int amountOfED;
@@ -78,11 +80,14 @@ public class NewMenuController {
 
     }
 
-    void setAmountOfED(int amountOfED) {
+    @FXML
+    public void setAmountOfED(int amountOfED) {
         this.amountOfED = amountOfED;
+        ED4.setVisible(false);
     }
 
-    NewMenuController() {
+    public NewMenuController(){
 
     }
+
 }

@@ -24,17 +24,18 @@
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
-               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE"
-                          width="25.0">
-                  <rotationAxis>
-                     <Point3D/>
-                  </rotationAxis>
-               </Rectangle>
-               <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
-                  <font>
-                     <Font size="25.0"/>
-                  </font>
-               </Text>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
+                     <rotationAxis>
+                        <Point3D />
+                     </rotationAxis>
+                  </Rectangle>
+                  <Text layoutX="4.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
@@ -105,7 +106,7 @@
       </Text>
       <AnchorPane fx:id="ED3" layoutX="349.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <Rectangle fx:id="ED3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
@@ -994,10 +995,10 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="523.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+      <AnchorPane fx:id="ED30" layoutX="523.0" layoutY="383.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
-            <AnchorPane fx:id="ED30" layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
+            <AnchorPane layoutY="25.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2bed47" height="25.0" stroke="BLACK" strokeType="INSIDE" width="25.0">
                      <rotationAxis>
