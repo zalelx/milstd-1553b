@@ -39,6 +39,7 @@ public class SetValueController {
             NewMenuController controller = loader.getController();
             controller.setAmountOfED(amountOfED);
             mainMenu.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
