@@ -8,7 +8,7 @@ public class EndDevice implements Device {
     private Port defaultPort;
     private Port reservePort;
     private Port current;
-    private boolean isPreparedToSendInfo = true;
+    private boolean isPreparedToSendInfo = false;
     private Address controllerAddress = new Address(0);
 
     public EndDevice(Address address, Line lineA, Line lineB) {
@@ -41,9 +41,11 @@ public class EndDevice implements Device {
                     sendMessage(new AnswerMessage(controllerAddress, Answer.BUSY));
                 break;
             case GIVE_INFORMATION:
-                int amountOfInfoMessages = (new Random()).nextInt(31) + 1;
-                sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
-                for (int i = 0; i < amountOfInfoMessages; i++) sendMessage(new DataMessage(controllerAddress));
+                if (isPreparedToSendInfo) {
+                    int amountOfInfoMessages = (new Random()).nextInt(31) + 1;
+                    sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
+                    for (int i = 0; i < amountOfInfoMessages; i++) sendMessage(new DataMessage(controllerAddress));
+                }
                 break;
 
         }
@@ -58,12 +60,12 @@ public class EndDevice implements Device {
     }
 
     private void unblock() {
-        current.block();
         current = (current == defaultPort) ? reservePort : defaultPort;
+        current.unblock();
     }
 
     private void block() {
-        current.unblock();
+        current.block();
         current = (current == defaultPort) ? reservePort : defaultPort;
     }
 
