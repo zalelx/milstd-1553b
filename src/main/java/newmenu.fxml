@@ -10,15 +10,71 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.NewMenuController">
    <children>
-      <Line fx:id="L8A" endX="20.0" layoutX="643.0" layoutY="122.0" rotate="90.0" />
-      <Line fx:id="L7A" endX="20.0" layoutX="585.0" layoutY="122.0" rotate="90.0" />
-      <Line fx:id="L6A" endX="20.0" layoutX="527.0" layoutY="122.0" rotate="90.0" />
-      <Line fx:id="L5A" endX="20.0" layoutX="468.0" layoutY="122.0" rotate="90.0" />
-      <Line endX="520.0" layoutX="265.0" layoutY="263.0" startX="-80.0" />
-      <Line fx:id="L4A" endX="20.0" layoutX="410.0" layoutY="122.0" rotate="90.0" />
-      <Line fx:id="L3A" endX="20.0" layoutX="353.0" layoutY="122.0" rotate="90.0" />
-      <Line fx:id="L2A" endX="20.0" layoutX="293.0" layoutY="122.0" rotate="90.0" />
       <Line fx:id="L1A" endX="20.0" layoutX="233.0" layoutY="122.0" rotate="90.0" AnchorPane.topAnchor="121.5" />
+      <Line fx:id="L1B" endX="36.0" layoutX="248.0" layoutY="134.0" rotate="90.0" />
+      <Line fx:id="L2A" endX="20.0" layoutX="293.0" layoutY="122.0" rotate="90.0" />
+      <Line fx:id="L2B" endX="36.0" layoutX="308.0" layoutY="134.0" rotate="90.0" />
+      <Line fx:id="L3A" endX="20.0" layoutX="353.0" layoutY="122.0" rotate="90.0" />
+      <Line fx:id="L3B" endX="36.0" layoutX="368.0" layoutY="134.0" rotate="90.0" />
+      <Line fx:id="L4A" endX="20.0" layoutX="410.0" layoutY="122.0" rotate="90.0" />
+      <Line fx:id="L4B" endX="36.0" layoutX="423.0" layoutY="134.0" rotate="90.0" />
+      <Line fx:id="L5A" endX="20.0" layoutX="468.0" layoutY="122.0" rotate="90.0" />
+      <Line fx:id="L5B" endX="36.0" layoutX="483.0" layoutY="134.0" rotate="90.0" />
+      <Line fx:id="L6A" endX="20.0" layoutX="527.0" layoutY="122.0" rotate="90.0" />
+      <Line fx:id="L6B" endX="36.0" layoutX="540.0" layoutY="134.0" rotate="90.0" />
+      <Line fx:id="L7A" endX="20.0" layoutX="585.0" layoutY="122.0" rotate="90.0" />
+      <Line fx:id="L7B" endX="36.0" layoutX="600.0" layoutY="134.0" rotate="90.0" />
+      <Line fx:id="L8A" endX="20.0" layoutX="643.0" layoutY="122.0" rotate="90.0" />
+      <Line fx:id="L8B" endX="36.0" layoutX="660.0" layoutY="134.0" rotate="90.0" />
+      <Line fx:id="L9A" endX="28.0" layoutX="231.0" layoutY="228.0" rotate="90.0" />
+      <Line fx:id="L9B" endX="48.0" layoutX="241.0" layoutY="238.0" rotate="90.0" />
+      <Line fx:id="L10A" endX="28.0" layoutX="291.0" layoutY="228.0" rotate="90.0" />
+      <Line fx:id="L10B" endX="48.0" layoutX="300.0" layoutY="238.0" rotate="90.0" />
+      <Line fx:id="L11A" endX="28.0" layoutX="351.0" layoutY="228.0" rotate="90.0" />
+      <Line fx:id="L11B" endX="48.0" layoutX="363.0" layoutY="238.0" rotate="90.0" />
+      <Line fx:id="L12A" endX="28.0" layoutX="405.0" layoutY="228.0" rotate="90.0" />
+      <Line fx:id="L12B" endX="48.0" layoutX="420.0" layoutY="238.0" rotate="90.0" />
+      <Line fx:id="L13A" endX="28.0" layoutX="465.0" layoutY="228.0" rotate="90.0" />
+      <Line fx:id="L13B" endX="48.0" layoutX="475.0" layoutY="238.0" rotate="90.0" />
+      <Line fx:id="L14A" endX="28.0" layoutX="525.0" layoutY="228.0" rotate="90.0" />
+      <Line fx:id="L14B" endX="48.0" layoutX="535.0" layoutY="238.0" rotate="90.0" />
+      <Line fx:id="L15A" endX="28.0" layoutX="580.0" layoutY="228.0" rotate="90.0" />
+      <Line fx:id="L15B" endX="48.0" layoutX="595.0" layoutY="238.0" rotate="90.0" />
+      <Line fx:id="L16A" endX="28.0" layoutX="640.0" layoutY="228.0" rotate="90.0" />
+      <Line fx:id="L16B" endX="48.0" layoutX="653.0" layoutY="238.0" rotate="90.0" />
+      <Line fx:id="L17A" endX="28.0" layoutX="228.0" layoutY="338.0" rotate="90.0" />
+      <Line fx:id="L17B" endX="48.0" layoutX="241.0" layoutY="348.0" rotate="90.0" />
+      <Line fx:id="L18A" endX="28.0" layoutX="288.0" layoutY="338.0" rotate="90.0" />
+      <Line fx:id="L18B" endX="48.0" layoutX="300.0" layoutY="348.0" rotate="90.0" />
+      <Line fx:id="L19A" endX="28.0" layoutX="350.0" layoutY="338.0" rotate="90.0" />
+      <Line fx:id="L19B" endX="48.0" layoutX="363.0" layoutY="348.0" rotate="90.0" />
+      <Line fx:id="L20A" endX="28.0" layoutX="405.0" layoutY="338.0" rotate="90.0" />
+      <Line fx:id="L20B" endX="48.0" layoutX="420.0" layoutY="348.0" rotate="90.0" />
+      <Line fx:id="L21A" endX="28.0" layoutX="465.0" layoutY="338.0" rotate="90.0" />
+      <Line fx:id="L21B" endX="48.0" layoutX="475.0" layoutY="348.0" rotate="90.0" />
+      <Line fx:id="L22A" endX="28.0" layoutX="525.0" layoutY="338.0" rotate="90.0" />
+      <Line fx:id="L22B" endX="48.0" layoutX="535.0" layoutY="348.0" rotate="90.0" />
+      <Line fx:id="L23A" endX="28.0" layoutX="580.0" layoutY="338.0" rotate="90.0" />
+      <Line fx:id="L23B" endX="48.0" layoutX="595.0" layoutY="348.0" rotate="90.0" />
+      <Line fx:id="L24A" endX="28.0" layoutX="640.0" layoutY="338.0" rotate="90.0" />
+      <Line fx:id="L24B" endX="48.0" layoutX="653.0" layoutY="348.0" rotate="90.0" />
+      <Line fx:id="L25A" endX="28.0" layoutX="228.0" layoutY="448.0" rotate="90.0" />
+      <Line fx:id="L25B" endX="48.0" layoutX="241.0" layoutY="458.0" rotate="90.0" />
+      <Line fx:id="L26A" endX="28.0" layoutX="288.0" layoutY="448.0" rotate="90.0" />
+      <Line fx:id="L26B" endX="48.0" layoutX="300.0" layoutY="458.0" rotate="90.0" />
+      <Line fx:id="L27A" endX="28.0" layoutX="350.0" layoutY="448.0" rotate="90.0" />
+      <Line fx:id="L27B" endX="48.0" layoutX="363.0" layoutY="458.0" rotate="90.0" />
+      <Line fx:id="L28A" endX="28.0" layoutX="405.0" layoutY="448.0" rotate="90.0" />
+      <Line fx:id="L28B" endX="48.0" layoutX="420.0" layoutY="458.0" rotate="90.0" />
+      <Line fx:id="L29A" endX="28.0" layoutX="465.0" layoutY="448.0" rotate="90.0" />
+      <Line fx:id="L29B" endX="48.0" layoutX="475.0" layoutY="458.0" rotate="90.0" />
+      <Line fx:id="L30A" endX="28.0" layoutX="523.0" layoutY="448.0" rotate="90.0" />
+      <Line fx:id="L30B" endX="48.0" layoutX="535.0" layoutY="458.0" rotate="90.0" />
+      <Line fx:id="L31A" endX="28.0" layoutX="580.0" layoutY="448.0" rotate="90.0" />
+      <Line fx:id="L31B" endX="48.0" layoutX="595.0" layoutY="458.0" rotate="90.0" />
+      <Line fx:id="L32A" endX="28.0" layoutX="640.0" layoutY="448.0" rotate="90.0" />
+      <Line fx:id="L32B" endX="48.0" layoutX="653.0" layoutY="458.0" rotate="90.0" />
+      <Line endX="520.0" layoutX="265.0" layoutY="263.0" startX="-80.0" />
       <Line endX="500.0" layoutX="263.0" layoutY="243.0" startX="-100.0" />
       <AnchorPane fx:id="ED1" layoutX="228.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
@@ -1094,61 +1150,5 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <Line fx:id="L9A" endX="28.0" layoutX="231.0" layoutY="228.0" rotate="90.0" />
-      <Line fx:id="L10A" endX="28.0" layoutX="291.0" layoutY="228.0" rotate="90.0" />
-      <Line fx:id="L11A" endX="28.0" layoutX="351.0" layoutY="228.0" rotate="90.0" />
-      <Line fx:id="L12A" endX="28.0" layoutX="405.0" layoutY="228.0" rotate="90.0" />
-      <Line fx:id="L13A" endX="28.0" layoutX="465.0" layoutY="228.0" rotate="90.0" />
-      <Line fx:id="L14A" endX="28.0" layoutX="525.0" layoutY="228.0" rotate="90.0" />
-      <Line fx:id="L15A" endX="28.0" layoutX="580.0" layoutY="228.0" rotate="90.0" />
-      <Line fx:id="L16A" endX="28.0" layoutX="640.0" layoutY="228.0" rotate="90.0" />
-      <Line fx:id="L17A" endX="28.0" layoutX="228.0" layoutY="338.0" rotate="90.0" />
-      <Line fx:id="L18A" endX="28.0" layoutX="288.0" layoutY="338.0" rotate="90.0" />
-      <Line fx:id="L19A" endX="28.0" layoutX="350.0" layoutY="338.0" rotate="90.0" />
-      <Line fx:id="L20A" endX="28.0" layoutX="405.0" layoutY="338.0" rotate="90.0" />
-      <Line fx:id="L21A" endX="28.0" layoutX="465.0" layoutY="338.0" rotate="90.0" />
-      <Line fx:id="L22A" endX="28.0" layoutX="525.0" layoutY="338.0" rotate="90.0" />
-      <Line fx:id="L23A" endX="28.0" layoutX="580.0" layoutY="338.0" rotate="90.0" />
-      <Line fx:id="L24A" endX="28.0" layoutX="640.0" layoutY="338.0" rotate="90.0" />
-      <Line fx:id="L25A" endX="28.0" layoutX="228.0" layoutY="448.0" rotate="90.0" />
-      <Line fx:id="L26A" endX="28.0" layoutX="288.0" layoutY="448.0" rotate="90.0" />
-      <Line fx:id="L27A" endX="28.0" layoutX="350.0" layoutY="448.0" rotate="90.0" />
-      <Line fx:id="L28A" endX="28.0" layoutX="405.0" layoutY="448.0" rotate="90.0" />
-      <Line fx:id="L29A" endX="28.0" layoutX="465.0" layoutY="448.0" rotate="90.0" />
-      <Line fx:id="L30A" endX="28.0" layoutX="523.0" layoutY="448.0" rotate="90.0" />
-      <Line fx:id="L31A" endX="28.0" layoutX="580.0" layoutY="448.0" rotate="90.0" />
-      <Line fx:id="L32A" endX="28.0" layoutX="640.0" layoutY="448.0" rotate="90.0" />
-      <Line fx:id="L1B" endX="36.0" layoutX="248.0" layoutY="134.0" rotate="90.0" />
-      <Line fx:id="L2B" endX="36.0" layoutX="308.0" layoutY="134.0" rotate="90.0" />
-      <Line fx:id="L3B" endX="36.0" layoutX="368.0" layoutY="134.0" rotate="90.0" />
-      <Line fx:id="L4B" endX="36.0" layoutX="423.0" layoutY="134.0" rotate="90.0" />
-      <Line fx:id="L5B" endX="36.0" layoutX="483.0" layoutY="134.0" rotate="90.0" />
-      <Line fx:id="L6B" endX="36.0" layoutX="540.0" layoutY="134.0" rotate="90.0" />
-      <Line fx:id="L7B" endX="36.0" layoutX="600.0" layoutY="134.0" rotate="90.0" />
-      <Line fx:id="L8B" endX="36.0" layoutX="660.0" layoutY="134.0" rotate="90.0" />
-      <Line fx:id="L9B" endX="48.0" layoutX="241.0" layoutY="238.0" rotate="90.0" />
-      <Line fx:id="L10B" endX="48.0" layoutX="300.0" layoutY="238.0" rotate="90.0" />
-      <Line fx:id="L11B" endX="48.0" layoutX="363.0" layoutY="238.0" rotate="90.0" />
-      <Line fx:id="L12B" endX="48.0" layoutX="420.0" layoutY="238.0" rotate="90.0" />
-      <Line fx:id="L13B" endX="48.0" layoutX="475.0" layoutY="238.0" rotate="90.0" />
-      <Line fx:id="L14B" endX="48.0" layoutX="535.0" layoutY="238.0" rotate="90.0" />
-      <Line fx:id="L15B" endX="48.0" layoutX="595.0" layoutY="238.0" rotate="90.0" />
-      <Line fx:id="L16B" endX="48.0" layoutX="653.0" layoutY="238.0" rotate="90.0" />
-      <Line fx:id="L17B" endX="48.0" layoutX="241.0" layoutY="348.0" rotate="90.0" />
-      <Line fx:id="L18B" endX="48.0" layoutX="300.0" layoutY="348.0" rotate="90.0" />
-      <Line fx:id="L19B" endX="48.0" layoutX="363.0" layoutY="348.0" rotate="90.0" />
-      <Line fx:id="L20B" endX="48.0" layoutX="420.0" layoutY="348.0" rotate="90.0" />
-      <Line fx:id="L21B" endX="48.0" layoutX="475.0" layoutY="348.0" rotate="90.0" />
-      <Line fx:id="L22B" endX="48.0" layoutX="535.0" layoutY="348.0" rotate="90.0" />
-      <Line fx:id="L23B" endX="48.0" layoutX="595.0" layoutY="348.0" rotate="90.0" />
-      <Line fx:id="L24B" endX="48.0" layoutX="653.0" layoutY="348.0" rotate="90.0" />
-      <Line fx:id="L25B" endX="48.0" layoutX="241.0" layoutY="458.0" rotate="90.0" />
-      <Line fx:id="L26B" endX="48.0" layoutX="300.0" layoutY="458.0" rotate="90.0" />
-      <Line fx:id="L27B" endX="48.0" layoutX="363.0" layoutY="458.0" rotate="90.0" />
-      <Line fx:id="L28B" endX="48.0" layoutX="420.0" layoutY="458.0" rotate="90.0" />
-      <Line fx:id="L29B" endX="48.0" layoutX="475.0" layoutY="458.0" rotate="90.0" />
-      <Line fx:id="L30B" endX="48.0" layoutX="535.0" layoutY="458.0" rotate="90.0" />
-      <Line fx:id="L31B" endX="48.0" layoutX="595.0" layoutY="458.0" rotate="90.0" />
-      <Line fx:id="L32B" endX="48.0" layoutX="653.0" layoutY="458.0" rotate="90.0" />
    </children>
 </AnchorPane>
