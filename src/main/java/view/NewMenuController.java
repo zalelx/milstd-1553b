@@ -28,6 +28,10 @@ public class NewMenuController {
     }
 
     @FXML
+    public void testMKO() {
+    }
+
+    @FXML
     public void setAmountOfED(int amountOfED) {
         this.amountOfED = amountOfED;
         metaController = new MetaController();
