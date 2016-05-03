@@ -26,7 +26,7 @@ public class EndDevice implements Device {
 
     @Override
     public void handleMessage(Message message, Port port) {
-        TimeLogger.delay((new Random()).nextInt(8) + 4);
+        TimeLogger.delay(10/*(new Random()).nextInt(8) + 4*/);
         switch ((Command) message.getStatus()) {
             case BLOCK:
                 block();

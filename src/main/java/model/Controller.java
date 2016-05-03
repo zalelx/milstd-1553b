@@ -7,6 +7,7 @@ import model.message.Message;
 import view.TimeLogger;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Controller implements Device {
@@ -23,7 +24,7 @@ public class Controller implements Device {
     }
 
     public void sendMessage(Message message) {
-        TimeLogger.delay(1000);
+        TimeLogger.delay(50);
         addressBook.sendMessage(message);
     }
 
@@ -36,15 +37,16 @@ public class Controller implements Device {
         addressBook.changeLine(address);
     }
 
-    void block(int address) {
-        sendMessage(new CommandMessage(new Address(address), Command.BLOCK));
+    void block(Address address) {
+        sendMessage(new CommandMessage(address, Command.BLOCK));
     }
 
-    void unblock(int address) {
-        sendMessage(new CommandMessage(new Address(address), Command.UNBLOCK));
+    void unblock(Address address) {
+        sendMessage(new CommandMessage(address, Command.UNBLOCK));
     }
 
-    Answer getLastAnswer() {
+    Answer sendAndHandleMessage(Message message) {
+        sendMessage(message);
         Answer ret = this.lastAnswer;
         addressBook.getDefaultPort().getLine().setMessage(null);
         addressBook.getReservePort().getLine().setMessage(null);
@@ -54,78 +56,81 @@ public class Controller implements Device {
 
     public void testMKO(int amountOfEndDevices) {
         TimeLogger.log("START TEST_MKO");
-        ArrayList<Address> ar = new ArrayList<>();//сюда адреса устрйоств помещаем, которые не отвечают
-        int j = 0;
+        List<Address> notResponseAddresses = new ArrayList<>();//сюда адреса устрйоств помещаем, которые не отвечают
+
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
-            sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-            Answer answer = getLastAnswer();
+            Address address = new Address(i);
+            Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
             if (answer == null) {
-                sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-                if (getLastAnswer() == null) {
+                TimeLogger.log("NOT RESPONSE ED#" + i);
+                answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
+
+                if (answer == null) {
+                    notResponseAddresses.add(address);
                     TimeLogger.log("NOT RESPONSE ED#" + i);
-                    ar.add(j, new Address(i));
-                    j++;
-                    if (j >= 3) {
+                    if (notResponseAddresses.size() >= 3) {
                         TimeLogger.log("START SEARCHING GENERATOR");
-                        findGenerationObject(amountOfEndDevices);// если 3 ОУ в отказе, то признак генерации
+                        findGenerationObject(amountOfEndDevices);
                         break;
                     }
+                } else {
+                    caseAnswer(address, answer);
                 }
             } else {
-                switch (answer) {
-                    case BUSY: {
-                        //если занят, просто посылаем второй раз, флажок занятости должен сниматься
-                        //sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
-                        //lastAnswer = null;
-                        break;
-                    }
-                    case READY:
-                        sendMessage(new CommandMessage(new Address(i), Command.GIVE_INFORMATION));
-                        //lastAnswer = null;
-                        break;
-                }
+                caseAnswer(address, answer);
             }
         }
-        // меньше 3, то сбой и переходим на резервную линию
-        for (Address a : ar) {
-            changeLine(a);
-            sendMessage(new CommandMessage(a, Command.GIVE_ANSWER));
-            // todo добавить проверку ответа
+
+        for (Address address : notResponseAddresses) {
+            changeLine(address);
+            Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
+            if (answer == null) {
+                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE #" + address.getValue());
+            } else {
+                caseAnswer(address, answer);
+            }
         }
     }
 
     private void findGenerationObject(int amountOfDevices) {
-        int numberOfGen;
         //нужно заблокировать все ОУ,для этого меняем линию и шлем БЛОКИ
         for (int i = Address.MIN_ADDRESS; i <= amountOfDevices; i++) {
-            changeLine(new Address(i));
-            sendMessage(new CommandMessage(new Address(i), Command.BLOCK));
+            Address address = new Address(i);
+            changeLine(address);
+            block(address);
         }
 
         //включаем поочередно ОУ, причем по первоначальной линии
         for (int i = Address.MIN_ADDRESS; i <= amountOfDevices; i++) {
-            sendMessage(new CommandMessage(new Address(i), Command.UNBLOCK));
-            changeLine(new Address(i));
-            sendMessage(new CommandMessage(new Address(i), Command.GIVE_ANSWER));
+            Address address = new Address(i);
+            unblock(address);
+            changeLine(address);
 
-            Answer answer = getLastAnswer();
+            Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
-                numberOfGen = i;// Нашли генерящее ОУ
-                // todo добавить проверку на сбой
-                TimeLogger.log("GENERATOR FOUND. ED#" + numberOfGen);
-                changeLine(new Address(i));
-                sendMessage(new CommandMessage(new Address(i), Command.BLOCK));
-            } else {
-                switch (answer) {
-                    case BUSY:
-                        break;
-                    case READY:
-                        break;
-
+                answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
+                if (answer == null) {
+                    TimeLogger.log("GENERATOR FOUND. ED#" + i);
+                    changeLine(address);
+                    sendMessage(new CommandMessage(address, Command.BLOCK));
                 }
+            } else {
+                caseAnswer(address, answer);
             }
         }
+    }
+
+    private void caseAnswer(Address address, Answer answer) {
+        switch (answer) {
+            case BUSY: {
+                break;
+            }
+            case READY:
+                sendMessage(new CommandMessage(address, Command.GIVE_INFORMATION));
+                break;
+        }
+
     }
 }
 
