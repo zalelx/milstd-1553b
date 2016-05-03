@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.NewMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="1061.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.NewMenuController">
    <children>
       <Line endX="20.0" layoutX="643.0" layoutY="122.0" rotate="90.0" />
       <Line endX="20.0" layoutX="585.0" layoutY="122.0" rotate="90.0" />
@@ -1160,5 +1160,14 @@
       <Line endX="48.0" layoutX="535.0" layoutY="458.0" rotate="90.0" />
       <Line endX="48.0" layoutX="595.0" layoutY="458.0" rotate="90.0" />
       <Line endX="48.0" layoutX="653.0" layoutY="458.0" rotate="90.0" />
+      <AnchorPane layoutX="836.0" prefHeight="496.0" prefWidth="225.0">
+         <children>
+            <TextFlow fx:id="text" layoutX="-14.0" layoutY="125.0" prefHeight="496.0" prefWidth="225.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <ScrollBar layoutX="215.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="20.0" />
+         </children>
+      </AnchorPane>
+      <Separator layoutX="838.0" orientation="VERTICAL" prefHeight="496.0" prefWidth="1.0" />
+      <Button fx:id="MKObutton" layoutX="23.0" layoutY="298.0" mnemonicParsing="false" onAction="#testMKO" prefHeight="25.0" prefWidth="102.0" text="Тест МКО" />
+      <Button fx:id="SetStatusButton" layoutX="23.0" layoutY="341.0" mnemonicParsing="false" onAction="#SetStatus" prefHeight="25.0" prefWidth="102.0" text="Управление ОУ" />
    </children>
 </AnchorPane>
