@@ -78,10 +78,6 @@ public class NewMenuController {
     }
 
     @FXML
-    public void testMKO() {
-    }
-
-    @FXML
     public void setAmountOfED(int amountOfED) {
         this.amountOfED = amountOfED;
 //        ED4.setVisible(false);
