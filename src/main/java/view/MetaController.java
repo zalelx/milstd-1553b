@@ -9,8 +9,10 @@ class MetaController {
     ArrayList <EndDevice> devices;
     Line lineA;
     Line lineB;
+    int amountOfEd;
 
     void init(int amountOfEndDevices){
+        this.amountOfEd = amountOfEndDevices;
         this.devices = new ArrayList<>(amountOfEndDevices);
         this.lineA = new Line("Line A");
         this.lineB = new Line("Line B");
@@ -34,6 +36,10 @@ class MetaController {
             devices.add(newDevice);
         }
 
+    }
+
+    void testMKO(){
+        controller.testMKO(amountOfEd);
     }
 
     void setGeneratorLineA(int numberOfDevice, boolean isGenerator){

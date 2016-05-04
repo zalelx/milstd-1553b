@@ -2,12 +2,17 @@ package view;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,19 +21,37 @@ public class NewMenuController {
 
     @FXML
     Pane mainPane;
+    @FXML
+    TextArea textArea;
 
-    MetaController metaController;
-    List<Pane> EDPanes = new ArrayList<>();
-    List<Line> LineA = new ArrayList<>();
-    List<Line> LineB = new ArrayList<>();
+    private MetaController metaController;
+    private List<Pane> EDPanes = new ArrayList<>();
+    private List<Line> LineA = new ArrayList<>();
+    private List<Line> LineB = new ArrayList<>();
+    private TimeLogger timeLogger = new TimeLogger();
     private Stage stage;
 
     @FXML
-    public void SetStatus() {
+    public void setStatus() {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/SetStatus.fxml"));
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(loader.load()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setResizable(false);
+        stage.initOwner(this.stage);
+        stage.initModality(Modality.WINDOW_MODAL);
+
+        SetStatusController controller = loader.getController();
+        controller.setMetaController(metaController);
+        stage.showAndWait();
     }
 
     @FXML
     public void testMKO() {
+        metaController.testMKO();
     }
 
     @FXML
@@ -36,6 +59,9 @@ public class NewMenuController {
         this.amountOfED = amountOfED;
         metaController = new MetaController();
         metaController.init(amountOfED);
+        textArea.setEditable(false);
+        timeLogger.setTextArea(textArea);
+
         List<Node> children = mainPane.getChildren();
         boolean isA = true;
         for (Node node : children) {
@@ -57,9 +83,11 @@ public class NewMenuController {
                         LineB.add((Line) node);
                     else
                         node.setVisible(false);
-                    isA = false;
+                    isA = true;
                 }
             }
+            if (node.getId() == null)
+                node.setVisible(true);
         }
     }
 
