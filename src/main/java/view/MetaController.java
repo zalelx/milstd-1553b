@@ -5,19 +5,17 @@ import model.*;
 import java.util.ArrayList;
 
 class MetaController {
-    Controller controller;
-    ArrayList <EndDevice> devices;
-    Line lineA;
-    Line lineB;
-    int amountOfEd;
+    private Controller controller;
+    private ArrayList <EndDevice> devices;
+    private int amountOfEd;
 
     void init(int amountOfEndDevices){
         this.amountOfEd = amountOfEndDevices;
         this.devices = new ArrayList<>(amountOfEndDevices);
-        this.lineA = new Line("Line A");
-        this.lineB = new Line("Line B");
-        Port portA = new Port(lineA, "Ctrl Port A");
-        Port portB = new Port(lineB, "Ctrl Port B");
+        Line lineA = new Line(1);
+        Line lineB = new Line(2);
+        Port portA = new Port(lineA);
+        Port portB = new Port(lineB);
 
         AddressBook addressBook = new AddressBook(amountOfEndDevices, portA, portB);
         this.controller = new Controller(addressBook);

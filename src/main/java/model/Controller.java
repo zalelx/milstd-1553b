@@ -4,7 +4,7 @@ import model.message.Answer;
 import model.message.Command;
 import model.message.CommandMessage;
 import model.message.Message;
-import view.TimeLogger;
+import view.Logging.TimeLogger;
 
 import java.util.ArrayList;
 import java.util.List;

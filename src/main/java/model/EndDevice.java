@@ -1,7 +1,7 @@
 package model;
 
 import model.message.*;
-import view.TimeLogger;
+import view.Logging.TimeLogger;
 import java.util.Random;
 
 public class EndDevice implements Device {
@@ -12,8 +12,8 @@ public class EndDevice implements Device {
     private Address controllerAddress = new Address(0);
 
     public EndDevice(Address address, Line lineA, Line lineB) {
-        this.defaultPort = new Port(lineA, this, "Port A " + address.toString());
-        this.reservePort = new Port(lineB, this, "Port B " + address.toString());
+        this.defaultPort = new Port(lineA, this);
+        this.reservePort = new Port(lineB, this);
         this.current = defaultPort;
         defaultPort.setMyAddress(address);
         reservePort.setMyAddress(address);

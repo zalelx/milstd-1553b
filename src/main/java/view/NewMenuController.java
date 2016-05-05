@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import view.Logging.TimeLogger;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class NewMenuController {
     @FXML
     public void testMKO() {
         metaController.testMKO();
-        timeLogger.showLogs();
+        TimeLogger.showLogs();
     }
 
     @FXML
@@ -61,7 +62,7 @@ public class NewMenuController {
         metaController = new MetaController();
         metaController.init(amountOfED);
         textArea.setEditable(false);
-        timeLogger.setTextArea(textArea);
+        TimeLogger.setTextArea(textArea);
 
         List<Node> children = mainPane.getChildren();
         boolean isA = true;
@@ -89,6 +90,9 @@ public class NewMenuController {
             }
             if (node.getId() == null)
                 node.setVisible(true);
+            ChangeColor.setED(EDPanes);
+            ChangeColor.setLineA(LineA);
+            ChangeColor.setLineB(LineB);
         }
     }
 

@@ -1,17 +1,17 @@
 package model;
 
 import model.message.Message;
-import view.TimeLogger;
+import view.Logging.TimeLogger;
 
 import java.util.ArrayList;
 
 public class Line {
     private ArrayList<Port> list = new ArrayList<>();
     private Message message;
-    private String name;
+    int lineNumber;
 
-    public Line(String name) {
-        this.name = name;
+    public Line(int lineNumber) {
+        this.lineNumber = lineNumber;
     }
 
     public void addPort(Port port) {
@@ -20,10 +20,8 @@ public class Line {
 
     void broadcastMessage(Message message) {
         this.message = message;
-        TimeLogger.log(name + " message broadcast", message.getTime());
-//        TimeLogger.delay(message.getTime());
-        for (Port port:
-             list) {
+        TimeLogger.logBroadcast(lineNumber, message.getTime());
+        for (Port port: list) {
             port.handleMessage();
         }
     }
