@@ -20,7 +20,7 @@ public class TimeLogger {
     public static void log(String string) {
         Formatter formatter = new Formatter();
         formatter.format("%-30s %s %d\n", string, "Time:", currentTime);
-        textArea.insertText(textArea.getText().length(), formatter.toString());
+        textArea.insertText(textArea.getText().length(), formatter.toString().replace(' ', '_'));
         System.out.print(formatter.toString());
     }
 
@@ -33,4 +33,6 @@ public class TimeLogger {
         TimeLogger.textArea = textArea;
         log("Start...");
     }
+
+
 }
