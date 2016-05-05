@@ -22,9 +22,7 @@ public class NewMenuController {
     @FXML
     Pane mainPane;
     @FXML
-    TextArea textArea1;
-    @FXML
-    TextArea textArea2;
+    TextArea textArea;
 
     private MetaController metaController;
     private List<Pane> EDPanes = new ArrayList<>();
@@ -61,8 +59,8 @@ public class NewMenuController {
         this.amountOfED = amountOfED;
         metaController = new MetaController();
         metaController.init(amountOfED);
-        textArea1.setEditable(false);
-        timeLogger.setTextArea(textArea1, textArea2);
+        textArea.setEditable(false);
+        timeLogger.setTextArea(textArea);
 
         List<Node> children = mainPane.getChildren();
         boolean isA = true;
