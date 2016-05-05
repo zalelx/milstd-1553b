@@ -37,15 +37,15 @@ public class Controller implements Device {
         addressBook.changeLine(address);
     }
 
-    void block(Address address) {
+    private void block(Address address) {
         sendMessage(new CommandMessage(address, Command.BLOCK));
     }
 
-    void unblock(Address address) {
+    private void unblock(Address address) {
         sendMessage(new CommandMessage(address, Command.UNBLOCK));
     }
 
-    Answer sendAndHandleMessage(Message message) {
+    private Answer sendAndHandleMessage(Message message) {
         sendMessage(message);
         Answer ret = this.lastAnswer;
         addressBook.getDefaultPort().getLine().setMessage(null);
@@ -55,7 +55,7 @@ public class Controller implements Device {
     }
 
     public void testMKO(int amountOfEndDevices) {
-        TimeLogger.log("START TEST_MKO");
+        TimeLogger.log("START TEST_MKO", 0);
         List<Address> notResponseAddresses = new ArrayList<>();//сюда адреса устрйоств помещаем, которые не отвечают
 
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
@@ -63,14 +63,14 @@ public class Controller implements Device {
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
             if (answer == null) {
-                TimeLogger.log("NOT RESPONSE ED#" + i);
+                TimeLogger.log("NOT RESPONSE ED#" + i, 0);
                 answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
                 if (answer == null) {
                     notResponseAddresses.add(address);
-                    TimeLogger.log("NOT RESPONSE ED#" + i);
+                    TimeLogger.log("NOT RESPONSE ED#" + i, 0);
                     if (notResponseAddresses.size() >= 3) {
-                        TimeLogger.log("START SEARCHING GENERATOR");
+                        TimeLogger.log("START SEARCHING GENERATOR", 0);
                         findGenerationObject(amountOfEndDevices);
                         break;
                     }
@@ -86,7 +86,7 @@ public class Controller implements Device {
             changeLine(address);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
-                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE #" + address.getValue());
+                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE #" + address.getValue(), 0);
             } else {
                 caseAnswer(address, answer);
             }
@@ -111,7 +111,7 @@ public class Controller implements Device {
             if (answer == null) {
                 answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
                 if (answer == null) {
-                    TimeLogger.log("GENERATOR FOUND. ED#" + i);
+                    TimeLogger.log("GENERATOR FOUND. ED#" + i, 0);
                     changeLine(address);
                     sendMessage(new CommandMessage(address, Command.BLOCK));
                 }

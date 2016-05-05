@@ -12,7 +12,7 @@ public class Address {
 
     public Address(int value) {
         if (value < CONTROLLER_ADDRESS && value > BROADCAST_ADDRESS)
-            TimeLogger.log("Bad index", value);
+            TimeLogger.log("Bad index"  + value, 0);
         this.value = value;
     }
 

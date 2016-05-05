@@ -40,7 +40,7 @@ public class Port {
         this.status = status;
     }
 
-    public Line getLine() {
+    Line getLine() {
         return line;
     }
 
@@ -61,7 +61,7 @@ public class Port {
                 || line.getMessage().getAddress().getValue() == Address.BROADCAST_ADDRESS) {
             switch (status) {
                 case OK:
-                    TimeLogger.log(name + " message handle");
+                    TimeLogger.log(name + " message handle", 0);
                     device.handleMessage(line.getMessage(), this);
                     break;
                 case FAILURE:
@@ -76,7 +76,7 @@ public class Port {
     void broadcastMessage(Message message) {
         switch (status) {
             case OK:
-                TimeLogger.log(name + " message send");
+                TimeLogger.log(name + " message send", 0);
                 line.broadcastMessage(message);
                 break;
             default:
@@ -89,13 +89,13 @@ public class Port {
             status = PortStatus.GENERATION;
         else {
             status = PortStatus.OK;
-            TimeLogger.log(name + " unblocked");
+            TimeLogger.log(name + " unblocked", 0);
         }
     }
 
     void block() {
         if (status != PortStatus.DENIAL)
             status = PortStatus.BLOCK;
-        TimeLogger.log(name + " blocked");
+        TimeLogger.log(name + " blocked", 0);
     }
 }

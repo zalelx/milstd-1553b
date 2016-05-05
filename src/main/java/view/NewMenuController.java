@@ -52,6 +52,7 @@ public class NewMenuController {
     @FXML
     public void testMKO() {
         metaController.testMKO();
+        timeLogger.showLogs();
     }
 
     @FXML
@@ -91,7 +92,7 @@ public class NewMenuController {
         }
     }
 
-    public void setStage(Stage stage) {
+    void setStage(Stage stage) {
         this.stage = stage;
     }
 }

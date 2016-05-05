@@ -38,6 +38,7 @@ public class SetValueController {
             mainMenu.setResizable(false);
             NewMenuController controller = loader.getController();
             controller.setAmountOfED(amountOfED);
+            controller.setStage(mainMenu);
             mainMenu.show();
 
         } catch (IOException e) {
