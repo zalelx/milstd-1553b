@@ -9,7 +9,6 @@ import java.util.*;
 
 import static java.lang.Thread.sleep;
 
-
 public class TimeLogger {
     private static int currentTime = 0;
     private static TextArea textArea;

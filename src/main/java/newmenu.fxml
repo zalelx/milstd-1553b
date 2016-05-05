@@ -1150,13 +1150,12 @@
             <Font size="22.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="836.0" prefHeight="496.0" prefWidth="225.0">
+      <AnchorPane layoutX="808.0" prefHeight="496.0" prefWidth="253.0">
          <children>
-            <ScrollBar layoutX="215.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="20.0" />
-            <TextArea fx:id="textArea" layoutX="8.0" prefHeight="496.0" prefWidth="207.0" />
+            <TextArea fx:id="textArea" layoutX="-4.0" prefHeight="496.0" prefWidth="253.0" />
+            <Separator layoutX="-5.0" layoutY="6.0" orientation="VERTICAL" prefHeight="496.0" prefWidth="14.0" />
          </children>
       </AnchorPane>
-      <Separator layoutX="838.0" orientation="VERTICAL" prefHeight="496.0" prefWidth="14.0" />
       <Button fx:id="MKObutton" layoutX="23.0" layoutY="298.0" mnemonicParsing="false" onAction="#testMKO" prefHeight="25.0" prefWidth="102.0" text="Тест МКО" />
       <Button fx:id="SetStatusButton" layoutX="23.0" layoutY="341.0" mnemonicParsing="false" onAction="#setStatus" prefHeight="25.0" prefWidth="102.0" text="Управление ОУ" />
    </children>
