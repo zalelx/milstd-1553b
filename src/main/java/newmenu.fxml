@@ -74,8 +74,20 @@
       <Line fx:id="L31B" endX="48.0" layoutX="595.0" layoutY="458.0" rotate="90.0" />
       <Line fx:id="L32A" endX="28.0" layoutX="640.0" layoutY="448.0" rotate="90.0" />
       <Line fx:id="L32B" endX="48.0" layoutX="653.0" layoutY="458.0" rotate="90.0" />
-      <Line endX="520.0" layoutX="265.0" layoutY="263.0" startX="-80.0" />
+      <Line endX="510.0" layoutX="253.0" layoutY="133.0" startX="-100.0" />
+      <Line endX="530.0" layoutX="255.0" layoutY="153.0" startX="-100.0" />
+      <Line endX="110.0" layoutX="709.0" layoutY="188.0" rotate="90.0" />
+      <Line endX="110.0" layoutX="731.0" layoutY="208.0" rotate="90.0" />
       <Line endX="500.0" layoutX="263.0" layoutY="243.0" startX="-100.0" />
+      <Line endX="520.0" layoutX="265.0" layoutY="263.0" startX="-80.0" />
+      <Line endX="110.0" layoutX="108.0" layoutY="298.0" rotate="90.0" />
+      <Line endX="110.0" layoutX="130.0" layoutY="318.0" rotate="90.0" />
+      <Line endX="500.0" layoutX="263.0" layoutY="353.0" startX="-100.0" />
+      <Line endX="520.0" layoutX="265.0" layoutY="373.0" startX="-80.0" />
+      <Line endX="110.0" layoutX="710.0" layoutY="408.0" rotate="90.0" />
+      <Line endX="110.0" layoutX="730.0" layoutY="428.0" rotate="90.0" />
+      <Line endX="500.0" layoutX="264.0" layoutY="463.0" startX="-100.0" />
+      <Line endX="520.0" layoutX="265.0" layoutY="483.0" startX="-80.0" />
       <AnchorPane fx:id="ED1" layoutX="228.0" layoutY="67.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="50.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
@@ -1132,25 +1144,13 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Line endX="500.0" layoutX="263.0" layoutY="353.0" startX="-100.0" />
-      <Line endX="520.0" layoutX="265.0" layoutY="373.0" startX="-80.0" />
-      <Line endX="500.0" layoutX="264.0" layoutY="463.0" startX="-100.0" />
-      <Line endX="520.0" layoutX="265.0" layoutY="483.0" startX="-80.0" />
-      <Line endX="530.0" layoutX="255.0" layoutY="153.0" startX="-100.0" />
-      <Line endX="510.0" layoutX="253.0" layoutY="133.0" startX="-100.0" />
-      <Line endX="110.0" layoutX="709.0" layoutY="188.0" rotate="90.0" />
-      <Line endX="110.0" layoutX="731.0" layoutY="208.0" rotate="90.0" />
-      <Line endX="110.0" layoutX="130.0" layoutY="318.0" rotate="90.0" />
-      <Line endX="110.0" layoutX="108.0" layoutY="298.0" rotate="90.0" />
-      <Line endX="110.0" layoutX="710.0" layoutY="408.0" rotate="90.0" />
-      <Line endX="110.0" layoutX="730.0" layoutY="428.0" rotate="90.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="76.0" layoutX="14.0" layoutY="100.0" stroke="BLACK" strokeType="INSIDE" width="140.0" />
       <Text layoutX="23.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Контроллер" wrappingWidth="140.0">
          <font>
             <Font size="22.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="808.0" prefHeight="496.0" prefWidth="253.0">
+      <AnchorPane fx:id="textPane" layoutX="808.0" prefHeight="496.0" prefWidth="253.0">
          <children>
             <TextArea fx:id="textArea" layoutX="-4.0" prefHeight="496.0" prefWidth="253.0" />
             <Separator layoutX="-5.0" layoutY="6.0" orientation="VERTICAL" prefHeight="496.0" prefWidth="14.0" />

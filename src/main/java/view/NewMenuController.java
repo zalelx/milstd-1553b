@@ -24,6 +24,8 @@ public class NewMenuController {
     Pane mainPane;
     @FXML
     TextArea textArea;
+    @FXML
+    AnchorPane textPane;
 
     private MetaController metaController;
     private List<Pane> EDPanes = new ArrayList<>();
@@ -75,25 +77,40 @@ public class NewMenuController {
             }
             if (node instanceof Line) {
                 if (isA) {
-                    if (LineA.size() < amountOfED)
-                        LineA.add((Line) node);
-                    else
-                        node.setVisible(false);
+                    LineA.add((Line) node);
                     isA = false;
                 } else {
-                    if (LineB.size() < amountOfED)
-                        LineB.add((Line) node);
-                    else
-                        node.setVisible(false);
+                    LineB.add((Line) node);
                     isA = true;
                 }
             }
-            if (node.getId() == null)
-                node.setVisible(true);
-            ChangeColor.setED(EDPanes);
-            ChangeColor.setLineA(LineA);
-            ChangeColor.setLineB(LineB);
         }
+
+        for (int i = 0; i < LineA.size(); i++) {
+            Line line = LineA.get(i);
+
+            if (i + 1 > amountOfED){
+                line.setVisible(false);
+            }
+            if (line.getId() == null){
+                line.setVisible(true);
+            }
+        }
+        for (int i = 0; i < LineB.size(); i++) {
+            Line line = LineB.get(i);
+
+            if (i + 1 > amountOfED){
+                line.setVisible(false);
+            }
+            if (line.getId() == null){
+                line.setVisible(true);
+            }
+        }
+        ChangeColor.setED(EDPanes);
+        ChangeColor.setLineA(LineA);
+        ChangeColor.setLineB(LineB);
+        textArea.setVisible(true);
+        textPane.setVisible(true);
     }
 
     void setStage(Stage stage) {
