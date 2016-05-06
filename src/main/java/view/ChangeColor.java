@@ -90,7 +90,7 @@ public class ChangeColor {
             ED = (AnchorPane) children.get(lineNumber);
             children1 = ED.getChildren();
             rec = (Rectangle) children1.get(0);
-            rec.setStroke(Color.BLACK);
+            rec.setStroke(Color.BLUEVIOLET);
             rec.setStrokeWidth(3);
         }
     }
