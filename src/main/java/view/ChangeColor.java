@@ -16,77 +16,77 @@ import static java.awt.Color.*;
 //*/
 public class ChangeColor {
 
-   /* @FXML
-    AnchorPane ED1;
-    @FXML
-    AnchorPane ED2;
-    @FXML
-    AnchorPane ED3;
-    @FXML
-    AnchorPane ED4;
-    @FXML
-    AnchorPane ED5;
-    @FXML
-    AnchorPane ED6;
-    @FXML
-    AnchorPane ED7;
-    @FXML
-    AnchorPane ED8;
-    @FXML
-    AnchorPane ED9;
-    @FXML
-    AnchorPane ED10;
-    @FXML
-    AnchorPane ED11;
-    @FXML
-    AnchorPane ED12;
-    @FXML
-    AnchorPane ED13;
-    @FXML
-    AnchorPane ED14;
-    @FXML
-    AnchorPane ED15;
-    @FXML
-    AnchorPane ED16;
-    @FXML
-    AnchorPane ED17;
-    @FXML
-    AnchorPane ED18;
-    @FXML
-    AnchorPane ED19;
-    @FXML
-    AnchorPane ED20;
-    @FXML
-    AnchorPane ED21;
-    @FXML
-    AnchorPane ED22;
-    @FXML
-    AnchorPane ED23;
-    @FXML
-    AnchorPane ED24;
-    @FXML
-    AnchorPane ED25;
-    @FXML
-    AnchorPane ED26;
-    @FXML
-    AnchorPane ED27;
-    @FXML
-    AnchorPane ED28;
-    @FXML
-    AnchorPane ED29;
-    @FXML
-    AnchorPane ED30;
-    @FXML
-    AnchorPane ED31;
-    @FXML
-    AnchorPane ED32;
+    /* @FXML
+     AnchorPane ED1;
+     @FXML
+     AnchorPane ED2;
+     @FXML
+     AnchorPane ED3;
+     @FXML
+     AnchorPane ED4;
+     @FXML
+     AnchorPane ED5;
+     @FXML
+     AnchorPane ED6;
+     @FXML
+     AnchorPane ED7;
+     @FXML
+     AnchorPane ED8;
+     @FXML
+     AnchorPane ED9;
+     @FXML
+     AnchorPane ED10;
+     @FXML
+     AnchorPane ED11;
+     @FXML
+     AnchorPane ED12;
+     @FXML
+     AnchorPane ED13;
+     @FXML
+     AnchorPane ED14;
+     @FXML
+     AnchorPane ED15;
+     @FXML
+     AnchorPane ED16;
+     @FXML
+     AnchorPane ED17;
+     @FXML
+     AnchorPane ED18;
+     @FXML
+     AnchorPane ED19;
+     @FXML
+     AnchorPane ED20;
+     @FXML
+     AnchorPane ED21;
+     @FXML
+     AnchorPane ED22;
+     @FXML
+     AnchorPane ED23;
+     @FXML
+     AnchorPane ED24;
+     @FXML
+     AnchorPane ED25;
+     @FXML
+     AnchorPane ED26;
+     @FXML
+     AnchorPane ED27;
+     @FXML
+     AnchorPane ED28;
+     @FXML
+     AnchorPane ED29;
+     @FXML
+     AnchorPane ED30;
+     @FXML
+     AnchorPane ED31;
+     @FXML
+     AnchorPane ED32;
 
-    PortStatus status;
-    @FXML
+     PortStatus status;
+     @FXML
 
-    private static AnchorPane[] ED = {ED1, ED2, ED3, ED4, ED5, ED6, ED7, ED8, ED9, ED10, ED11, ED12, ED13, ED14, ED15, ED16,
-            ED17, ED18, ED19, ED20, ED21, ED22, ED23, ED24, ED25, ED26, ED27, ED28, ED29, ED30, ED31, ED32};
-*/
+     private static AnchorPane[] ED = {ED1, ED2, ED3, ED4, ED5, ED6, ED7, ED8, ED9, ED10, ED11, ED12, ED13, ED14, ED15, ED16,
+             ED17, ED18, ED19, ED20, ED21, ED22, ED23, ED24, ED25, ED26, ED27, ED28, ED29, ED30, ED31, ED32};
+ */
     private static List<Pane> ED;
     private static List<Line> lineA;
     private static List<Line> lineB;
@@ -130,10 +130,6 @@ public class ChangeColor {
         ChangeColor.ED = ED;
     }
 
-    public static List<Pane> getED() {
-        return ED;
-    }
-
     public static void setLineA(List<Line> lineA) {
         ChangeColor.lineA = lineA;
     }
@@ -142,24 +138,3 @@ public class ChangeColor {
         ChangeColor.lineB = lineB;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

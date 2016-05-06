@@ -55,6 +55,7 @@ public class Port {
                     break;
                 case FAILURE:
                     status = PortStatus.OK;
+                    TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
                     break;
                 default:
                     break;
@@ -78,8 +79,8 @@ public class Port {
             status = PortStatus.GENERATION;
         else {
             status = PortStatus.OK;
-            TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
         }
+        TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
     }
 
     void block() {
