@@ -18,12 +18,18 @@ public class SetStatusController{
     private ObservableList<String> Status = FXCollections.observableArrayList("Исправен", "Генерация", "Отказ", "Сбой");
     private MetaController metaController;
 
+    @FXML
     public void init() {
-        this.LineA.setItems(this.Status);
-        this.LineB.setItems(this.Status);
-        this.LineA.setValue("Исправен");
-        this.LineB.setValue("Исправен");
+        LineA.setItems(Status);
+        LineB.setItems(Status);
+        LineA.setValue("Исправен");
+        LineB.setValue("Исправен");
     }
+
+    public void comboLineA(){}
+    public void comboLineB(){}
+    public void OKbutton(){}
+    public void Back(){}
 
     void setMetaController(MetaController metaController) {
         this.metaController = metaController;

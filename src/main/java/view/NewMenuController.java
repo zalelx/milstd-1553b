@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.PortStatus;
 import view.Logging.TimeLogger;
 
 import java.io.IOException;
