@@ -38,8 +38,8 @@ public class TimeLogger {
         logs.offer(new MessageEvent(value, lineNumber, " send.", currentTime));
     }
 
-    public static void logChangePortStatus(int value, int lineNumber, PortStatus status) {
-        logs.offer(new ChangePortStatusEvent(value, lineNumber, status, currentTime));
+    public static void logChangePortStatus(int EdNumber, int lineNumber, PortStatus status) {
+        logs.offer(new ChangePortStatusEvent(EdNumber, lineNumber, status, currentTime));
     }
 
     public static void setTextArea(TextArea textArea) {
@@ -55,7 +55,7 @@ public class TimeLogger {
                     textArea.insertText(textArea.getText().length(), formatter.toString());
 
                     if (log instanceof BroadcastEvent){
-                        ChangeColor.SetColor(((BroadcastEvent) log).getLineNumber());
+                        ChangeColor.SetColor(((BroadcastEvent) log).getLineNumber()); // todo put
                     }
                     if (log instanceof MessageEvent){
                         ChangeColor.SetColor(

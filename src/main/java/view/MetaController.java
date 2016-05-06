@@ -1,15 +1,16 @@
 package view;
 
 import model.*;
+import view.Logging.TimeLogger;
 
 import java.util.ArrayList;
 
 class MetaController {
     private Controller controller;
-    private ArrayList <EndDevice> devices;
+    private ArrayList<EndDevice> devices;
     private int amountOfEd;
 
-    void init(int amountOfEndDevices){
+    void init(int amountOfEndDevices) {
         this.amountOfEd = amountOfEndDevices;
         this.devices = new ArrayList<>(amountOfEndDevices);
         Line lineA = new Line(1);
@@ -36,42 +37,56 @@ class MetaController {
 
     }
 
-    void testMKO(){
+    void testMKO() {
         controller.testMKO(amountOfEd);
     }
 
-    void setGeneratorLineA(int numberOfDevice, boolean isGenerator){
-        numberOfDevice --;
+    void setGeneratorLineA(int numberOfDevice, boolean isGenerator) {
+        numberOfDevice--;
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(isGenerator);
-        for (EndDevice d:
-             devices) {
-            d.getDefaultPort().setStatus(PortStatus.GENERATION);
+        for (int i = 1; i < devices.size(); i++) {
+            devices.get(i).getDefaultPort().setStatus(PortStatus.GENERATION);
+            TimeLogger.logChangePortStatus(numberOfDevice, 1, PortStatus.GENERATION);
         }
     }
 
-    void setGeneratorLineB(int numberOfDevice, boolean isGenerator){
-        numberOfDevice --;
+    void setGeneratorLineB(int numberOfDevice, boolean isGenerator) {
+        numberOfDevice--;
         Port target = devices.get(numberOfDevice).getReservePort();
         target.setGenerator(isGenerator);
-        for (EndDevice d:
-                devices) {
-            d.getReservePort().setStatus(PortStatus.GENERATION);
+        for (int i = 1; i < devices.size(); i++) {
+            devices.get(i).getReservePort().setStatus(PortStatus.GENERATION);
+            TimeLogger.logChangePortStatus(numberOfDevice, 2, PortStatus.GENERATION);
         }
     }
 
-    void setPreparedToSendInfo (int numberOfDevice, boolean status){
-        numberOfDevice --;
+    void setPreparedToSendInfo(int numberOfDevice, boolean status) {
+        numberOfDevice--;
         devices.get(numberOfDevice).setPreparedToSendInfo(status);
     }
 
-    void setPortStatusLineA(int numberOfDevice, PortStatus status){
-        numberOfDevice --;
-        devices.get(numberOfDevice).getDefaultPort().setStatus(status);
+    void setPortStatusLineA(int numberOfDevice, PortStatus status) {
+        switch (status) {
+            case GENERATION:
+                setGeneratorLineA(numberOfDevice, true);
+                break;
+            default:
+                numberOfDevice--;
+                devices.get(numberOfDevice).getDefaultPort().setStatus(status);
+                TimeLogger.logChangePortStatus(numberOfDevice, 1, status);
+        }
     }
 
-    void setPortStatusLineB(int numberOfDevice, PortStatus status){
-        numberOfDevice --;
-        devices.get(numberOfDevice).getReservePort().setStatus(status);
+    void setPortStatusLineB(int numberOfDevice, PortStatus status) {
+        switch (status) {
+            case GENERATION:
+                setGeneratorLineB(numberOfDevice, true);
+                break;
+            default:
+                numberOfDevice--;
+                devices.get(numberOfDevice).getReservePort().setStatus(status);
+                TimeLogger.logChangePortStatus(numberOfDevice, 2, status);
+        }
     }
 }

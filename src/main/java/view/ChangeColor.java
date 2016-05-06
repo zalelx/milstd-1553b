@@ -84,10 +84,6 @@ public class ChangeColor {
         ChangeColor.ED = ED;
     }
 
-    public static List<Pane> getED() {
-        return ED;
-    }
-
     public static void setLineA(List<Line> lineA) {
         ChangeColor.lineA = lineA;
     }
