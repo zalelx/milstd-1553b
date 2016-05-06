@@ -23,7 +23,7 @@ public class SetStatusController{
     private int portNumber;
     Stage stage;
 
-    private ObservableList<String> statuses = FXCollections.observableArrayList("Исправен", "Заблокирован", "Отказ", "Сбой");
+    private ObservableList<String> statuses = FXCollections.observableArrayList("Исправен", "Заблокирован", "Отказ", "Сбой", "Генерация");
     private MetaController metaController;
 
     void init() {
@@ -76,7 +76,7 @@ public class SetStatusController{
             case "Отказ":
                 return PortStatus.DENIAL;
             case "Сбой":
-                return PortStatus.DENIAL;
+                return PortStatus.FAILURE;
             default:
                 return PortStatus.OK;
         }

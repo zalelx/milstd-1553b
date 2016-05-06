@@ -29,6 +29,16 @@ public class Controller implements Device {
     }
 
     @Override
+    public Port getDefaultPort() {
+        return addressBook.getDefaultPort();
+    }
+
+    @Override
+    public Port getReservePort() {
+        return addressBook.getReservePort();
+    }
+
+    @Override
     public void handleMessage(Message message, Port port) {
         lastAnswer = (Answer) message.getStatus();
     }
@@ -88,7 +98,7 @@ public class Controller implements Device {
             if (answer == null) {
                 TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE #" + address.getValue(), 0);
             } else {
-                caseAnswer(address, answer);
+                changeLine(address);
             }
         }
     }

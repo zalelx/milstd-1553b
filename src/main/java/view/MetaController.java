@@ -7,12 +7,12 @@ import java.util.ArrayList;
 
 class MetaController {
     private Controller controller;
-    private ArrayList<EndDevice> devices;
+    private ArrayList<Device> devices;
     private int amountOfEd;
 
     void init(int amountOfEndDevices) {
         this.amountOfEd = amountOfEndDevices;
-        this.devices = new ArrayList<>(amountOfEndDevices);
+        this.devices = new ArrayList<>();
         Line lineA = new Line(1);
         Line lineB = new Line(2);
         Port portA = new Port(lineA);
@@ -27,7 +27,7 @@ class MetaController {
         portA.setMyAddress(controller.getMyAddress());
         lineA.addPort(addressBook.getDefaultPort());
         lineB.addPort(addressBook.getReservePort());
-
+        devices.add(controller);
         for (int i = 1; i <= amountOfEndDevices; i++) {
             EndDevice newDevice = new EndDevice(new Address(i), lineA, lineB);
             lineA.addPort(newDevice.getDefaultPort());
@@ -42,17 +42,17 @@ class MetaController {
     }
 
     void setGeneratorLineA(int numberOfDevice, boolean isGenerator) {
-        numberOfDevice--;
+//        numberOfDevice--;
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(isGenerator);
         for (int i = 1; i < devices.size(); i++) {
             devices.get(i).getDefaultPort().setStatus(PortStatus.GENERATION);
-            TimeLogger.logChangePortStatus(numberOfDevice, 1, PortStatus.GENERATION);
+            TimeLogger.logChangePortStatus(i, 1, PortStatus.GENERATION);
         }
     }
 
     void setGeneratorLineB(int numberOfDevice, boolean isGenerator) {
-        numberOfDevice--;
+//        numberOfDevice--;
         Port target = devices.get(numberOfDevice).getReservePort();
         target.setGenerator(isGenerator);
         for (int i = 1; i < devices.size(); i++) {
@@ -63,7 +63,7 @@ class MetaController {
 
     void setPreparedToSendInfo(int numberOfDevice, boolean status) {
         numberOfDevice--;
-        devices.get(numberOfDevice).setPreparedToSendInfo(status);
+        ((EndDevice)devices.get(numberOfDevice)).setPreparedToSendInfo(status);
     }
 
     void setPortStatusLineA(int numberOfDevice, PortStatus status) {
@@ -72,7 +72,7 @@ class MetaController {
                 setGeneratorLineA(numberOfDevice, true);
                 break;
             default:
-                numberOfDevice--;
+//                numberOfDevice--;
                 devices.get(numberOfDevice).getDefaultPort().setStatus(status);
                 TimeLogger.logChangePortStatus(numberOfDevice, 1, status);
         }
@@ -84,7 +84,7 @@ class MetaController {
                 setGeneratorLineB(numberOfDevice, true);
                 break;
             default:
-                numberOfDevice--;
+//                numberOfDevice--;
                 devices.get(numberOfDevice).getReservePort().setStatus(status);
                 TimeLogger.logChangePortStatus(numberOfDevice, 2, status);
         }

@@ -15,16 +15,12 @@ import java.util.List;
 //*/
 public class ChangeColor {
 
-
     private static List<Pane> ED;
     private static List<Line> lineA;
     private static List<Line> lineB;
-
-    static int prevLine2 = 1;
-    static int prevEdNumber = 1;
-
-
-    static int prevLine;
+    private static int prevLine;
+    private static int prevLine2 = 1;
+    private static int prevEdNumber = 1;
 
     public static void SetColor(int number_ED, int number_Line, PortStatus status) {
         AnchorPane numED = (AnchorPane) ED.get(number_ED - 1);
@@ -39,10 +35,10 @@ public class ChangeColor {
                 rec.setFill(Color.LIGHTGREEN);
                 break;
             case DENIAL:
-                rec.setFill(Color.ORANGE);
+                rec.setFill(Color.RED);
                 break;
             case FAILURE:
-                rec.setFill(Color.RED);
+                rec.setFill(Color.ORANGE);
                 break;
             case BLOCK:
                 rec.setFill(Color.GRAY);
@@ -64,7 +60,6 @@ public class ChangeColor {
                 line.setStroke(Color.BLACK);
             }
         }
-
         prevLine = lineNumber;
         if (lineNumber == 1) {
             for (Line line : lineA) {
@@ -78,7 +73,6 @@ public class ChangeColor {
     }
 
     public static void SetColor(int lineNumber, int edNumber) {
-
         if (edNumber != 0) {
             AnchorPane numEDbc = (AnchorPane) ED.get(prevEdNumber - 1);
             List<Node> children = numEDbc.getChildren();
@@ -101,36 +95,15 @@ public class ChangeColor {
         }
     }
 
-    public static void setED(List<Pane> ED) {
+    static void setED(List<Pane> ED) {
         ChangeColor.ED = ED;
     }
 
-    public static void setLineA(List<Line> lineA) {
+    static void setLineA(List<Line> lineA) {
         ChangeColor.lineA = lineA;
     }
 
-    public static void setLineB(List<Line> lineB) {
+    static void setLineB(List<Line> lineB) {
         ChangeColor.lineB = lineB;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
