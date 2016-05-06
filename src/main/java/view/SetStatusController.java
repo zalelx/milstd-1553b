@@ -1,11 +1,14 @@
 package view;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import model.Port;
+import model.PortStatus;
+import view.Logging.TimeLogger;
 
 
 public class SetStatusController{
@@ -14,13 +17,18 @@ public class SetStatusController{
     public ComboBox<String> LineA;
     @FXML
     public ComboBox<String> LineB;
+    @FXML
+    TextField EdNumberField;
 
-    private ObservableList<String> Status = FXCollections.observableArrayList("Исправен", "Генерация", "Отказ", "Сбой");
+    private int portNumber;
+    Stage stage;
+
+    private ObservableList<String> statuses = FXCollections.observableArrayList("Исправен", "Заблокирован", "Отказ", "Сбой");
     private MetaController metaController;
 
-    public void init() {
-        this.LineA.setItems(this.Status);
-        this.LineB.setItems(this.Status);
+    void init() {
+        this.LineA.setItems(statuses);
+        this.LineB.setItems(statuses);
         this.LineA.setValue("Исправен");
         this.LineB.setValue("Исправен");
     }
@@ -28,4 +36,54 @@ public class SetStatusController{
     void setMetaController(MetaController metaController) {
         this.metaController = metaController;
     }
+
+    private boolean isValid() {
+        String a = EdNumberField.getText();
+        try {
+            portNumber = Integer.parseInt(a);
+            if (portNumber > 32 || portNumber < 0) {
+                throw new NumberFormatException();
+            }
+            return true;
+        } catch (NumberFormatException e) {
+            EdNumberField.setText("Неверное значение");
+            return false;
+        }
+    }
+
+    @FXML
+    void OkClicked(){
+        if (isValid()){
+            metaController.setPortStatusLineA(portNumber, parseStatus(LineA));
+            metaController.setPortStatusLineB(portNumber, parseStatus(LineB));
+            stage.close();
+        }
+    }
+
+    @FXML
+    void CancelClicked(){
+        stage.close();
+    }
+
+    private PortStatus parseStatus(ComboBox<String> input){
+        switch (input.getValue()){
+            case "Исправен":
+                return PortStatus.OK;
+            case "Генерация":
+                return PortStatus.GENERATION;
+            case "Заблокирован":
+                return PortStatus.BLOCK;
+            case "Отказ":
+                return PortStatus.DENIAL;
+            case "Сбой":
+                return PortStatus.DENIAL;
+            default:
+                return PortStatus.OK;
+        }
+    }
+
+    void setStage(Stage stage){
+        this.stage = stage;
+    }
+
 }

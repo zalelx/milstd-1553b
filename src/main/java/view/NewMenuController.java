@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.PortStatus;
 import view.Logging.TimeLogger;
 
 import java.io.IOException;
@@ -31,7 +32,6 @@ public class NewMenuController {
     private List<Pane> EDPanes = new ArrayList<>();
     private List<Line> LineA = new ArrayList<>();
     private List<Line> LineB = new ArrayList<>();
-    private TimeLogger timeLogger = new TimeLogger();
     private Stage stage;
 
     @FXML
@@ -49,7 +49,10 @@ public class NewMenuController {
 
         SetStatusController controller = loader.getController();
         controller.setMetaController(metaController);
+        controller.init();
+        controller.setStage(stage);
         stage.showAndWait();
+        TimeLogger.showLogs();
     }
 
     @FXML
