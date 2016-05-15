@@ -1,6 +1,7 @@
 package view;
 
 
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -57,7 +58,7 @@ public class NewMenuController {
 
     @FXML
     public void randomFault(){
-        metaController.randomFault(PortStatus.FAILURE);
+        metaController.randomFault(PortStatus.FAILURE); // todo добавить выбор
     }
 
     @FXML
@@ -119,6 +120,12 @@ public class NewMenuController {
         ChangeColor.setLineB(LineB);
         textArea.setVisible(true);
         textPane.setVisible(true);
+    }
+
+    @FXML
+    public void connectToAll(){
+        metaController.connectToAll(); // todo добавить ещё один выбор
+        TimeLogger.showLogs();
     }
 
     void setStage(Stage stage) {

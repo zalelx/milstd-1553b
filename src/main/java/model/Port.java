@@ -45,7 +45,7 @@ public class Port {
         this.device = device;
     }
 
-    void handleMessage() {
+    boolean handleMessage() {
         if (line.getMessage().getAddress().equals(myAddress)
                 || line.getMessage().getAddress().getValue() == Address.BROADCAST_ADDRESS) {
             switch (status) {
@@ -60,7 +60,9 @@ public class Port {
                 default:
                     break;
             }
+            return true;
         }
+        return false;
     }
 
     void broadcastMessage(Message message) {

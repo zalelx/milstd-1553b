@@ -1,8 +1,6 @@
 package view;
 
-import javafx.fxml.FXML;
 import model.*;
-import view.Logging.TimeLogger;
 
 import java.util.ArrayList;
 
@@ -64,7 +62,7 @@ class MetaController {
 
     void setPreparedToSendInfo(int numberOfDevice, boolean status) {
         //numberOfDevice--;
-        ((EndDevice) devices.get(numberOfDevice)).setPreparedToSendInfo(status);
+        ((EndDevice) devices.get(numberOfDevice)).setReady(status);
     }
 
     void setPortStatusLineA(int numberOfDevice, PortStatus status) {
@@ -122,6 +120,10 @@ class MetaController {
              }
          }*/
         }
+    }
+
+    void connectToAll() {
+        controller.connectToAll(amountOfEd);
     }
 
     public void setDeviceProbability(double deviceProbability) {

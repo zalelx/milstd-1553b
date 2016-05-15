@@ -21,8 +21,9 @@ public class Line {
     void broadcastMessage(Message message) {
         this.message = message;
         TimeLogger.logBroadcast(lineNumber, message.getTime());
-        for (Port port: list) {
-            port.handleMessage();
+        for (Port port : list) {
+            if (port.handleMessage())
+                break;
         }
     }
 

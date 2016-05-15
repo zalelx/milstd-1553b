@@ -2,14 +2,15 @@ package model;
 
 import model.message.*;
 import view.Logging.TimeLogger;
-import java.util.Random;
 
 public class EndDevice implements Device {
     private Port defaultPort;
     private Port reservePort;
     private Port current;
-    private boolean isPreparedToSendInfo = false;
+    private boolean isReady = false;
     private Address controllerAddress = new Address(0);
+    private int dataMessageAmount = 0;
+
 
     public EndDevice(Address address, Line lineA, Line lineB) {
         this.defaultPort = new Port(lineA, this);
@@ -26,28 +27,35 @@ public class EndDevice implements Device {
 
     @Override
     public void handleMessage(Message message, Port port) {
-        TimeLogger.delay(10/*(new Random()).nextInt(8) + 4*/);
-        switch ((Command) message.getStatus()) {
-            case BLOCK:
-                block();
-                break;
-            case UNBLOCK:
-                unblock();
-                break;
-            case GIVE_ANSWER:
-                if (isPreparedToSendInfo)
-                    sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
-                else
-                    sendMessage(new AnswerMessage(controllerAddress, Answer.BUSY));
-                break;
-            case GIVE_INFORMATION:
-                if (isPreparedToSendInfo) {
-                    int amountOfInfoMessages = (new Random()).nextInt(31) + 1;
-                    sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
-                    for (int i = 0; i < amountOfInfoMessages; i++) sendMessage(new DataMessage(controllerAddress));
-                }
-                break;
-
+        if (message.getStatus() instanceof Command) {
+            TimeLogger.delay(12);
+            switch ((Command) message.getStatus()) {
+                case BLOCK:
+                    block();
+                    break;
+                case UNBLOCK:
+                    unblock();
+                    break;
+                case GIVE_ANSWER:
+                    if (isReady)
+                        sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
+                    else
+                        sendMessage(new AnswerMessage(controllerAddress, Answer.BUSY));
+                    break;
+                case GIVE_INFORMATION:
+                    if (isReady) {
+                        sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
+                        for (int i = 0; i < dataMessageAmount; i++) sendMessage(new DataMessage(controllerAddress));
+                    }
+                    break;
+                case PREPARE_TO_RECIEVE:
+                    return;
+            }
+            TimeLogger.delay(12);
+        }
+        if (message instanceof DataMessage && ((DataMessage) message).isEndMessage()) {
+            TimeLogger.delay(12);
+            sendMessage(new AnswerMessage(controllerAddress, isReady ? Answer.READY : Answer.BUSY));
         }
     }
 
@@ -69,7 +77,11 @@ public class EndDevice implements Device {
         current = (current == defaultPort) ? reservePort : defaultPort;
     }
 
-    public void setPreparedToSendInfo(boolean preparedToSendInfo) {
-        isPreparedToSendInfo = preparedToSendInfo;
+    public void setReady(boolean ready) {
+        isReady = ready;
+    }
+
+    public void setDataMessageAmount(int dataMessageAmount) {
+        this.dataMessageAmount = dataMessageAmount;
     }
 }

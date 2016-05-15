@@ -1,20 +1,19 @@
 package model;
 
-import model.message.Answer;
-import model.message.Command;
-import model.message.CommandMessage;
-import model.message.Message;
+import model.message.*;
 import view.Logging.TimeLogger;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-
 
 
 public class Controller implements Device {
     private final AddressBook addressBook;
     private Answer lastAnswer;
     private final Address myAddress = new Address(Address.CONTROLLER_ADDRESS);
+    private List<Address> notResponseAddresses = new ArrayList<>();
+    private int amountOfDataMessages = 2;
 
     public Controller(AddressBook addressBook) {
         this.addressBook = addressBook;
@@ -67,7 +66,7 @@ public class Controller implements Device {
 
     public void testMKO(int amountOfEndDevices) {
         TimeLogger.log("START TEST_MKO", 0);
-        List<Address> notResponseAddresses = new ArrayList<>();//сюда адреса устрйоств помещаем, которые не отвечают
+        notResponseAddresses = new ArrayList<>();
 
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
@@ -86,10 +85,10 @@ public class Controller implements Device {
                         break;
                     }
                 } else {
-                    caseAnswer(address, answer);
+                    caseAnswer(answer);
                 }
             } else {
-                caseAnswer(address, answer);
+                caseAnswer(answer);
             }
         }
 
@@ -100,6 +99,42 @@ public class Controller implements Device {
                 TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE #" + address.getValue(), 0);
             } else {
                 changeLine(address);
+            }
+        }
+        notResponseAddresses.clear();
+    }
+
+    public void connectToAll(int amountOfEndDevices) {
+        TimeLogger.log("START TO BROADCAST", 0);
+
+        for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
+            Address address = new Address(i);
+            Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
+
+            if (answer == null) {
+                TimeLogger.log("NOT RESPONSE ED#" + i, 10);
+                answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
+
+                if (answer == null) {
+                    notResponseAddresses.add(address);
+                    TimeLogger.log("NOT RESPONSE ED#" + i, 0);
+                    if (notResponseAddresses.size() >= 3) {
+                        testMKO(amountOfEndDevices);
+                        notResponseAddresses.clear();
+                    }
+
+                    changeLine(address);
+                }
+            } else {
+                if (caseAnswer(answer)){
+                    sendMessage(new CommandMessage(address, Command.PREPARE_TO_RECIEVE));
+                    for (int j = 0; j < amountOfDataMessages; j++) {
+                        DataMessage dataMessage = new DataMessage(address);
+                        if (j++ == amountOfDataMessages)
+                            dataMessage.setEndMessage(true);
+                        sendMessage(dataMessage);
+                    }
+                }
             }
         }
     }
@@ -127,28 +162,21 @@ public class Controller implements Device {
                     sendMessage(new CommandMessage(address, Command.BLOCK));
                 }
             } else {
-                caseAnswer(address, answer);
+                caseAnswer(answer);
             }
         }
     }
 
-    private void caseAnswer(Address address, Answer answer) {
+    private boolean caseAnswer(Answer answer) {
         switch (answer) {
             case BUSY: {
-                break;
+                return false;
             }
             case READY:
-                sendMessage(new CommandMessage(address, Command.GIVE_INFORMATION));
-                break;
+                return true;
         }
-
+        return false;
     }
-
-
-
-
-
-
 }
 
 
