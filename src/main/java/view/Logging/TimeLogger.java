@@ -55,7 +55,7 @@ public class TimeLogger {
                     textArea.insertText(textArea.getText().length(), formatter.toString());
 
                     if (log instanceof BroadcastEvent){
-                        ChangeColor.SetColor(((BroadcastEvent) log).getLineNumber()); // todo put
+                        ChangeColor.SetColor(((BroadcastEvent) log).getLineNumber());
                     }
                     if (log instanceof MessageEvent){
                         ChangeColor.SetColor(
@@ -76,7 +76,7 @@ public class TimeLogger {
                 }
 
             }
-            logs = new LinkedList<>();
+            logs.clear();
         });
         t.start();
     }

@@ -57,7 +57,7 @@ public class NewMenuController {
 
     @FXML
     public void randomFault(){
-        metaController.randomFault(amountOfED);
+        metaController.randomFault(PortStatus.FAILURE);
     }
 
     @FXML
