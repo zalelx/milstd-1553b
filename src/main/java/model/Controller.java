@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class Controller implements Device {
     private final AddressBook addressBook;
     private Answer lastAnswer;
@@ -73,13 +74,13 @@ public class Controller implements Device {
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
             if (answer == null) {
-                TimeLogger.log("NOT RESPONSE ED#" + i, 0);
+                TimeLogger.log("NOT RESPONSE ED#" + i, 10);
                 answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
                 if (answer == null) {
                     notResponseAddresses.add(address);
                     TimeLogger.log("NOT RESPONSE ED#" + i, 0);
-                    if (notResponseAddresses.size() >= 3) {
+                    if (notResponseAddresses.size() >= amountOfEndDevices) {
                         TimeLogger.log("START SEARCHING GENERATOR", 0);
                         findGenerationObject(amountOfEndDevices);
                         break;
@@ -142,5 +143,15 @@ public class Controller implements Device {
         }
 
     }
+
+
+
+
+
+
 }
+
+
+
+
 

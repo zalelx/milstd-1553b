@@ -29,6 +29,8 @@ public class SetValueController {
         }
     }
 
+
+
     private void showNewMenu() {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/newmenu.fxml"));
         try {

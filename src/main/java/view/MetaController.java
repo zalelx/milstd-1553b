@@ -1,5 +1,6 @@
 package view;
 
+import javafx.fxml.FXML;
 import model.*;
 import view.Logging.TimeLogger;
 
@@ -89,4 +90,56 @@ class MetaController {
                 TimeLogger.logChangePortStatus(numberOfDevice, 2, status);
         }
     }
+
+    PortStatus GenofStatus(){
+        int max=6;
+        PortStatus status;
+        int rand=(int)(Math.random()*max);
+        switch(rand) {
+            case (0):
+                status=PortStatus.DENIAL;
+                return status;
+            case (1):
+                status=PortStatus.FAILURE;
+                return status;
+            case (2):
+                status=PortStatus.GENERATION;
+                return status;
+            default:
+                status=PortStatus.OK;
+                return status;
+        }
+    }
+
+
+     void randomFault(int amountofDevices) {
+            double porog = 0.8;
+
+         // для линии А
+            for (int i = 0; i < amountofDevices; i++) {
+                PortStatus status=GenofStatus();
+                if (status != PortStatus.OK) {
+                     double rand = Math.random();
+                     if (rand > porog)
+                         devices.get(i).getDefaultPort().setStatus(status);
+                         ChangeColor.SetColor(i+1,1,status);
+            }
+        }
+
+         // для линии B
+              for (int i = 0; i < amountofDevices; i++) {
+                 PortStatus status=GenofStatus();
+                 if (status != PortStatus.OK) {
+                    double rand = Math.random();
+                    if (rand > porog)
+                         devices.get(i).getReservePort().setStatus(status);
+                         ChangeColor.SetColor(i+1,2,status);
+             }
+         }
+    }
+
+
+
+
+
 }

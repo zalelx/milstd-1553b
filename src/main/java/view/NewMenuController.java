@@ -56,6 +56,11 @@ public class NewMenuController {
     }
 
     @FXML
+    public void randomFault(){
+        metaController.randomFault(amountOfED);
+    }
+
+    @FXML
     public void testMKO() {
         metaController.testMKO();
         TimeLogger.showLogs();

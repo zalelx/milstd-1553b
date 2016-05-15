@@ -1156,7 +1156,8 @@
             <Separator layoutX="-5.0" layoutY="6.0" orientation="VERTICAL" prefHeight="496.0" prefWidth="14.0" />
          </children>
       </AnchorPane>
-      <Button fx:id="MKObutton" layoutX="23.0" layoutY="298.0" mnemonicParsing="false" onAction="#testMKO" prefHeight="25.0" prefWidth="102.0" text="Тест МКО" />
-      <Button fx:id="SetStatusButton" layoutX="23.0" layoutY="341.0" mnemonicParsing="false" onAction="#setStatus" prefHeight="25.0" prefWidth="102.0" text="Управление ОУ" />
+      <Button fx:id="MKObutton" layoutX="23.0" layoutY="239.0" mnemonicParsing="false" onAction="#testMKO" prefHeight="25.0" prefWidth="102.0" text="Тест МКО" />
+      <Button fx:id="SetStatusButton" layoutX="23.0" layoutY="286.0" mnemonicParsing="false" onAction="#setStatus" prefHeight="25.0" prefWidth="102.0" text="Управление ОУ" />
+      <Button layoutX="23.0" layoutY="336.0" mnemonicParsing="false" onAction="#randomFault" prefHeight="25.0" prefWidth="102.0" text="Случайное " />
    </children>
 </AnchorPane>
