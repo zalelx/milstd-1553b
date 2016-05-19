@@ -4,7 +4,6 @@ import model.message.*;
 import view.Logging.TimeLogger;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -14,6 +13,8 @@ public class Controller implements Device {
     private final Address myAddress = new Address(Address.CONTROLLER_ADDRESS);
     private List<Address> notResponseAddresses = new ArrayList<>();
     private int amountOfDataMessages = 2;
+    private final static int ED_DELAY = EndDevice.ED_DELAY;
+    private final static int CTRL_DELAY = 50;
 
     public Controller(AddressBook addressBook) {
         this.addressBook = addressBook;
@@ -24,7 +25,6 @@ public class Controller implements Device {
     }
 
     public void sendMessage(Message message) {
-        TimeLogger.delay(50);
         addressBook.sendMessage(message);
     }
 
@@ -73,22 +73,22 @@ public class Controller implements Device {
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
             if (answer == null) {
-                TimeLogger.log("NOT RESPONSE ED#" + i, 10);
+                TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
                 answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
                 if (answer == null) {
                     notResponseAddresses.add(address);
-                    TimeLogger.log("NOT RESPONSE ED#" + i, 0);
+                    TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
                     if (notResponseAddresses.size() >= amountOfEndDevices) {
                         TimeLogger.log("START SEARCHING GENERATOR", 0);
                         findGenerationObject(amountOfEndDevices);
                         break;
                     }
                 } else {
-                    caseAnswer(answer);
+                    isEdReady(answer);
                 }
             } else {
-                caseAnswer(answer);
+                isEdReady(answer);
             }
         }
 
@@ -96,9 +96,7 @@ public class Controller implements Device {
             changeLine(address);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
-                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE #" + address.getValue(), 0);
-            } else {
-                changeLine(address);
+                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE #" + address.getValue(), ED_DELAY + CTRL_DELAY);
             }
         }
         notResponseAddresses.clear();
@@ -112,21 +110,20 @@ public class Controller implements Device {
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
             if (answer == null) {
-                TimeLogger.log("NOT RESPONSE ED#" + i, 10);
+                TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
                 answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
                 if (answer == null) {
                     notResponseAddresses.add(address);
-                    TimeLogger.log("NOT RESPONSE ED#" + i, 0);
+                    TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
                     if (notResponseAddresses.size() >= 3) {
                         testMKO(amountOfEndDevices);
                         notResponseAddresses.clear();
                     }
-
                     changeLine(address);
                 }
             } else {
-                if (caseAnswer(answer)){
+                if (isEdReady(answer)) {
                     sendMessage(new CommandMessage(address, Command.PREPARE_TO_RECIEVE));
                     for (int j = 0; j < amountOfDataMessages; j++) {
                         DataMessage dataMessage = new DataMessage(address);
@@ -146,7 +143,8 @@ public class Controller implements Device {
             changeLine(address);
             block(address);
         }
-
+        addressBook.getDefaultPort().setStatus(PortStatus.OK);
+        addressBook.getReservePort().setStatus(PortStatus.OK);
         //включаем поочередно ОУ, причем по первоначальной линии
         for (int i = Address.MIN_ADDRESS; i <= amountOfDevices; i++) {
             Address address = new Address(i);
@@ -155,19 +153,18 @@ public class Controller implements Device {
 
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
-                answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
-                if (answer == null) {
-                    TimeLogger.log("GENERATOR FOUND. ED#" + i, 0);
-                    changeLine(address);
-                    sendMessage(new CommandMessage(address, Command.BLOCK));
-                }
+                TimeLogger.log("GENERATOR FOUND. ED#" + i, ED_DELAY + CTRL_DELAY);
+                changeLine(address);
+                sendMessage(new CommandMessage(address, Command.BLOCK));
+                changeLine(address);
             } else {
-                caseAnswer(answer);
+                isEdReady(answer);
             }
         }
     }
 
-    private boolean caseAnswer(Answer answer) {
+    private boolean isEdReady(Answer answer) {
+        TimeLogger.delay(CTRL_DELAY);
         switch (answer) {
             case BUSY: {
                 return false;
@@ -178,8 +175,3 @@ public class Controller implements Device {
         return false;
     }
 }
-
-
-
-
-

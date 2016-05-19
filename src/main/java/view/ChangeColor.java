@@ -51,15 +51,7 @@ public class ChangeColor {
 
 
     public static void SetColor(int lineNumber) {
-        if (prevLine == 1) {
-            for (Line line : lineA) {
-                line.setStroke(Color.BLACK);
-            }
-        } else {
-            for (Line line : lineB) {
-                line.setStroke(Color.BLACK);
-            }
-        }
+        decolor();
         prevLine = lineNumber;
         if (lineNumber == 1) {
             for (Line line : lineA) {
@@ -74,25 +66,40 @@ public class ChangeColor {
 
     public static void SetColor(int lineNumber, int edNumber) {
         if (edNumber != 0) {
-            AnchorPane numEDbc = (AnchorPane) ED.get(prevEdNumber - 1);
-            List<Node> children = numEDbc.getChildren();
-            AnchorPane ED = (AnchorPane) children.get(prevLine2);
-            List<Node> children1 = ED.getChildren();
-            Rectangle rec = (Rectangle) children1.get(0);
-            rec.setStroke(Color.BLACK);
-            rec.setStrokeWidth(1);
-
+            decolor();
             prevLine2 = lineNumber;
             prevEdNumber = edNumber;
 
             AnchorPane numED = (AnchorPane) ChangeColor.ED.get(edNumber - 1);
-            children = numED.getChildren();
-            ED = (AnchorPane) children.get(lineNumber);
-            children1 = ED.getChildren();
-            rec = (Rectangle) children1.get(0);
+            List<Node> children = numED.getChildren();
+            AnchorPane ED = (AnchorPane) children.get(lineNumber);
+            List<Node> children1 = ED.getChildren();
+            Rectangle rec = (Rectangle) children1.get(0);
             rec.setStroke(Color.BLUEVIOLET);
             rec.setStrokeWidth(3);
         }
+    }
+
+    private static void decolor() {
+        AnchorPane numEDbc = (AnchorPane) ED.get(prevEdNumber - 1);
+        List<Node> children = numEDbc.getChildren();
+        AnchorPane ED = (AnchorPane) children.get(prevLine2);
+        List<Node> children1 = ED.getChildren();
+        Rectangle rec = (Rectangle) children1.get(0);
+        rec.setStroke(Color.BLACK);
+        rec.setStrokeWidth(1);
+
+        if (prevLine == 1) {
+            for (Line line : lineA) {
+                line.setStroke(Color.BLACK);
+            }
+        } else {
+            for (Line line : lineB) {
+                line.setStroke(Color.BLACK);
+            }
+        }
+
+
     }
 
     static void setED(List<Pane> ED) {

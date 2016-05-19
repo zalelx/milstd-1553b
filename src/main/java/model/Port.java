@@ -2,13 +2,16 @@ package model;
 
 
 import model.message.Message;
+import view.ChangeColor;
 import view.Logging.TimeLogger;
+
+import java.util.List;
 
 public class Port {
     private Device device;
     private Line line;
     private PortStatus status = PortStatus.OK;
-
+    private boolean isDenial = false;
     private boolean isGenerator = false;
     private Address myAddress;
 
@@ -34,6 +37,8 @@ public class Port {
     }
 
     public void setStatus(PortStatus status) {
+        if (status.equals(PortStatus.DENIAL))
+            isDenial = true;
         this.status = status;
     }
 
@@ -77,17 +82,35 @@ public class Port {
     }
 
     void unblock() {
-        if (isGenerator)
+        if (isGenerator) {
             status = PortStatus.GENERATION;
-        else {
+            List<Port> ports = line.getPorts();
+            for (int i = 0; i < ports.size(); i++) {
+                ports.get(i).setStatus(PortStatus.GENERATION);
+//                TimeLogger.logChangePortStatus(i, line.lineNumber, PortStatus.GENERATION);
+            }
+        } else if (isDenial) {
+            status = PortStatus.DENIAL;
+            TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
+        } else {
             status = PortStatus.OK;
+            TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
         }
-        TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
     }
 
     void block() {
-        if (status != PortStatus.DENIAL)
-            status = PortStatus.BLOCK;
-        TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
+        if (status != PortStatus.DENIAL) {
+            if (isGenerator) {
+                List<Port> ports = line.getPorts();
+                for (int i = 0; i < ports.size(); i++) {
+                    ports.get(i).setStatus(PortStatus.GENERATION);
+//                TimeLogger.logChangePortStatus(i, line.lineNumber, PortStatus.GENERATION);
+                }
+
+
+                status = PortStatus.BLOCK;
+                TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
+            }
+        }
     }
 }

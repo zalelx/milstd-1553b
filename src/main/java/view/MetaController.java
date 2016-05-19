@@ -45,18 +45,20 @@ class MetaController {
     void setGeneratorLineA(int numberOfDevice) {
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(true);
-        for (int i = 1; i < devices.size(); i++) {
+        for (int i = 0; i < devices.size(); i++) {
             devices.get(i).getDefaultPort().setStatus(PortStatus.GENERATION);
-            ChangeColor.SetColor(numberOfDevice, 1, PortStatus.GENERATION);
+            if (i > 0)
+                ChangeColor.SetColor(i, 1, PortStatus.GENERATION);
         }
     }
 
     void setGeneratorLineB(int numberOfDevice) {
         Port target = devices.get(numberOfDevice).getReservePort();
         target.setGenerator(true);
-        for (int i = 1; i < devices.size(); i++) {
+        for (int i = 0; i < devices.size(); i++) {
             devices.get(i).getReservePort().setStatus(PortStatus.GENERATION);
-            ChangeColor.SetColor(numberOfDevice, 2, PortStatus.GENERATION);
+            if (i > 0)
+                ChangeColor.SetColor(i, 2, PortStatus.GENERATION);
         }
     }
 
@@ -96,16 +98,16 @@ class MetaController {
 
     void randomFault(PortStatus faultStatus) {
         if (faultStatus.equals(PortStatus.GENERATION)) {
-            if (Math.random() >= faultProbability) {
+            if (Math.random() < faultProbability) {
                 setGeneratorLineA((int) (Math.random() * (amountOfEd - 1)));
             }
         } else {
             // для линии А
             for (int i = 1; i <= this.amountOfEd; i++) {
                 PortStatus status = GenofStatus(faultStatus);
-                if (Math.random() > deviceProbability) {
+//                if (Math.random() > deviceProbability) {
                     setPortStatusLineA(i, status);
-                }
+//                }
             }
 /*
 

@@ -56,6 +56,7 @@ public class SetStatusController{
         if (isValid()){
             metaController.setPortStatusLineA(portNumber, parseStatus(LineA));
             metaController.setPortStatusLineB(portNumber, parseStatus(LineB));
+            //metaController.setPreparedToSendInfo();
             stage.close();
         }
     }

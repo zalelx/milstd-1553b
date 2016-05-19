@@ -10,6 +10,8 @@ public class EndDevice implements Device {
     private boolean isReady = false;
     private Address controllerAddress = new Address(0);
     private int dataMessageAmount = 0;
+    public static int ED_DELAY = 12;
+
 
 
     public EndDevice(Address address, Line lineA, Line lineB) {
@@ -27,22 +29,26 @@ public class EndDevice implements Device {
 
     @Override
     public void handleMessage(Message message, Port port) {
+        current = (current == port) ? current : port;
         if (message.getStatus() instanceof Command) {
-            TimeLogger.delay(12);
             switch ((Command) message.getStatus()) {
                 case BLOCK:
+                    TimeLogger.delay(ED_DELAY);
                     block();
                     break;
                 case UNBLOCK:
+                    TimeLogger.delay(ED_DELAY);
                     unblock();
                     break;
                 case GIVE_ANSWER:
+                    TimeLogger.delay(ED_DELAY);
                     if (isReady)
                         sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
                     else
                         sendMessage(new AnswerMessage(controllerAddress, Answer.BUSY));
                     break;
                 case GIVE_INFORMATION:
+                    TimeLogger.delay(ED_DELAY);
                     if (isReady) {
                         sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
                         for (int i = 0; i < dataMessageAmount; i++) sendMessage(new DataMessage(controllerAddress));
@@ -51,10 +57,9 @@ public class EndDevice implements Device {
                 case PREPARE_TO_RECIEVE:
                     return;
             }
-            TimeLogger.delay(12);
         }
         if (message instanceof DataMessage && ((DataMessage) message).isEndMessage()) {
-            TimeLogger.delay(12);
+            TimeLogger.delay(ED_DELAY);
             sendMessage(new AnswerMessage(controllerAddress, isReady ? Answer.READY : Answer.BUSY));
         }
     }
@@ -68,13 +73,11 @@ public class EndDevice implements Device {
     }
 
     private void unblock() {
-        current = (current == defaultPort) ? reservePort : defaultPort;
-        current.unblock();
+        (current == defaultPort ? reservePort : defaultPort).unblock();
     }
 
     private void block() {
-        current.block();
-        current = (current == defaultPort) ? reservePort : defaultPort;
+        (current == defaultPort ? reservePort : defaultPort).block();
     }
 
     public void setReady(boolean ready) {

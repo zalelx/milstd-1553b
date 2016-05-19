@@ -31,6 +31,10 @@ public class Line {
         return message;
     }
 
+    public ArrayList<Port> getPorts() {
+        return list;
+    }
+
     public void setMessage(Message message) {
         this.message = message;
     }
