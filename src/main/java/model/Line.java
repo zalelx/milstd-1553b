@@ -1,7 +1,7 @@
 package model;
 
 import model.message.Message;
-import view.logging.TimeLogger;
+import view.Logging.TimeLogger;
 
 import java.util.ArrayList;
 

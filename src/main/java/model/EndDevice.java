@@ -1,7 +1,7 @@
 package model;
 
 import model.message.*;
-import view.logging.TimeLogger;
+import view.Logging.TimeLogger;
 
 public class EndDevice implements Device {
     private Port defaultPort;

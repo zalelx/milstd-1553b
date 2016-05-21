@@ -1,4 +1,4 @@
-package view.logging;
+package view.Logging;
 
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;

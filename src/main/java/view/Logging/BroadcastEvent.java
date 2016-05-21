@@ -1,4 +1,4 @@
-package view.logging;
+package view.Logging;
 
 
 class BroadcastEvent implements Log {

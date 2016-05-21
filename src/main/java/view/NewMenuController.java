@@ -12,7 +12,7 @@ import javafx.scene.shape.Line;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.PortStatus;
-import view.logging.TimeLogger;
+import view.Logging.TimeLogger;
 
 import java.io.IOException;
 import java.util.ArrayList;
