@@ -6,9 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Port;
 import model.PortStatus;
-import view.Logging.TimeLogger;
 
 
 public class SetStatusController{

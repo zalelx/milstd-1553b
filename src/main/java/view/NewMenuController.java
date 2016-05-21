@@ -1,7 +1,6 @@
 package view;
 
 
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,7 +12,7 @@ import javafx.scene.shape.Line;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.PortStatus;
-import view.Logging.TimeLogger;
+import view.logging.TimeLogger;
 
 import java.io.IOException;
 import java.util.ArrayList;

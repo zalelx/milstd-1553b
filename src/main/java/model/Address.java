@@ -1,6 +1,6 @@
 package model;
 
-import view.Logging.TimeLogger;
+import view.logging.TimeLogger;
 
 public class Address {
     final static int MIN_ADDRESS = 1;

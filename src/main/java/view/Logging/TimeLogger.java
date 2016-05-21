@@ -1,4 +1,4 @@
-package view.Logging;
+package view.logging;
 
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
@@ -12,6 +12,7 @@ import java.util.Queue;
 import static java.lang.Thread.sleep;
 
 public class TimeLogger {
+    private static final long DELAY = 500;
     private static int currentTime = 0;
     private static TextArea textArea;
     private static Queue<Log> logs = new LinkedList<>();
@@ -68,9 +69,15 @@ public class TimeLogger {
                                 ((ChangePortStatusEvent) log).getLineNumber(),
                                 ((ChangePortStatusEvent) log).getPortStatus());
                     }
+                    if (log instanceof GenerationEvent){
+                        ChangeColor.SetColorGeneration(
+                                ((GenerationEvent) log).getLineNumber(),
+                                ((GenerationEvent) log).isHasGeneration()
+                        );
+                    }
                 });
                 try {
-                    sleep(500);
+                    sleep(DELAY);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -79,5 +86,9 @@ public class TimeLogger {
             logs.clear();
         });
         t.start();
+    }
+
+    public static void logGeneration(int lineNumber, boolean hasGeneration) {
+        logs.offer(new GenerationEvent(lineNumber, hasGeneration, currentTime));
     }
 }

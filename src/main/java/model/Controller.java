@@ -1,7 +1,7 @@
 package model;
 
 import model.message.*;
-import view.Logging.TimeLogger;
+import view.logging.TimeLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,7 @@ public class Controller implements Device {
 
     public void testMKO(int amountOfEndDevices) {
         TimeLogger.log("START TEST_MKO", 0);
-        notResponseAddresses = new ArrayList<>();
+//        notResponseAddresses = new ArrayList<>();
 
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
@@ -80,9 +80,9 @@ public class Controller implements Device {
                     notResponseAddresses.add(address);
                     TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
                     if (notResponseAddresses.size() >= amountOfEndDevices) {
+                        notResponseAddresses.clear();
                         TimeLogger.log("START SEARCHING GENERATOR", 0);
                         findGenerationObject(amountOfEndDevices);
-                        break;
                     }
                 } else {
                     isEdReady(answer);
@@ -92,11 +92,13 @@ public class Controller implements Device {
             }
         }
 
+
         for (Address address : notResponseAddresses) {
             changeLine(address);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
-                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE #" + address.getValue(), ED_DELAY + CTRL_DELAY);
+                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE ED#" + address.getValue(), ED_DELAY + CTRL_DELAY);
+                changeLine(address);
             }
         }
         notResponseAddresses.clear();
@@ -143,9 +145,6 @@ public class Controller implements Device {
             changeLine(address);
             block(address);
         }
-        addressBook.getDefaultPort().setStatus(PortStatus.OK);
-        addressBook.getReservePort().setStatus(PortStatus.OK);
-        //включаем поочередно ОУ, причем по первоначальной линии
         for (int i = Address.MIN_ADDRESS; i <= amountOfDevices; i++) {
             Address address = new Address(i);
             unblock(address);
@@ -153,10 +152,16 @@ public class Controller implements Device {
 
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
-                TimeLogger.log("GENERATOR FOUND. ED#" + i, ED_DELAY + CTRL_DELAY);
-                changeLine(address);
-                sendMessage(new CommandMessage(address, Command.BLOCK));
-                changeLine(address);
+                answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
+                if (answer == null) {
+                    TimeLogger.log("GENERATOR FOUND. ED#" + i, ED_DELAY + CTRL_DELAY);
+                    changeLine(address);
+                    sendMessage(new CommandMessage(address, Command.BLOCK));
+                    changeLine(address);
+                    notResponseAddresses.add(address);
+                } else {
+                    isEdReady(answer);
+                }
             } else {
                 isEdReady(answer);
             }

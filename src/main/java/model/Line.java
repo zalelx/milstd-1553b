@@ -1,7 +1,7 @@
 package model;
 
 import model.message.Message;
-import view.Logging.TimeLogger;
+import view.logging.TimeLogger;
 
 import java.util.ArrayList;
 
@@ -9,6 +9,7 @@ public class Line {
     private ArrayList<Port> list = new ArrayList<>();
     private Message message;
     int lineNumber;
+    boolean hasGeneration = false;
 
     public Line(int lineNumber) {
         this.lineNumber = lineNumber;
@@ -19,11 +20,16 @@ public class Line {
     }
 
     void broadcastMessage(Message message) {
-        this.message = message;
-        TimeLogger.logBroadcast(lineNumber, message.getTime());
-        for (Port port : list) {
-            if (port.handleMessage())
-                break;
+        if (!hasGeneration) {
+            this.message = message;
+
+            TimeLogger.logBroadcast(lineNumber, message.getTime());
+            for (Port port : list) {
+                if (port.handleMessage())
+                    break;
+            }
+        } else {
+            TimeLogger.delay(message.getTime());
         }
     }
 
@@ -37,5 +43,10 @@ public class Line {
 
     public void setMessage(Message message) {
         this.message = message;
+    }
+
+    public void hasGeneration(boolean b) {
+        hasGeneration = b;
+        TimeLogger.logGeneration(lineNumber, hasGeneration);
     }
 }

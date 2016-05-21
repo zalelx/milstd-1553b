@@ -45,21 +45,19 @@ class MetaController {
     void setGeneratorLineA(int numberOfDevice) {
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(true);
-        for (int i = 0; i < devices.size(); i++) {
-            devices.get(i).getDefaultPort().setStatus(PortStatus.GENERATION);
-            if (i > 0)
-                ChangeColor.SetColor(i, 1, PortStatus.GENERATION);
-        }
+        target.getLine().hasGeneration(true);
+        ChangeColor.SetColorGeneration(1, true);
     }
 
     void setGeneratorLineB(int numberOfDevice) {
         Port target = devices.get(numberOfDevice).getReservePort();
         target.setGenerator(true);
-        for (int i = 0; i < devices.size(); i++) {
-            devices.get(i).getReservePort().setStatus(PortStatus.GENERATION);
-            if (i > 0)
-                ChangeColor.SetColor(i, 2, PortStatus.GENERATION);
-        }
+        target.getLine().hasGeneration(true);
+//        for (int i = 0; i < devices.size(); i++) {
+//            devices.get(i).getReservePort().setStatus(PortStatus.GENERATION);
+//            if (i > 0)
+//                ChangeColor.SetColor(i, 2, PortStatus.GENERATION);
+//        }
     }
 
     void setPreparedToSendInfo(int numberOfDevice, boolean status) {

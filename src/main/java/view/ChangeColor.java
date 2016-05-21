@@ -113,4 +113,20 @@ public class ChangeColor {
     static void setLineB(List<Line> lineB) {
         ChangeColor.lineB = lineB;
     }
+
+    public static void SetColorGeneration(int lineNumber, boolean hasGeneration) {
+        if (!hasGeneration) {
+            decolor();
+        } else {
+            if (lineNumber == 1) {
+                for (Line line : lineA) {
+                    line.setStroke(Color.PURPLE);
+                }
+            } else {
+                for (Line line : lineB) {
+                    line.setStroke(Color.PURPLE);
+                }
+            }
+        }
+    }
 }
