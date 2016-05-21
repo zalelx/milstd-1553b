@@ -3,6 +3,7 @@ package view;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -17,6 +18,9 @@ public class SetStatusController{
     public ComboBox<String> LineB;
     @FXML
     TextField EdNumberField;
+
+    @FXML
+    CheckBox busy;
 
     private int portNumber;
     Stage stage;
@@ -54,7 +58,9 @@ public class SetStatusController{
         if (isValid()){
             metaController.setPortStatusLineA(portNumber, parseStatus(LineA));
             metaController.setPortStatusLineB(portNumber, parseStatus(LineB));
-            //metaController.setPreparedToSendInfo();
+            if(busy.isSelected())
+                metaController.setPreparedToSendInfo(portNumber,false);
+            else metaController.setPreparedToSendInfo(portNumber,true);
             stage.close();
         }
     }
