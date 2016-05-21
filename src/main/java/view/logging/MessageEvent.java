@@ -1,4 +1,4 @@
-package view.Logging;
+package view.logging;
 
 class MessageEvent implements Log {
     private final int EdNumber;

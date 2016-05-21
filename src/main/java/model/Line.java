@@ -1,7 +1,7 @@
 package model;
 
 import model.message.Message;
-import view.Logging.TimeLogger;
+import view.logging.TimeLogger;
 
 import java.util.ArrayList;
 
@@ -45,8 +45,8 @@ public class Line {
         this.message = message;
     }
 
-    public void hasGeneration(boolean b) {
+    public void hasGeneration(boolean b, int numberOfGenerator) {
         hasGeneration = b;
-        TimeLogger.logGeneration(lineNumber, hasGeneration);
+        TimeLogger.logGeneration(lineNumber, hasGeneration, numberOfGenerator);
     }
 }

@@ -1,13 +1,8 @@
 package view;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.PortStatus;
 
 
 public class SetRandomController {
@@ -49,7 +44,7 @@ public class SetRandomController {
         double denialProb = Double.parseDouble(s4);
         String s5 = probability.getText();
         double prob = Double.parseDouble(s5);
-        metaController.PerformTests(num,generationProb,faultProb,denialProb,prob);
+        metaController.performTests(num,generationProb,faultProb,denialProb,prob);
         stage.close();
 
 

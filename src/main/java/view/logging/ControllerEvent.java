@@ -1,4 +1,4 @@
-package view.Logging;
+package view.logging;
 
 class ControllerEvent implements Log {
     private final int time;

@@ -1,4 +1,4 @@
-package view.Logging;
+package view.logging;
 
 import model.PortStatus;
 

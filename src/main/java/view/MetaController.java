@@ -1,7 +1,7 @@
 package view;
 
 import model.*;
-import view.Logging.TimeLogger;
+import view.logging.TimeLogger;
 
 import java.util.ArrayList;
 
@@ -46,14 +46,14 @@ class MetaController {
     void setGeneratorLineA(int numberOfDevice) {
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(true);
-        target.getLine().hasGeneration(true);
+        target.getLine().hasGeneration(true, numberOfDevice);
         ChangeColor.SetColorGeneration(1, true);
     }
 
     void setGeneratorLineB(int numberOfDevice) {
         Port target = devices.get(numberOfDevice).getReservePort();
         target.setGenerator(true);
-        target.getLine().hasGeneration(true);
+        target.getLine().hasGeneration(true, numberOfDevice);
 //        for (int i = 0; i < devices.size(); i++) {
 //            devices.get(i).getReservePort().setStatus(PortStatus.GENERATION);
 //            if (i > 0)
@@ -73,7 +73,7 @@ class MetaController {
                 break;
             default:
                 devices.get(numberOfDevice).getDefaultPort().setStatus(status);
-                ChangeColor.SetColor(numberOfDevice, 1, status);
+//                ChangeColor.SetColor(numberOfDevice, 1, status);
         }
     }
 
@@ -133,24 +133,27 @@ class MetaController {
     public void initTest(double generationProbability, double faultProbability, double denialProbability, double probability) {
         double rand = Math.random();
         if (rand < generationProbability) {
+//            TimeLogger.logGeneration(1, true);
             setGeneratorLineA((int) (Math.random() * (amountOfEd - 1)));
-        }
-        PortStatus status;
-        if (rand > generationProbability && rand < (generationProbability + faultProbability)) {
-            status = PortStatus.FAILURE;
-        } else /*(rand > (generationProbability + faultProbability))*/ {
-            status = PortStatus.DENIAL;
-        }
+        } else {
+            PortStatus status = PortStatus.BLOCK;
+            if (rand >= generationProbability && rand < (generationProbability + faultProbability)) {
+                status = PortStatus.FAILURE;
+            } else /*(rand > (generationProbability + faultProbability)) */{
+                status = PortStatus.DENIAL;
+            }
 
-        for (int i = 1; i <= this.amountOfEd; i++) {
-            double edRand = Math.random();
-            if (edRand < probability) {
-                TimeLogger.logChangePortStatus(i, 1, status);
+            for (int i = 1; i <= this.amountOfEd; i++) {
+                double edRand = Math.random();
+                if (edRand < probability) {
+                    setPortStatusLineA(i, status);
+                    TimeLogger.logChangePortStatus(i, 1, status);
+                }
             }
         }
     }
 
-    public void PerformTests(int amountOfTests, double generationProbability, double faultProbability, double denialProbability, double probability) {
+    public void performTests(int amountOfTests, double generationProbability, double faultProbability, double denialProbability, double probability) {
         for (int j = 1; j <= amountOfTests; j++) {
             initTest(generationProbability, faultProbability, denialProbability, probability);
             connectToAll();

@@ -2,7 +2,7 @@ package model;
 
 
 import model.message.Message;
-import view.Logging.TimeLogger;
+import view.logging.TimeLogger;
 
 public class Port {
     private Device device;
@@ -76,7 +76,7 @@ public class Port {
         isBlocked = false;
         TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
         if (isGenerator)
-            line.hasGeneration(true);
+            line.hasGeneration(true, myAddress.getValue());
 //        if (isGenerator) {
 //            status = PortStatus.GENERATION;
 //            List<Port> ports = line.getPorts();
@@ -97,7 +97,7 @@ public class Port {
         isBlocked = true;
         TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, PortStatus.BLOCK);
         if (isGenerator)
-            line.hasGeneration(false);
+            line.hasGeneration(false, myAddress.getValue());
 
 //
 //        if (status != PortStatus.DENIAL) {

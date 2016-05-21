@@ -1,7 +1,7 @@
 package model;
 
 import model.message.*;
-import view.Logging.TimeLogger;
+import view.logging.TimeLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,7 @@ public class Controller implements Device {
 
     public void testMKO(int amountOfEndDevices) {
         TimeLogger.log("START TEST_MKO", 0);
-//        notResponseAddresses = new ArrayList<>();
+        notResponseAddresses.clear();
 
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
@@ -122,7 +122,6 @@ public class Controller implements Device {
                         testMKO(amountOfEndDevices);
                         notResponseAddresses.clear();
                     }
-                    changeLine(address);
                 }
             } else {
                 if (isEdReady(answer)) {

@@ -1,4 +1,4 @@
-package view.Logging;
+package view.logging;
 
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
@@ -92,8 +92,8 @@ public class TimeLogger {
         t.start();
     }
 
-    public static void logGeneration(int lineNumber, boolean hasGeneration) {
-        logs.offer(new GenerationEvent(lineNumber, hasGeneration, currentTime));
+    public static void logGeneration(int lineNumber, boolean hasGeneration, int numberOfGenerator) {
+        logs.offer(new GenerationEvent(lineNumber, hasGeneration, numberOfGenerator, currentTime));
     }
 
     public static void logStart(int amountOfEd) {

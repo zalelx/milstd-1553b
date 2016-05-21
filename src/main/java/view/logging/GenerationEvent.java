@@ -1,4 +1,4 @@
-package view.Logging;
+package view.logging;
 
 class GenerationEvent implements Log {
     private final int lineNumber;
@@ -7,11 +7,11 @@ class GenerationEvent implements Log {
     private int time;
 
 
-    GenerationEvent(int lineNumber, boolean hasGeneration, int currentTime) {
+    GenerationEvent(int lineNumber, boolean hasGeneration, int numberOfGenerator, int currentTime) {
         this.time = currentTime;
         this.lineNumber = lineNumber;
         this.hasGeneration = hasGeneration;
-        this.message = "Generation " + (hasGeneration ? "appeared" : "disappeared") + " at line #" + lineNumber;
+        this.message = "Generation " + (hasGeneration ? "appeared" : "disappeared") + " at line #" + lineNumber + " ED# " + numberOfGenerator;
     }
 
     @Override
