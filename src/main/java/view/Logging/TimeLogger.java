@@ -69,6 +69,10 @@ public class TimeLogger {
                                 ((ChangePortStatusEvent) log).getLineNumber(),
                                 ((ChangePortStatusEvent) log).getPortStatus());
                     }
+                    if (log instanceof StartEvent) {
+                        ChangeColor.decolor();
+                    }
+
                     if (log instanceof GenerationEvent){
                         ChangeColor.SetColorGeneration(
                                 ((GenerationEvent) log).getLineNumber(),
@@ -90,5 +94,13 @@ public class TimeLogger {
 
     public static void logGeneration(int lineNumber, boolean hasGeneration) {
         logs.offer(new GenerationEvent(lineNumber, hasGeneration, currentTime));
+    }
+
+    public static void logStart(int amountOfEd) {
+        currentTime = 0;
+        logs.offer(new StartEvent(currentTime));
+        for (int i = 1; i <= amountOfEd; i++) {
+            logChangePortStatus(i, 1, PortStatus.OK);
+        }
     }
 }

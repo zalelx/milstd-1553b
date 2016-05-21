@@ -1,13 +1,14 @@
 package view;
 
 import model.*;
+import view.logging.TimeLogger;
 
 import java.util.ArrayList;
 
 class MetaController {
     private Controller controller;
     private ArrayList<Device> devices;
-    private int amountOfEd;
+    public int amountOfEd;
     private double faultProbability = 0.8;
     private double deviceProbability = 0.5;
 
@@ -104,21 +105,10 @@ class MetaController {
             for (int i = 1; i <= this.amountOfEd; i++) {
                 PortStatus status = GenofStatus(faultStatus);
 //                if (Math.random() > deviceProbability) {
-                    setPortStatusLineA(i, status);
+                setPortStatusLineA(i, status);
 //                }
             }
-/*
 
-         // для линии B
-              for (int i = 0; i < this.amountOfEd; i++) {
-                 PortStatus status=GenofStatus();
-                 if (status != PortStatus.OK) {
-                    double rand = Math.random();
-                    if (rand > porog)
-                         devices.get(i).getReservePort().setStatus(status);
-                         ChangeColor.SetColor(i+1,2,status);
-             }
-         }*/
         }
     }
 
@@ -139,4 +129,39 @@ class MetaController {
         else
             this.faultProbability = faultProbability;
     }
+
+    public void initTest(double generationProbability, double faultProbability, double denialProbability, double probability) {
+        double rand = Math.random();
+        if (rand < generationProbability) {
+            setGeneratorLineA((int) (Math.random() * (amountOfEd - 1)));
+        }
+        PortStatus status;
+        if (rand > generationProbability && rand < (generationProbability + faultProbability)) {
+            status = PortStatus.FAILURE;
+        } else /*(rand > (generationProbability + faultProbability))*/ {
+            status = PortStatus.DENIAL;
+        }
+
+        for (int i = 1; i <= this.amountOfEd; i++) {
+            double edRand = Math.random();
+            if (edRand < probability) {
+                TimeLogger.logChangePortStatus(i, 1, status);
+            }
+        }
+    }
+
+    public void PerformTests(int amountOfTests, double generationProbability, double faultProbability, double denialProbability, double probability) {
+        for (int j = 1; j <= amountOfTests; j++) {
+            initTest(generationProbability, faultProbability, denialProbability, probability);
+            connectToAll();
+            //for (int i = 1; i <= amountOfEd; i++) {
+            //     setPortStatusLineA(i, PortStatus.OK);
+            // }
+            TimeLogger.logStart(amountOfEd);
+            init(amountOfEd);
+        }
+        TimeLogger.showLogs();
+    }
+
 }
+

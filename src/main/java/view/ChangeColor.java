@@ -23,7 +23,7 @@ public class ChangeColor {
     private static int prevEdNumber = 1;
 
     public static void SetColor(int number_ED, int number_Line, PortStatus status) {
-        AnchorPane numED = (AnchorPane) ED.get(number_ED - 1);
+        AnchorPane numED = (AnchorPane) ED.get(number_ED);
         List<Node> children = numED.getChildren();
         AnchorPane ED = (AnchorPane) children.get(number_Line);
 
@@ -65,23 +65,23 @@ public class ChangeColor {
     }
 
     public static void SetColor(int lineNumber, int edNumber) {
-        if (edNumber != 0) {
+
             decolor();
             prevLine2 = lineNumber;
             prevEdNumber = edNumber;
 
-            AnchorPane numED = (AnchorPane) ChangeColor.ED.get(edNumber - 1);
+            AnchorPane numED = (AnchorPane) ChangeColor.ED.get(edNumber);
             List<Node> children = numED.getChildren();
             AnchorPane ED = (AnchorPane) children.get(lineNumber);
             List<Node> children1 = ED.getChildren();
             Rectangle rec = (Rectangle) children1.get(0);
             rec.setStroke(Color.BLUEVIOLET);
             rec.setStrokeWidth(3);
-        }
+
     }
 
-    private static void decolor() {
-        AnchorPane numEDbc = (AnchorPane) ED.get(prevEdNumber - 1);
+    public static void decolor() {
+        AnchorPane numEDbc = (AnchorPane) ED.get(prevEdNumber);
         List<Node> children = numEDbc.getChildren();
         AnchorPane ED = (AnchorPane) children.get(prevLine2);
         List<Node> children1 = ED.getChildren();
