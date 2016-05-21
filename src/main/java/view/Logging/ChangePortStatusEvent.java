@@ -1,7 +1,6 @@
-package view.Logging;
+package view.logging;
 
 import model.PortStatus;
-import view.Logging.Log;
 
 class ChangePortStatusEvent implements Log {
     private final int time;
@@ -11,7 +10,7 @@ class ChangePortStatusEvent implements Log {
     private final int lineNumber;
 
     public ChangePortStatusEvent(int EdNumber, int lineNumber, PortStatus status, int currentTime) {
-        this.message = "Port #" + EdNumber + " line #" + lineNumber + " status changed" + status.name();
+        this.message = "Port #" + EdNumber + " line #" + lineNumber + " status changed " + status.name();
         this.time = currentTime;
         this.EdNumber = EdNumber;
         this.lineNumber = lineNumber;
