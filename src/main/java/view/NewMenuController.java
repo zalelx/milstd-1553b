@@ -57,7 +57,19 @@ public class NewMenuController {
 
     @FXML
     public void randomFault(){
-        metaController.randomFault(PortStatus.FAILURE); // todo добавить выбор
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/SetRandom.fxml"));
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(loader.load()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setResizable(false);
+        stage.initOwner(this.stage);
+        stage.initModality(Modality.WINDOW_MODAL);
+        ((SetRandomController) loader.getController()).setMetaController(metaController);
+        ((SetRandomController) loader.getController()).setStage(stage);
+        stage.showAndWait();
     }
 
     @FXML
@@ -78,7 +90,7 @@ public class NewMenuController {
         boolean isA = true;
         for (Node node : children) {
             if (node instanceof AnchorPane) {
-                if (EDPanes.size() < amountOfED)
+                if (EDPanes.size() <= amountOfED)
                     EDPanes.add((Pane) node);
                 else
                     node.setVisible(false);

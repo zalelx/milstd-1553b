@@ -43,7 +43,7 @@ public class SetStatusController{
         String a = EdNumberField.getText();
         try {
             portNumber = Integer.parseInt(a);
-            if (portNumber > 32 || portNumber < 0) {
+            if (portNumber > metaController.amountOfEd || portNumber <= 0) {
                 throw new NumberFormatException();
             }
             return true;
