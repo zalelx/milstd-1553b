@@ -1,4 +1,4 @@
-package view.logging;
+package view.Logging;
 
 /**
  * Created by Зфслфкв Иудд on 21.05.2016.

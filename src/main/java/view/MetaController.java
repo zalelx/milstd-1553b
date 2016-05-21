@@ -1,7 +1,7 @@
 package view;
 
 import model.*;
-import view.logging.TimeLogger;
+import view.Logging.TimeLogger;
 
 import java.util.ArrayList;
 
