@@ -47,7 +47,7 @@ class MetaController {
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(true);
         target.getLine().hasGeneration(true, numberOfDevice);
-        ChangeColor.SetColorGeneration(1, true);
+//        ChangeColor.SetColorGeneration(1, true);
     }
 
     void setGeneratorLineB(int numberOfDevice) {

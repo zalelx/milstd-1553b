@@ -35,6 +35,7 @@ public class Port {
 
     public void setStatus(PortStatus status) {
         this.status = status;
+        TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
     }
 
     public Line getLine() {

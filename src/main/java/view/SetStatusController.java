@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.PortStatus;
+import view.logging.TimeLogger;
 
 
 public class SetStatusController{
@@ -61,6 +62,7 @@ public class SetStatusController{
             if(busy.isSelected())
                 metaController.setPreparedToSendInfo(portNumber,false);
             else metaController.setPreparedToSendInfo(portNumber,true);
+//            TimeLogger.showLogs();
             stage.close();
         }
     }
