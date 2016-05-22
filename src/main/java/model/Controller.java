@@ -61,6 +61,7 @@ public class Controller implements Device {
         addressBook.getDefaultPort().getLine().setMessage(null);
         addressBook.getReservePort().getLine().setMessage(null);
         this.lastAnswer = null;
+        TimeLogger.delay(CTRL_DELAY);
         return ret;
     }
 
@@ -168,7 +169,6 @@ public class Controller implements Device {
     }
 
     private boolean isEdReady(Answer answer) {
-        TimeLogger.delay(CTRL_DELAY);
         switch (answer) {
             case BUSY: {
                 return false;
