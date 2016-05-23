@@ -44,7 +44,7 @@ public class SetStatusController{
         String a = EdNumberField.getText();
         try {
             portNumber = Integer.parseInt(a);
-            if (portNumber > metaController.amountOfEd || portNumber <= 0) {
+            if (portNumber > metaController.amountOfEd || portNumber < 0) {
                 throw new NumberFormatException();
             }
             return true;
@@ -56,13 +56,12 @@ public class SetStatusController{
 
     @FXML
     void OkClicked(){
-        if (isValid()){
+        if (isValid()) {
             metaController.setPortStatusLineA(portNumber, parseStatus(LineA));
             metaController.setPortStatusLineB(portNumber, parseStatus(LineB));
             if(busy.isSelected())
                 metaController.setPreparedToSendInfo(portNumber,false);
             else metaController.setPreparedToSendInfo(portNumber,true);
-//            TimeLogger.showLogs();
             stage.close();
         }
     }

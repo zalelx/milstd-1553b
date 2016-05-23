@@ -47,23 +47,17 @@ class MetaController {
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(true);
         target.getLine().hasGeneration(true, numberOfDevice);
-//        ChangeColor.SetColorGeneration(1, true);
     }
 
     void setGeneratorLineB(int numberOfDevice) {
         Port target = devices.get(numberOfDevice).getReservePort();
         target.setGenerator(true);
         target.getLine().hasGeneration(true, numberOfDevice);
-//        for (int i = 0; i < devices.size(); i++) {
-//            devices.get(i).getReservePort().setStatus(PortStatus.GENERATION);
-//            if (i > 0)
-//                ChangeColor.SetColor(i, 2, PortStatus.GENERATION);
-//        }
     }
 
     void setPreparedToSendInfo(int numberOfDevice, boolean status) {
-        //numberOfDevice--;
-        ((EndDevice) devices.get(numberOfDevice)).setReady(status);
+        if (numberOfDevice > 0)
+            ((EndDevice) devices.get(numberOfDevice)).setReady(status);
     }
 
     void setPortStatusLineA(int numberOfDevice, PortStatus status) {
@@ -73,7 +67,6 @@ class MetaController {
                 break;
             default:
                 devices.get(numberOfDevice).getDefaultPort().setStatus(status);
-//                ChangeColor.SetColor(numberOfDevice, 1, status);
         }
     }
 
@@ -108,7 +101,6 @@ class MetaController {
                 setPortStatusLineA(i, status);
 //                }
             }
-
         }
     }
 
@@ -133,13 +125,12 @@ class MetaController {
     public void initTest(double generationProbability, double faultProbability, double denialProbability, double probability) {
         double rand = Math.random();
         if (rand < generationProbability) {
-//            TimeLogger.logGeneration(1, true);
             setGeneratorLineA((int) (Math.random() * (amountOfEd - 1)));
         } else {
-            PortStatus status = PortStatus.BLOCK;
+            PortStatus status;
             if (rand >= generationProbability && rand < (generationProbability + faultProbability)) {
                 status = PortStatus.FAILURE;
-            } else /*(rand > (generationProbability + faultProbability)) */{
+            } else{
                 status = PortStatus.DENIAL;
             }
 
@@ -157,9 +148,6 @@ class MetaController {
         for (int j = 1; j <= amountOfTests; j++) {
             initTest(generationProbability, faultProbability, denialProbability, probability);
             connectToAll();
-            //for (int i = 1; i <= amountOfEd; i++) {
-            //     setPortStatusLineA(i, PortStatus.OK);
-            // }
             TimeLogger.logStart(amountOfEd);
             init(amountOfEd);
         }

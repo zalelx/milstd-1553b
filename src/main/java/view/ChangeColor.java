@@ -65,7 +65,6 @@ public class ChangeColor {
     }
 
     public static void SetColor(int lineNumber, int edNumber) {
-
             decolor();
             prevLine2 = lineNumber;
             prevEdNumber = edNumber;

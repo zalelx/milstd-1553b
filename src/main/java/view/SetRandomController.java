@@ -46,8 +46,6 @@ public class SetRandomController {
         double prob = Double.parseDouble(s5);
         metaController.performTests(num,generationProb,faultProb,denialProb,prob);
         stage.close();
-
-
     }
 
 

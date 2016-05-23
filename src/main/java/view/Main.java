@@ -18,7 +18,5 @@ public class Main extends Application{
 
     public static void main(String[] args) {
         launch(args);
-        //MetaController metaController = new MetaController();
-        //metaController.init(4);
     }
 }

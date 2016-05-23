@@ -72,14 +72,13 @@ public class Controller implements Device {
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
-
             if (answer == null) {
-                TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
+                TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
                 answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
                 if (answer == null) {
                     notResponseAddresses.add(address);
-                    TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
+                    TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
                     if (notResponseAddresses.size() >= amountOfEndDevices) {
                         notResponseAddresses.clear();
                         TimeLogger.log("START SEARCHING GENERATOR", 0);
@@ -98,7 +97,7 @@ public class Controller implements Device {
             changeLine(address);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
-                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE ED#" + address.getValue(), ED_DELAY + CTRL_DELAY);
+                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE ED#" + address.getValue(), ED_DELAY );
                 changeLine(address);
             }
         }
@@ -111,7 +110,6 @@ public class Controller implements Device {
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
-
             if (answer == null) {
                 TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
                 answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
@@ -152,9 +150,11 @@ public class Controller implements Device {
 
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
+
+                TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
                 answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
                 if (answer == null) {
-                    TimeLogger.log("GENERATOR FOUND. ED#" + i, ED_DELAY + CTRL_DELAY);
+                    TimeLogger.log("GENERATOR FOUND. ED#" + i, ED_DELAY);
                     changeLine(address);
                     sendMessage(new CommandMessage(address, Command.BLOCK));
                     changeLine(address);

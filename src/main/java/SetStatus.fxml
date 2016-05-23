@@ -32,11 +32,11 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text layoutX="16.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Занятость ">
+      <Text layoutX="16.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Занятость " visible="false">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <CheckBox fx:id="busy" layoutX="201.0" layoutY="161.0" mnemonicParsing="false" />
+      <CheckBox fx:id="busy" layoutX="201.0" layoutY="161.0" mnemonicParsing="false" selected="true" visible="false" />
    </children>
 </AnchorPane>
