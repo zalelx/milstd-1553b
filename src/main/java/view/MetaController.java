@@ -124,25 +124,28 @@ class MetaController {
 
     public void initTest(double generationProbability, double faultProbability, double denialProbability, double probability) {
         double rand = Math.random();
-        if (rand < generationProbability) {
-            setGeneratorLineA((int) (Math.random() * (amountOfEd - 1)));
-        } else {
-            PortStatus status;
-            if (rand >= generationProbability && rand < (generationProbability + faultProbability)) {
-                status = PortStatus.FAILURE;
-            } else{
-                status = PortStatus.DENIAL;
-            }
-
-            for (int i = 1; i <= this.amountOfEd; i++) {
-                double edRand = Math.random();
-                if (edRand < probability) {
+        boolean wasGeneration = false;
+        PortStatus status;
+        for (int i = 1; i <= this.amountOfEd; i++) {
+            rand = Math.random();
+            if (rand < probability) {
+                rand = Math.random();
+                if (rand < generationProbability && !wasGeneration) {
+                    setGeneratorLineA(i);
+                    wasGeneration = true;
+                } else {
+                    if (rand >= generationProbability && rand < (generationProbability + faultProbability)) {
+                        status = PortStatus.FAILURE;
+                    } else {
+                        status = PortStatus.DENIAL;
+                    }
                     setPortStatusLineA(i, status);
                     TimeLogger.logChangePortStatus(i, 1, status);
                 }
             }
         }
     }
+
 
     public void performTests(int amountOfTests, double generationProbability, double faultProbability, double denialProbability, double probability) {
         for (int j = 1; j <= amountOfTests; j++) {
