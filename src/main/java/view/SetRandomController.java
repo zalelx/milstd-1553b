@@ -44,7 +44,7 @@ public class SetRandomController {
         double denialProb = Double.parseDouble(s4);
         String s5 = probability.getText();
         double prob = Double.parseDouble(s5);
-        metaController.performTests(num,generationProb,faultProb,denialProb,prob);
+        metaController.performTests(num,generationProb,faultProb, prob, false);
         stage.close();
     }
 

@@ -5,6 +5,7 @@ import javafx.scene.control.TextArea;
 import model.PortStatus;
 import view.ChangeColor;
 
+import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -16,6 +17,11 @@ public class TimeLogger {
     private static int currentTime = 0;
     private static TextArea textArea;
     private static Queue<Log> logs = new LinkedList<>();
+    private static int amountOfDenials = 0;
+    private static int amountOfFaults = 0;
+    private static int amountOfGenerations = 0;
+    private static ArrayList<Integer> times = new ArrayList<>();
+
 
     public static void log(String string, int time) {
         delay(time);
@@ -96,11 +102,28 @@ public class TimeLogger {
         logs.offer(new GenerationEvent(lineNumber, hasGeneration, numberOfGenerator, currentTime));
     }
 
-    public static void logStart(int amountOfEd) {
+    public static void logStart(int amountOfEd, Integer generations, Integer faluts, Integer denials) {
+        times.add(currentTime);
         currentTime = 0;
+        amountOfDenials += denials;
+        amountOfFaults += faluts;
+        amountOfGenerations += generations;
+
         logs.offer(new StartEvent(currentTime));
         for (int i = 1; i <= amountOfEd; i++) {
             logChangePortStatus(i, 1, PortStatus.OK);
         }
+    }
+
+    public static void endTest() {
+        double sum = 0;
+        for (Integer i: times) {
+            sum += i;
+        }
+        System.out.println(sum / times.size());
+        System.out.println("Tests " + times.size());
+        System.out.println("Faults " + amountOfFaults);
+        System.out.println("Denials " + amountOfDenials);
+        System.out.println("Generations " + amountOfGenerations);
     }
 }

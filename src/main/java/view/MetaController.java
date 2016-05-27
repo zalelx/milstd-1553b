@@ -122,8 +122,12 @@ class MetaController {
             this.faultProbability = faultProbability;
     }
 
-    public void initTest(double generationProbability, double faultProbability, double denialProbability, double probability) {
-        double rand = Math.random();
+    public ArrayList<Integer> initTest(double generationProbability, double faultProbability, double probability) {
+        double rand;
+        ArrayList<Integer> resultList = new ArrayList<>(3);
+        resultList.add(0);
+        resultList.add(0);
+        resultList.add(0);
         boolean wasGeneration = false;
         PortStatus status;
         for (int i = 1; i <= this.amountOfEd; i++) {
@@ -133,29 +137,34 @@ class MetaController {
                 if (rand < generationProbability && !wasGeneration) {
                     setGeneratorLineA(i);
                     wasGeneration = true;
+                    resultList.set(0, resultList.get(0) + 1);
                 } else {
                     if (rand >= generationProbability && rand < (generationProbability + faultProbability)) {
                         status = PortStatus.FAILURE;
+                        resultList.set(1, resultList.get(1) + 1);
                     } else {
                         status = PortStatus.DENIAL;
+                        resultList.set(2, resultList.get(2) + 1);
                     }
                     setPortStatusLineA(i, status);
-                    TimeLogger.logChangePortStatus(i, 1, status);
+//                    TimeLogger.logChangePortStatus(i, 1, status);
                 }
             }
         }
+        return resultList;
     }
 
-
-    public void performTests(int amountOfTests, double generationProbability, double faultProbability, double denialProbability, double probability) {
+    public void performTests(int amountOfTests, double generationProbability, double faultProbability, double probability, boolean isShortLogs) {
         for (int j = 1; j <= amountOfTests; j++) {
-            initTest(generationProbability, faultProbability, denialProbability, probability);
+            ArrayList<Integer> result = initTest(generationProbability, faultProbability, probability);
             connectToAll();
-            TimeLogger.logStart(amountOfEd);
+            TimeLogger.logStart(amountOfEd, result.get(0), result.get(1), result.get(2));
             init(amountOfEd);
         }
-        TimeLogger.showLogs();
+        if (!isShortLogs){
+            TimeLogger.showLogs();
+        }
+        TimeLogger.endTest();
     }
-
 }
 
