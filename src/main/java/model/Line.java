@@ -9,7 +9,7 @@ public class Line {
     private ArrayList<Port> list = new ArrayList<>();
     private Message message;
     int lineNumber;
-    boolean hasGeneration = false;
+    private boolean hasGeneration = false;
 
     public Line(int lineNumber) {
         this.lineNumber = lineNumber;

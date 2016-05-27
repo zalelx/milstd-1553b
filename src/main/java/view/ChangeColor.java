@@ -21,6 +21,9 @@ public class ChangeColor {
     private static int prevLine;
     private static int prevLine2 = 1;
     private static int prevEdNumber = 1;
+    private static Color defaultColorLine1 = Color.BLACK;
+    private static Color defaultColorLine2 = Color.BLACK;
+
 
     public static void SetColor(int number_ED, int number_Line, PortStatus status) {
         AnchorPane numED = (AnchorPane) ED.get(number_ED);
@@ -90,11 +93,11 @@ public class ChangeColor {
 
         if (prevLine == 1) {
             for (Line line : lineA) {
-                line.setStroke(Color.BLACK);
+                line.setStroke(defaultColorLine1);
             }
         } else {
             for (Line line : lineB) {
-                line.setStroke(Color.BLACK);
+                line.setStroke(defaultColorLine2);
             }
         }
 
@@ -115,17 +118,20 @@ public class ChangeColor {
 
     public static void SetColorGeneration(int lineNumber, boolean hasGeneration) {
         if (!hasGeneration) {
-            decolor();
-        } else {
-            if (lineNumber == 1) {
-                for (Line line : lineA) {
-                    line.setStroke(Color.PURPLE);
-                }
+            if (lineNumber == 1){
+                defaultColorLine1 = Color.BLACK;
             } else {
-                for (Line line : lineB) {
-                    line.setStroke(Color.PURPLE);
-                }
+                defaultColorLine2 = Color.BLACK;
+            }
+        } else {
+            if (lineNumber == 1){
+                defaultColorLine1 = Color.PURPLE;
+            } else {
+                defaultColorLine2 = Color.PURPLE;
             }
         }
+        prevLine = lineNumber;
+        decolor();
     }
+
 }
