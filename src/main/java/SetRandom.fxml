@@ -6,10 +6,10 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="456.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SetRandomController">
+<AnchorPane prefHeight="569.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SetRandomController">
    <children>
-      <Button layoutX="20.0" layoutY="394.0" mnemonicParsing="false" onAction="#OkClicked" prefHeight="36.0" prefWidth="150.0" text="OK" />
-      <Button layoutX="349.0" layoutY="394.0" mnemonicParsing="false" onAction="#CancelClicked" prefHeight="36.0" prefWidth="150.0" text="Отмена" />
+      <Button layoutX="20.0" layoutY="515.0" mnemonicParsing="false" onAction="#OkClicked" prefHeight="36.0" prefWidth="150.0" text="OK" />
+      <Button layoutX="347.0" layoutY="508.0" mnemonicParsing="false" onAction="#CancelClicked" prefHeight="36.0" prefWidth="150.0" text="Отмена" />
       <TextField fx:id="denialProbability" layoutX="334.0" layoutY="262.0" prefHeight="25.0" prefWidth="65.0" />
       <Text layoutX="121.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Задание параметров" wrappingWidth="259.30859375">
          <font>
@@ -50,5 +50,12 @@
             <Image url="@1.jpg" />
          </image>
       </ImageView>
+      <Text layoutX="20.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество слов данных" wrappingWidth="259.30859375">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <TextField fx:id="AmountOfDataMessages" layoutX="334.0" layoutY="383.0" prefHeight="25.0" prefWidth="65.0" />
+      <CheckBox layoutX="213.0" layoutY="432.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" text="Короткие логи" />
    </children>
 </AnchorPane>
