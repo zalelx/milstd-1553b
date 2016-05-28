@@ -23,7 +23,7 @@ public class SetStatusController{
     CheckBox busy;
 
     private int portNumber;
-    Stage stage;
+    private Stage stage;
 
     private ObservableList<String> statuses = FXCollections.observableArrayList("Исправен", "Заблокирован", "Отказ", "Сбой", "Генерация");
     private MetaController metaController;
@@ -43,7 +43,7 @@ public class SetStatusController{
         String a = EdNumberField.getText();
         try {
             portNumber = Integer.parseInt(a);
-            if (portNumber > metaController.amountOfEd || portNumber < 0) {
+            if (portNumber > MetaController.amountOfEd || portNumber < 0) {
                 throw new NumberFormatException();
             }
             return true;
@@ -58,9 +58,9 @@ public class SetStatusController{
         if (isValid()) {
             metaController.setPortStatusLineA(portNumber, parseStatus(LineA));
             metaController.setPortStatusLineB(portNumber, parseStatus(LineB));
-            if(busy.isSelected())
-                metaController.setPreparedToSendInfo(portNumber,false);
-            else metaController.setPreparedToSendInfo(portNumber,true);
+//            if(busy.isSelected())
+//                metaController.setPreparedToSendInfo(portNumber,false);
+//            else metaController.setPreparedToSendInfo(portNumber,true);
             stage.close();
         }
     }

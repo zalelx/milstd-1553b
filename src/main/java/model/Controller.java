@@ -65,7 +65,7 @@ public class Controller implements Device {
         return ret;
     }
 
-    public void testMKO(int amountOfEndDevices) {
+    public ArrayList<Answer> testMKO(int amountOfEndDevices) {
         TimeLogger.log("START TEST_MKO", 0);
         notResponseAddresses.clear();
 
@@ -92,47 +92,58 @@ public class Controller implements Device {
             }
         }
 
-        for (Address address : notResponseAddresses) {
-            changeLine(address);
-            Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
-            if (answer == null) {
-                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE ED#" + address.getValue(), ED_DELAY );
-                changeLine(address);
-            }
+        if (notResponseAddresses.size() > 0) {
+            return restore();
         }
-        notResponseAddresses.clear();
+        return null;
     }
 
     public void connectToAll(int amountOfEndDevices) {
         TimeLogger.log("START TO BROADCAST", 0);
+        ArrayList<Answer> answers = null;
 
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
-                TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
+                TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
                 answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
 
                 if (answer == null) {
                     notResponseAddresses.add(address);
-                    TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY + CTRL_DELAY);
+                    TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
                     if (notResponseAddresses.size() >= 3) {
-                        testMKO(amountOfEndDevices);
-                        notResponseAddresses.clear();
+                        answers = testMKO(amountOfEndDevices);
                     }
+                } else {
+                    sendData(answer, address);
                 }
             } else {
-                if (isEdReady(answer)) {
-                    sendMessage(new CommandMessage(address, Command.PREPARE_TO_RECIEVE));
-                    for (int j = 0; j < amountOfDataMessages; j++) {
-                        DataMessage dataMessage = new DataMessage(address);
-                        if (j + 1 == amountOfDataMessages)
-                            dataMessage.setEndMessage(true);
-                        sendMessage(dataMessage);
-                    }
-                }
+                sendData(answer, address);
             }
         }
+
+        if (answers == null) {
+            answers = restore();
+        }
+
+        for (int i = 0; i < notResponseAddresses.size(); i++) {
+            sendData(answers.get(i), notResponseAddresses.get(i));
+        }
+    }
+
+    private ArrayList<Answer> restore() {
+        ArrayList<Answer> answers = new ArrayList<>(notResponseAddresses.size());
+        for (Address address : notResponseAddresses) {
+            changeLine(address);
+            Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
+            answers.add(answer);
+            if (answer == null) {
+                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE ED#" + address.getValue(), ED_DELAY);
+                changeLine(address);
+            }
+        }
+    return answers;
     }
 
     private void findGenerationObject(int amountOfDevices) {
@@ -180,5 +191,20 @@ public class Controller implements Device {
 
     public void setAmountOfDataMessages(int amountOfDataMessages) {
         this.amountOfDataMessages = amountOfDataMessages;
+    }
+
+    private void sendData(Answer answer, Address address) {
+        if (isEdReady(answer)) {
+            sendMessage(new CommandMessage(address, Command.PREPARE_TO_RECIEVE));
+            for (int j = 0; j < amountOfDataMessages; j++) {
+                DataMessage dataMessage = new DataMessage(address);
+                if (j + 1 == amountOfDataMessages) {
+                    dataMessage.setEndMessage(true);
+                    sendAndHandleMessage(dataMessage);
+                } else {
+                    sendMessage(dataMessage);
+                }
+            }
+        }
     }
 }
