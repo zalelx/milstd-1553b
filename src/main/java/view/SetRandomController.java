@@ -41,8 +41,13 @@ public class SetRandomController {
 
     void setMetaController(MetaController metaController) {
         this.metaController = metaController;
+        generationProbability.setText("0.05");
+        faultProbability.setText("0.7");
+        denialProbability.setText("0.25");
+        probability.setText("0.5");
+        AmountOfDataMessages.setText("4");
+        number.setText("100");
     }
-
 
     @FXML
     void OkClicked() {
@@ -109,8 +114,9 @@ public class SetRandomController {
         }
 
         if (flag==true){
+             metaController.setAmountOfDataMessages(amountofdev);
              metaController.performTests(num, generationProb, faultProb, denialProb,prob, false);
-             stage.close();
+            stage.close();
         }
         flag=true;
 
