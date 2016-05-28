@@ -109,7 +109,7 @@ public class SetRandomController {
         }
 
         if (flag==true){
-             metaController.performTests(num, generationProb, faultProb, prob, false);
+             metaController.performTests(num, generationProb, faultProb, denialProb,prob, false);
              stage.close();
         }
         flag=true;
