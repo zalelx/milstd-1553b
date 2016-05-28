@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -12,6 +14,7 @@ import javafx.scene.shape.Line;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +28,15 @@ public class NewMenuController {
     TextArea textArea;
     @FXML
     AnchorPane textPane;
+    @FXML
+    Button ConnectToAllButton;
+    @FXML
+    Button MKObutton;
+    @FXML
+    Button SetStatusButton;
+    @FXML
+    public Button RandomButton;
+
 
     private MetaController metaController;
     private List<Pane> EDPanes = new ArrayList<>();
@@ -50,11 +62,11 @@ public class NewMenuController {
         controller.init();
         controller.setStage(stage);
         stage.showAndWait();
-        TimeLogger.showLogs();
+        showLogs();
     }
 
     @FXML
-    public void randomFault(){
+    public void randomFault() {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/SetRandom.fxml"));
         Stage stage = new Stage();
         try {
@@ -73,7 +85,7 @@ public class NewMenuController {
     @FXML
     public void testMKO() {
         metaController.testMKO();
-        TimeLogger.showLogs();
+        showLogs();
     }
 
     @FXML
@@ -81,6 +93,7 @@ public class NewMenuController {
         this.amountOfED = amountOfED;
         metaController = new MetaController();
         metaController.init(amountOfED);
+        metaController.setNewMenuController(this);
         textArea.setEditable(false);
         TimeLogger.setTextArea(textArea);
 
@@ -107,20 +120,20 @@ public class NewMenuController {
         for (int i = 0; i < LineA.size(); i++) {
             Line line = LineA.get(i);
 
-            if (i + 1 > amountOfED){
+            if (i + 1 > amountOfED) {
                 line.setVisible(false);
             }
-            if (line.getId() == null){
+            if (line.getId() == null) {
                 line.setVisible(true);
             }
         }
         for (int i = 0; i < LineB.size(); i++) {
             Line line = LineB.get(i);
 
-            if (i + 1 > amountOfED){
+            if (i + 1 > amountOfED) {
                 line.setVisible(false);
             }
-            if (line.getId() == null){
+            if (line.getId() == null) {
                 line.setVisible(true);
             }
         }
@@ -132,12 +145,22 @@ public class NewMenuController {
     }
 
     @FXML
-    public void connectToAll(){
+    public void connectToAll() {
         metaController.connectToAll(); // todo добавить ещё один выбор
-        TimeLogger.showLogs();
+        showLogs();
     }
 
     void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+
+    void showLogs() {
+        TimeLogger.setB1(MKObutton);
+        TimeLogger.setB2(ConnectToAllButton);
+        TimeLogger.setB3(RandomButton);
+        TimeLogger.setB4(SetStatusButton);
+
+        TimeLogger.showLogs();
     }
 }

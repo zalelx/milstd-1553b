@@ -15,6 +15,7 @@ class MetaController {
     private int amountOfGenerations;
     private int amountOfDenials;
     private int amountOFFaults;
+    private NewMenuController newMenuController;
 
     void init(int amountOfEndDevices) {
         amountOfEd = amountOfEndDevices;
@@ -139,7 +140,7 @@ class MetaController {
             init(amountOfEd);
         }
         if (!isShortLogs) {
-            TimeLogger.showLogs();
+            newMenuController.showLogs();
         }
         TimeLogger.endTest();
     }
@@ -148,4 +149,7 @@ class MetaController {
         controller.setAmountOfDataMessages(value);
     }
 
+    public void setNewMenuController(NewMenuController newMenuController) {
+        this.newMenuController = newMenuController;
+    }
 }

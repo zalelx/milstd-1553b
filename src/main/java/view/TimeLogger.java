@@ -1,6 +1,7 @@
 package view;
 
 import javafx.application.Platform;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import model.PortStatus;
 import view.logging.*;
@@ -18,6 +19,10 @@ public class TimeLogger {
     private static int amountOfFaults = 0;
     private static int amountOfGenerations = 0;
     private static ArrayList<Integer> times = new ArrayList<>();
+    private static Button b1;
+    private static Button b2;
+    private static Button b3;
+    private static Button b4;
 
     public static void log(String string, int time) {
         delay(time);
@@ -50,7 +55,14 @@ public class TimeLogger {
     }
 
     static void showLogs() {
+
         Thread t = new Thread(() -> {
+            b1.setDisable(true);
+            b2.setDisable(true);
+            b3.setDisable(true);
+            b4.setDisable(true);
+
+
             for (Log log : logs) {
                 Platform.runLater(() -> {
                     Formatter formatter = new Formatter();
@@ -89,6 +101,13 @@ public class TimeLogger {
                 }
 
             }
+            b1.setDisable(false);
+            b2.setDisable(false);
+            b3.setDisable(false);
+            b4.setDisable(false);
+
+
+
             logs.clear();
         });
         t.start();
@@ -109,6 +128,22 @@ public class TimeLogger {
         for (int i = 1; i <= amountOfEd; i++) {
             logChangePortStatus(i, 1, PortStatus.OK);
         }
+    }
+
+    public static void setB1(Button b1) {
+        TimeLogger.b1 = b1;
+    }
+
+    public static void setB2(Button b2) {
+        TimeLogger.b2 = b2;
+    }
+
+    public static void setB3(Button b3) {
+        TimeLogger.b3 = b3;
+    }
+
+    public static void setB4(Button b4) {
+        TimeLogger.b4 = b4;
     }
 
     static void endTest() {

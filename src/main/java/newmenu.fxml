@@ -1191,8 +1191,8 @@
       </AnchorPane>
       <Button fx:id="MKObutton" layoutX="12.0" layoutY="273.0" mnemonicParsing="false" onAction="#testMKO" prefHeight="25.0" prefWidth="124.0" text="Тест МКО" />
       <Button fx:id="SetStatusButton" layoutX="12.0" layoutY="318.0" mnemonicParsing="false" onAction="#setStatus" prefHeight="25.0" prefWidth="124.0" text="Управление ОУ" />
-      <Button layoutX="12.0" layoutY="360.0" mnemonicParsing="false" onAction="#randomFault" prefHeight="25.0" prefWidth="124.0" text="Случайное " />
-      <Button layoutX="12.0" layoutY="224.0" mnemonicParsing="false" onAction="#connectToAll" prefHeight="29.0" prefWidth="124.0" text="Связаться со всеми" />
+      <Button fx:id="RandomButton" layoutX="12.0" layoutY="360.0" mnemonicParsing="false" onAction="#randomFault" prefHeight="25.0" prefWidth="124.0" text="Случайное " />
+      <Button fx:id="ConnectToAllButton" layoutX="12.0" layoutY="224.0" mnemonicParsing="false" onAction="#connectToAll" prefHeight="29.0" prefWidth="124.0" text="Связаться со всеми" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTGREEN" height="25.0" layoutX="100.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2be03" height="25.0" layoutX="240.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="RED" height="25.0" layoutX="380.0" layoutY="2.0" stroke="BLACK" strokeType="INSIDE" width="25.0" />

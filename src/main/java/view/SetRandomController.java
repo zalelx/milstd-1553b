@@ -121,11 +121,11 @@ public class SetRandomController {
         if (flag==true){
             if (ShortLogs.isSelected()){
                 metaController.setAmountOfDataMessages(amountofdev);
-                metaController.performTests(num, generationProb, faultProb,denialProb, prob, true);
+                metaController.performTests(num, generationProb, faultProb, denialProb, prob, true);
             }
             else{
                 metaController.setAmountOfDataMessages(amountofdev);
-                metaController.performTests(num, generationProb, faultProb,denialProb, prob, false);
+                metaController.performTests(num, generationProb, faultProb, denialProb, prob, false);
             }
 
             stage.close();
