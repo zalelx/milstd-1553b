@@ -51,6 +51,7 @@ class MetaController {
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(true);
         target.getLine().hasGeneration(true, numberOfDevice);
+
     }
 
     private void setGeneratorLineB(int numberOfDevice) {

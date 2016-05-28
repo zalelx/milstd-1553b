@@ -45,11 +45,11 @@ public class TimeLogger {
         logs.offer(new ChangePortStatusEvent(EdNumber, lineNumber, status, currentTime));
     }
 
-    public static void setTextArea(TextArea textArea) {
+    static void setTextArea(TextArea textArea) {
         TimeLogger.textArea = textArea;
     }
 
-    public static void showLogs() {
+    static void showLogs() {
         Thread t = new Thread(() -> {
             for (Log log : logs) {
                 Platform.runLater(() -> {
@@ -98,7 +98,7 @@ public class TimeLogger {
         logs.offer(new GenerationEvent(lineNumber, hasGeneration, numberOfGenerator, currentTime));
     }
 
-    public static void logStart(int amountOfEd, Integer generations, Integer faluts, Integer denials) {
+    static void logStart(int amountOfEd, Integer generations, Integer faluts, Integer denials) {
         times.add(currentTime);
         currentTime = 0;
         amountOfDenials += denials;
@@ -111,14 +111,13 @@ public class TimeLogger {
         }
     }
 
-    public static void endTest() {
+    static void endTest() {
         Platform.runLater(() -> {
             double sum = 0;
             for (Integer i : times) {
                 sum += i;
             }
             Formatter formatter = new Formatter();
-
             formatter.format("%-30s\n", "Average time: " + sum / times.size());
             textArea.insertText(textArea.getText().length(), formatter.toString());
             formatter = new Formatter();
