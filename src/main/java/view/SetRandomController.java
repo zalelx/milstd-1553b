@@ -28,6 +28,14 @@ public class SetRandomController {
 
     Stage stage;
 
+    int num;
+    double generationProb;
+    double faultProb;
+    double denialProb;
+    double prob;
+    boolean flag=true;
+
+
     public MetaController metaController;
 
     void setMetaController(MetaController metaController) {
@@ -35,34 +43,76 @@ public class SetRandomController {
     }
 
 
-
     @FXML
-    void OkClicked(){
+    void OkClicked() {
         String s1 = number.getText();
-        int num = Integer.parseInt(s1);
+        try {
+            num = Integer.parseInt(s1);
+            if (num < 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            number.setText("Неверно!");
+            flag=false;
+        }
+
         String s2 = generationProbability.getText();
-        double generationProb = Double.parseDouble(s2);
+        try {
+            generationProb = Double.parseDouble(s2);
+            if(generationProb>1)
+                throw new NumberFormatException();
+        } catch (NumberFormatException f) {
+            generationProbability.setText("Неверно!");
+            flag=false;
+        }
+
+
         String s3 = faultProbability.getText();
-        double faultProb = Double.parseDouble(s3);
+        try {
+            faultProb = Double.parseDouble(s3);
+            if(generationProb+faultProb>1)
+                throw new NumberFormatException();
+        } catch (NumberFormatException d) {
+            faultProbability.setText("Неверно!");
+            flag=false;
+        }
+
         String s4 = denialProbability.getText();
-        double denialProb = Double.parseDouble(s4);
+        try {
+            denialProb = Double.parseDouble(s4);
+            if(generationProb+faultProb+denialProb!=1)
+                throw new NumberFormatException();
+        } catch (NumberFormatException g) {
+            denialProbability.setText("Неверно!");
+            flag=false;
+        }
+
         String s5 = probability.getText();
-        double prob = Double.parseDouble(s5);
-        String s6 = AmountOfDataMessages.getText();
-        int AmountOfDM= Integer.parseInt(s6);
-        metaController.performTests(num,generationProb,faultProb, prob, false);
-        metaController.setAmountOfDataMessages(AmountOfDM);
-        stage.close();
+        try {
+            prob = Double.parseDouble(s5);
+            if(prob>1)
+                throw new NumberFormatException();
+        } catch (NumberFormatException h) {
+            probability.setText("Неверно!");
+            flag=false;
+        }
+
+        if (flag==true){
+             metaController.performTests(num, generationProb, faultProb, prob, false);
+             stage.close();
+        }
+        flag=true;
+
     }
 
 
     @FXML
-    void CancelClicked(){
+    void CancelClicked() {
         stage.close();
     }
 
 
-    void setStage(Stage stage){
+    void setStage(Stage stage) {
         this.stage = stage;
     }
 
