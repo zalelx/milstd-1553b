@@ -33,6 +33,7 @@ public class SetRandomController {
     double faultProb;
     double denialProb;
     double prob;
+    int amountofdev;
     boolean flag=true;
 
 
@@ -94,6 +95,16 @@ public class SetRandomController {
                 throw new NumberFormatException();
         } catch (NumberFormatException h) {
             probability.setText("Неверно!");
+            flag=false;
+        }
+
+        String s6 = AmountOfDataMessages.getText();
+        try {
+            amountofdev = Integer.parseInt(s6);
+            if(amountofdev>32 || amountofdev<0)
+                throw new NumberFormatException();
+        } catch (NumberFormatException h) {
+            AmountOfDataMessages.setText("Неверно!");
             flag=false;
         }
 
