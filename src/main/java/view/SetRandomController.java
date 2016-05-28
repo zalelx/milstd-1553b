@@ -51,6 +51,7 @@ public class SetRandomController {
         probability.setText("0.5");
         AmountOfDataMessages.setText("4");
         number.setText("100");
+        ShortLogs.setSelected(true);
     }
 
 

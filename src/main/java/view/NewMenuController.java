@@ -154,13 +154,12 @@ public class NewMenuController {
         this.stage = stage;
     }
 
-
     void showLogs() {
         TimeLogger.setB1(MKObutton);
         TimeLogger.setB2(ConnectToAllButton);
         TimeLogger.setB3(RandomButton);
         TimeLogger.setB4(SetStatusButton);
-
+//        stage.set;
         TimeLogger.showLogs();
     }
 }

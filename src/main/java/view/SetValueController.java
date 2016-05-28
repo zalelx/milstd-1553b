@@ -42,7 +42,7 @@ public class SetValueController {
             NewMenuController controller = loader.getController();
             controller.setAmountOfED(amountOfED);
             controller.setStage(mainMenu);
-            mainMenu.show();
+            mainMenu.showAndWait();
             this.stage.close();
 
         } catch (IOException e) {

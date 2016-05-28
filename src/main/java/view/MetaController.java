@@ -117,14 +117,14 @@ class MetaController {
                 if (rand < generationProbability && !wasGeneration) {
                     setGeneratorLineA(i);
                     wasGeneration = true;
-                    amountOfGenerations ++;
+                    amountOfGenerations++;
                 } else {
                     if (rand >= generationProbability && rand < (generationProbability + faultProbability)) {
                         status = PortStatus.FAILURE;
-                        amountOFFaults ++;
+                        amountOFFaults++;
                     } else {
                         status = PortStatus.DENIAL;
-                        amountOfDenials ++;
+                        amountOfDenials++;
                     }
                     setPortStatusLineA(i, status);
                 }
@@ -136,16 +136,17 @@ class MetaController {
         for (int j = 1; j <= amountOfTests; j++) {
             initTest(generationProbability, faultProbability, denialProbability, probability);
             connectToAll();
-            TimeLogger.logStart(amountOfEd, amountOfGenerations, amountOFFaults, amountOfDenials);
+            TimeLogger.logStart(amountOfGenerations, amountOFFaults, amountOfDenials);
             init(amountOfEd);
         }
         if (!isShortLogs) {
             newMenuController.showLogs();
-        }
+        } else
+            TimeLogger.logs.clear();
         TimeLogger.endTest();
     }
 
-    void setAmountOfDataMessages(int value){
+    void setAmountOfDataMessages(int value) {
         controller.setAmountOfDataMessages(value);
     }
 

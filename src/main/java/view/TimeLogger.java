@@ -14,10 +14,11 @@ public class TimeLogger {
     private static final long DELAY = 500;
     private static int currentTime = 0;
     private static TextArea textArea;
-    private static Queue<Log> logs = new LinkedList<>();
+    static Queue<Log> logs = new LinkedList<>();
     private static int amountOfDenials = 0;
     private static int amountOfFaults = 0;
     private static int amountOfGenerations = 0;
+    private static int amountOfEd = 0;
     private static ArrayList<Integer> times = new ArrayList<>();
     private static Button b1;
     private static Button b2;
@@ -117,12 +118,13 @@ public class TimeLogger {
         logs.offer(new GenerationEvent(lineNumber, hasGeneration, numberOfGenerator, currentTime));
     }
 
-    static void logStart(int amountOfEd, Integer generations, Integer faluts, Integer denials) {
+    static void logStart(Integer generations, Integer faluts, Integer denials) {
         times.add(currentTime);
         currentTime = 0;
         amountOfDenials += denials;
         amountOfFaults += faluts;
         amountOfGenerations += generations;
+        amountOfEd = MetaController.amountOfEd;
 
         logs.offer(new StartEvent(currentTime));
         for (int i = 1; i <= amountOfEd; i++) {
@@ -153,7 +155,7 @@ public class TimeLogger {
                 sum += i;
             }
             Formatter formatter = new Formatter();
-            formatter.format("%-30s\n", "Average time: " + sum / times.size());
+            formatter.format("%-30s\n", "Average time: " + sum / (amountOfEd * times.size()));
             textArea.insertText(textArea.getText().length(), formatter.toString());
             formatter = new Formatter();
             formatter.format("%-30s\n", "Tests: " + times.size() + " probability of error=" + MetaController.deviceProbability);
