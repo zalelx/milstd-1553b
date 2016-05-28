@@ -92,7 +92,6 @@ public class Controller implements Device {
             }
         }
 
-
         for (Address address : notResponseAddresses) {
             changeLine(address);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
@@ -177,5 +176,9 @@ public class Controller implements Device {
                 return true;
         }
         return false;
+    }
+
+    public void setAmountOfDataMessages(int amountOfDataMessages) {
+        this.amountOfDataMessages = amountOfDataMessages;
     }
 }

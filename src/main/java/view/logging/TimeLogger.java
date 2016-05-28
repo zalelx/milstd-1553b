@@ -5,10 +5,9 @@ import javafx.scene.control.TextArea;
 import model.PortStatus;
 import view.ChangeColor;
 
-import java.util.ArrayList;
-import java.util.Formatter;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
 
 import static java.lang.Thread.sleep;
 
@@ -21,7 +20,6 @@ public class TimeLogger {
     private static int amountOfFaults = 0;
     private static int amountOfGenerations = 0;
     private static ArrayList<Integer> times = new ArrayList<>();
-
 
     public static void log(String string, int time) {
         delay(time);
@@ -120,10 +118,15 @@ public class TimeLogger {
         for (Integer i: times) {
             sum += i;
         }
-        System.out.println(sum / times.size());
-        System.out.println("Tests " + times.size());
-        System.out.println("Faults " + amountOfFaults);
-        System.out.println("Denials " + amountOfDenials);
-        System.out.println("Generations " + amountOfGenerations);
+        try (FileWriter fileWriter = new FileWriter((new Date()).toString() + ".log", false)) {
+            fileWriter.write("Average time: " + sum / times.size() + '\n');
+            fileWriter.write("Tests: " + times.size() + '\n');
+            fileWriter.write("Faults: " + amountOfFaults + '\n');
+            fileWriter.write("Denials: " + amountOfDenials + '\n');
+            fileWriter.write("Generations: " + amountOfGenerations + '\n');
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
