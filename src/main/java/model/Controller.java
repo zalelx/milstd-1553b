@@ -12,7 +12,7 @@ public class Controller implements Device {
     private Answer lastAnswer;
     private final Address myAddress = new Address(Address.CONTROLLER_ADDRESS);
     private List<Address> notResponseAddresses = new ArrayList<>();
-    private int amountOfDataMessages = 2;
+    private int amountOfDataMessages = 4;
     private final static int ED_DELAY = EndDevice.ED_DELAY;
     private final static int CTRL_DELAY = 50;
 
@@ -126,7 +126,7 @@ public class Controller implements Device {
                     sendMessage(new CommandMessage(address, Command.PREPARE_TO_RECIEVE));
                     for (int j = 0; j < amountOfDataMessages; j++) {
                         DataMessage dataMessage = new DataMessage(address);
-                        if (j++ == amountOfDataMessages)
+                        if (j + 1 == amountOfDataMessages)
                             dataMessage.setEndMessage(true);
                         sendMessage(dataMessage);
                     }
