@@ -1,6 +1,7 @@
 package view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -25,6 +26,9 @@ public class SetRandomController {
     @FXML
     TextField AmountOfDataMessages;
 
+    @FXML
+    CheckBox ShortLogs;
+
 
     Stage stage;
 
@@ -48,6 +52,7 @@ public class SetRandomController {
         AmountOfDataMessages.setText("4");
         number.setText("100");
     }
+
 
     @FXML
     void OkClicked() {
@@ -114,8 +119,15 @@ public class SetRandomController {
         }
 
         if (flag==true){
-             metaController.setAmountOfDataMessages(amountofdev);
-             metaController.performTests(num, generationProb, faultProb, denialProb,prob, false);
+            if (ShortLogs.isSelected()){
+                metaController.setAmountOfDataMessages(amountofdev);
+                metaController.performTests(num, generationProb, faultProb,denialProb, prob, true);
+            }
+            else{
+                metaController.setAmountOfDataMessages(amountofdev);
+                metaController.performTests(num, generationProb, faultProb,denialProb, prob, false);
+            }
+
             stage.close();
         }
         flag=true;

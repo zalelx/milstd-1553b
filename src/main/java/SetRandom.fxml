@@ -56,6 +56,6 @@
          </font>
       </Text>
       <TextField fx:id="AmountOfDataMessages" layoutX="334.0" layoutY="383.0" prefHeight="25.0" prefWidth="65.0" />
-      <CheckBox layoutX="213.0" layoutY="432.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" text="Короткие логи" />
+      <CheckBox fx:id="ShortLogs" layoutX="213.0" layoutY="432.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" text="Короткие логи" />
    </children>
 </AnchorPane>
