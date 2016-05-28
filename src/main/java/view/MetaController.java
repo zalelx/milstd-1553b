@@ -135,7 +135,7 @@ class MetaController {
         for (int j = 1; j <= amountOfTests; j++) {
             initTest(generationProbability, faultProbability, denialProbability, probability);
             connectToAll();
-            TimeLogger.logStart(amountOfEd, amountOfGenerations, amountOfDenials, amountOFFaults);
+            TimeLogger.logStart(amountOfEd, amountOfGenerations, amountOFFaults, amountOfDenials);
             init(amountOfEd);
         }
         if (!isShortLogs) {
