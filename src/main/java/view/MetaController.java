@@ -143,4 +143,7 @@ class MetaController {
         }
         TimeLogger.endTest();
     }
+    void setAmountOfDataMessages(int value){
+        controller.setAmountOfDataMessages(value);
+    }
 }
