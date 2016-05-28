@@ -1,19 +1,23 @@
 package view;
 
 import model.*;
-import view.logging.TimeLogger;
 
 import java.util.ArrayList;
 
 class MetaController {
     private Controller controller;
     private ArrayList<Device> devices;
-    public int amountOfEd;
-    private double faultProbability = 0.8;
-    private double deviceProbability = 0.5;
+    static int amountOfEd;
+    static double faultProbability;
+    static double deviceProbability;
+    static double generationProbability;
+    static double denialProbability;
+    private int amountOfGenerations;
+    private int amountOfDenials;
+    private int amountOFFaults;
 
     void init(int amountOfEndDevices) {
-        this.amountOfEd = amountOfEndDevices;
+        amountOfEd = amountOfEndDevices;
         this.devices = new ArrayList<>();
         Line lineA = new Line(1);
         Line lineB = new Line(2);
@@ -43,13 +47,14 @@ class MetaController {
         controller.testMKO(amountOfEd);
     }
 
-    void setGeneratorLineA(int numberOfDevice) {
+    private void setGeneratorLineA(int numberOfDevice) {
         Port target = devices.get(numberOfDevice).getDefaultPort();
         target.setGenerator(true);
         target.getLine().hasGeneration(true, numberOfDevice);
+
     }
 
-    void setGeneratorLineB(int numberOfDevice) {
+    private void setGeneratorLineB(int numberOfDevice) {
         Port target = devices.get(numberOfDevice).getReservePort();
         target.setGenerator(true);
         target.getLine().hasGeneration(true, numberOfDevice);
@@ -81,87 +86,59 @@ class MetaController {
         }
     }
 
-    PortStatus GenofStatus(PortStatus faultStatus) {
-        if (Math.random() >= faultProbability)
-            return faultStatus;
-        else
-            return PortStatus.OK;
-    }
-
-    void randomFault(PortStatus faultStatus) {
-        if (faultStatus.equals(PortStatus.GENERATION)) {
-            if (Math.random() < faultProbability) {
-                setGeneratorLineA((int) (Math.random() * (amountOfEd - 1)));
-            }
-        } else {
-            // для линии А
-            for (int i = 1; i <= this.amountOfEd; i++) {
-                PortStatus status = GenofStatus(faultStatus);
-//                if (Math.random() > deviceProbability) {
-                setPortStatusLineA(i, status);
-//                }
-            }
-        }
-    }
-
     void connectToAll() {
         controller.connectToAll(amountOfEd);
     }
 
-    public void setDeviceProbability(double deviceProbability) {
+    private void setDeviceProbability(double deviceProbability) {
         if (Math.abs(deviceProbability) > 1)
-            this.deviceProbability = 1 / Math.abs(deviceProbability);
+            MetaController.deviceProbability = 1 / Math.abs(deviceProbability);
         else
-            this.deviceProbability = deviceProbability;
+            MetaController.deviceProbability = deviceProbability;
     }
 
-    public void setFaultProbability(double faultProbability) {
-        if (Math.abs(faultProbability) > 1)
-            this.faultProbability = 1 / Math.abs(faultProbability);
-        else
-            this.faultProbability = faultProbability;
-    }
-
-    public ArrayList<Integer> initTest(double generationProbability, double faultProbability, double probability) {
+    private void initTest(double generationProbability, double faultProbability, double denialProbability, double probability) {
         double rand;
-        ArrayList<Integer> resultList = new ArrayList<>(3);
-        resultList.add(0);
-        resultList.add(0);
-        resultList.add(0);
+        MetaController.faultProbability = faultProbability;
+        MetaController.generationProbability = generationProbability;
+        MetaController.denialProbability = denialProbability;
+        this.amountOFFaults = 0;
+        this.amountOfDenials = 0;
+        this.amountOfGenerations = 0;
+        setDeviceProbability(probability);
+
         boolean wasGeneration = false;
         PortStatus status;
-        for (int i = 1; i <= this.amountOfEd; i++) {
+        for (int i = 1; i <= amountOfEd; i++) {
             rand = Math.random();
             if (rand < probability) {
                 rand = Math.random();
                 if (rand < generationProbability && !wasGeneration) {
                     setGeneratorLineA(i);
                     wasGeneration = true;
-                    resultList.set(0, resultList.get(0) + 1);
+                    amountOfGenerations ++;
                 } else {
                     if (rand >= generationProbability && rand < (generationProbability + faultProbability)) {
                         status = PortStatus.FAILURE;
-                        resultList.set(1, resultList.get(1) + 1);
+                        amountOFFaults ++;
                     } else {
                         status = PortStatus.DENIAL;
-                        resultList.set(2, resultList.get(2) + 1);
+                        amountOfDenials ++;
                     }
                     setPortStatusLineA(i, status);
-//                    TimeLogger.logChangePortStatus(i, 1, status);
                 }
             }
         }
-        return resultList;
     }
 
-    public void performTests(int amountOfTests, double generationProbability, double faultProbability, double probability, boolean isShortLogs) {
+    void performTests(int amountOfTests, double generationProbability, double faultProbability, double denialProbability, double probability, boolean isShortLogs) {
         for (int j = 1; j <= amountOfTests; j++) {
-            ArrayList<Integer> result = initTest(generationProbability, faultProbability, probability);
+            initTest(generationProbability, faultProbability, denialProbability, probability);
             connectToAll();
-            TimeLogger.logStart(amountOfEd, result.get(0), result.get(1), result.get(2));
+            TimeLogger.logStart(amountOfEd, amountOfGenerations, amountOfDenials, amountOFFaults);
             init(amountOfEd);
         }
-        if (!isShortLogs){
+        if (!isShortLogs) {
             TimeLogger.showLogs();
         }
         TimeLogger.endTest();

@@ -1,12 +1,12 @@
 package view.logging;
 
-class MessageEvent implements Log {
+public class MessageEvent implements Log {
     private final int EdNumber;
     private final String message;
     private final int lineNumber;
     private final int time;
 
-    MessageEvent(int EdNumber, int lineNumber, String suffix, int time) {
+    public MessageEvent(int EdNumber, int lineNumber, String suffix, int time) {
         this.message = "Port #" + EdNumber + " line #" + lineNumber + " message" + suffix;
         this.time = time;
         this.lineNumber = lineNumber;
@@ -23,11 +23,11 @@ class MessageEvent implements Log {
         return time;
     }
 
-    int getEdNumber() {
+    public int getEdNumber() {
         return EdNumber;
     }
 
-    int getLineNumber() {
+    public int getLineNumber() {
         return lineNumber;
     }
 }

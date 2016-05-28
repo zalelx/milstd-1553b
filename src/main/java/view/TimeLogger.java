@@ -1,12 +1,10 @@
-package view.logging;
+package view;
 
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 import model.PortStatus;
-import view.ChangeColor;
+import view.logging.*;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.*;
 
 import static java.lang.Thread.sleep;
@@ -30,7 +28,7 @@ public class TimeLogger {
         currentTime += delay;
     }
 
-    public static void logBroadcast(int lineNumber, int time){
+    public static void logBroadcast(int lineNumber, int time) {
         delay(time);
         logs.offer(new BroadcastEvent(lineNumber, currentTime));
     }
@@ -47,11 +45,11 @@ public class TimeLogger {
         logs.offer(new ChangePortStatusEvent(EdNumber, lineNumber, status, currentTime));
     }
 
-    public static void setTextArea(TextArea textArea) {
+    static void setTextArea(TextArea textArea) {
         TimeLogger.textArea = textArea;
     }
 
-    public static void showLogs() {
+    static void showLogs() {
         Thread t = new Thread(() -> {
             for (Log log : logs) {
                 Platform.runLater(() -> {
@@ -59,15 +57,15 @@ public class TimeLogger {
                     formatter.format("%-30s %s %d\n", log.getMessage(), "Time:", log.getTime());
                     textArea.insertText(textArea.getText().length(), formatter.toString());
 
-                    if (log instanceof BroadcastEvent){
+                    if (log instanceof BroadcastEvent) {
                         ChangeColor.SetColor(((BroadcastEvent) log).getLineNumber());
                     }
-                    if (log instanceof MessageEvent){
+                    if (log instanceof MessageEvent) {
                         ChangeColor.SetColor(
                                 ((MessageEvent) log).getLineNumber(),
                                 ((MessageEvent) log).getEdNumber());
                     }
-                    if (log instanceof ChangePortStatusEvent){
+                    if (log instanceof ChangePortStatusEvent) {
                         ChangeColor.SetColor(
                                 ((ChangePortStatusEvent) log).getEdNumber(),
                                 ((ChangePortStatusEvent) log).getLineNumber(),
@@ -77,7 +75,7 @@ public class TimeLogger {
                         ChangeColor.decolor();
                     }
 
-                    if (log instanceof GenerationEvent){
+                    if (log instanceof GenerationEvent) {
                         ChangeColor.SetColorGeneration(
                                 ((GenerationEvent) log).getLineNumber(),
                                 ((GenerationEvent) log).isHasGeneration()
@@ -100,7 +98,7 @@ public class TimeLogger {
         logs.offer(new GenerationEvent(lineNumber, hasGeneration, numberOfGenerator, currentTime));
     }
 
-    public static void logStart(int amountOfEd, Integer generations, Integer faluts, Integer denials) {
+    static void logStart(int amountOfEd, Integer generations, Integer faluts, Integer denials) {
         times.add(currentTime);
         currentTime = 0;
         amountOfDenials += denials;
@@ -113,20 +111,27 @@ public class TimeLogger {
         }
     }
 
-    public static void endTest() {
-        double sum = 0;
-        for (Integer i: times) {
-            sum += i;
-        }
-        try (FileWriter fileWriter = new FileWriter((new Date()).toString() + ".log", false)) {
-            fileWriter.write("Average time: " + sum / times.size() + '\n');
-            fileWriter.write("Tests: " + times.size() + '\n');
-            fileWriter.write("Faults: " + amountOfFaults + '\n');
-            fileWriter.write("Denials: " + amountOfDenials + '\n');
-            fileWriter.write("Generations: " + amountOfGenerations + '\n');
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    static void endTest() {
+        Platform.runLater(() -> {
+            double sum = 0;
+            for (Integer i : times) {
+                sum += i;
+            }
+            Formatter formatter = new Formatter();
+            formatter.format("%-30s\n", "Average time: " + sum / times.size());
+            textArea.insertText(textArea.getText().length(), formatter.toString());
+            formatter = new Formatter();
+            formatter.format("%-30s\n", "Tests: " + times.size() + " probability of error=" + MetaController.deviceProbability);
+            textArea.insertText(textArea.getText().length(), formatter.toString());
+            formatter = new Formatter();
+            formatter.format("%-30s\n", "Generations: " + amountOfGenerations + " p=" + MetaController.generationProbability);
+            textArea.insertText(textArea.getText().length(), formatter.toString());
+            formatter = new Formatter();
+            formatter.format("%-30s\n", "Faults: " + amountOfFaults + " p=" + MetaController.faultProbability);
+            textArea.insertText(textArea.getText().length(), formatter.toString());
+            formatter = new Formatter();
+            formatter.format("%-30s\n", "Denials: " + amountOfDenials + " p=" + MetaController.denialProbability);
+            textArea.insertText(textArea.getText().length(), formatter.toString());
+        });
     }
 }
