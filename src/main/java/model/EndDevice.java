@@ -7,10 +7,10 @@ public class EndDevice implements Device {
     private Port defaultPort;
     private Port reservePort;
     private Port current;
-    private boolean isReady = false;
+    private boolean isReady = true;
     private Address controllerAddress = new Address(0);
     private int dataMessageAmount = 0;
-    public static int ED_DELAY = 12;
+    static int ED_DELAY = 12;
 
     public EndDevice(Address address, Line lineA, Line lineB) {
         this.defaultPort = new Port(lineA, this);
