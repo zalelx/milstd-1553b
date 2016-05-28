@@ -1,6 +1,6 @@
 package view.logging;
 
-class ControllerEvent implements Log {
+public class ControllerEvent implements Log {
     private final int time;
     private final String message;
 

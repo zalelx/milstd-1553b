@@ -1,6 +1,6 @@
 package view.logging;
 
-interface Log {
+public interface Log {
     String getMessage();
     int getTime();
 }

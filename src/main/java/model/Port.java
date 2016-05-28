@@ -2,7 +2,7 @@ package model;
 
 
 import model.message.Message;
-import view.logging.TimeLogger;
+import view.TimeLogger;
 
 public class Port {
     private Device device;

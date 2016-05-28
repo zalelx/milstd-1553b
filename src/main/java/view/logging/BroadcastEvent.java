@@ -1,12 +1,12 @@
 package view.logging;
 
 
-class BroadcastEvent implements Log {
+public class BroadcastEvent implements Log {
     private final int lineNumber;
     private final int time;
     private final String message;
 
-    BroadcastEvent(int lineNumber, int time) {
+    public BroadcastEvent(int lineNumber, int time) {
         this.lineNumber = lineNumber;
         this.time = time;
         this.message = "Line #" + lineNumber + " message broadcast.";

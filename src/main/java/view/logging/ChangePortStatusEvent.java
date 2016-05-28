@@ -2,7 +2,7 @@ package view.logging;
 
 import model.PortStatus;
 
-class ChangePortStatusEvent implements Log {
+public class ChangePortStatusEvent implements Log {
     private final int time;
     private final String message;
     private final PortStatus portStatus;
