@@ -14,6 +14,7 @@ public class SetValueController {
     private TextField amountOfEDTextField = new TextField();
 
     private int amountOfED;
+    Stage stage;
 
     @FXML
     public void getValue() {
@@ -42,10 +43,12 @@ public class SetValueController {
             controller.setAmountOfED(amountOfED);
             controller.setStage(mainMenu);
             mainMenu.show();
+            this.stage.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }
 
