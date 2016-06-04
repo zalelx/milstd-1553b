@@ -19,29 +19,29 @@
       <TextField fx:id="faultProbability" layoutX="334.0" layoutY="197.0" prefHeight="25.0" prefWidth="65.0" />
       <TextField fx:id="generationProbability" layoutX="334.0" layoutY="135.0" prefHeight="25.0" prefWidth="65.0" />
       <TextField fx:id="number" layoutX="334.0" layoutY="74.0" prefHeight="25.0" prefWidth="65.0" />
-      <Text layoutX="20.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Число тестов" wrappingWidth="259.30859375">
+      <Text layoutX="20.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Число тестов" wrappingWidth="259.30859375" >
          <font>
-            <Font size="21.0" />
+            <Font size="16"/>
          </font>
       </Text>
-      <Text layoutX="20.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вероятность генерации" wrappingWidth="259.30859375">
+      <Text layoutX="20.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Условная вероятность генерации" wrappingWidth="259.30859375">
          <font>
-            <Font size="21.0" />
+            <Font size="16"/>
          </font>
       </Text>
-      <Text layoutX="20.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вероятность сбоя" wrappingWidth="259.30859375">
+      <Text layoutX="20.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Условная вероятность сбоя" wrappingWidth="259.30859375">
          <font>
-            <Font size="21.0" />
+            <Font size="16"/>
          </font>
       </Text>
-      <Text layoutX="20.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вероятность отказа" wrappingWidth="259.30859375">
+      <Text layoutX="20.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Условная вероятность отказа" wrappingWidth="259.30859375" >
          <font>
-            <Font size="21.0" />
+            <Font size="16"/>
          </font>
       </Text>
-      <Text layoutX="20.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вероятность для ОУ" wrappingWidth="259.30859375">
+      <Text layoutX="20.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вероятность неисправности ОУ" wrappingWidth="259.30859375" >
          <font>
-            <Font size="21.0" />
+            <Font size="16"/>
          </font>
       </Text>
       <TextField fx:id="probability" layoutX="334.0" layoutY="323.0" prefHeight="25.0" prefWidth="65.0" />
@@ -50,12 +50,12 @@
             <Image url="@1.jpg" />
          </image>
       </ImageView>
-      <Text layoutX="20.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество слов данных" wrappingWidth="259.30859375">
+      <Text layoutX="20.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Количество слов данных" wrappingWidth="259.30859375" >
          <font>
-            <Font size="21.0" />
+            <Font size="16"/>
          </font>
       </Text>
       <TextField fx:id="AmountOfDataMessages" layoutX="334.0" layoutY="383.0" prefHeight="25.0" prefWidth="65.0" />
-      <CheckBox fx:id="ShortLogs" layoutX="213.0" layoutY="432.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" text="Короткие логи" />
+      <CheckBox fx:id="ShortLogs" layoutX="213.0" layoutY="432.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="105.0" text="Короткие логи"/>
    </children>
 </AnchorPane>

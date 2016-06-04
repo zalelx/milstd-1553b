@@ -158,16 +158,16 @@ public class TimeLogger {
             formatter.format("%-30s\n", "Average time: " + sum / (amountOfEd * times.size()));
             textArea.insertText(textArea.getText().length(), formatter.toString());
             formatter = new Formatter();
-            formatter.format("%-30s\n", "Tests: " + times.size() + " probability of error=" + MetaController.deviceProbability);
+            formatter.format("%-30s\n", "Tests: " + times.size() );
             textArea.insertText(textArea.getText().length(), formatter.toString());
             formatter = new Formatter();
-            formatter.format("%-30s\n", "Generations: " + amountOfGenerations + " p=" + MetaController.generationProbability);
+            formatter.format("%-30s\n", "Generations: " + amountOfGenerations + " p=" + MetaController.generationProbability * MetaController.deviceProbability);
             textArea.insertText(textArea.getText().length(), formatter.toString());
             formatter = new Formatter();
-            formatter.format("%-30s\n", "Faults: " + amountOfFaults + " p=" + MetaController.faultProbability);
+            formatter.format("%-30s\n", "Faults: " + amountOfFaults + " p=" + MetaController.faultProbability * MetaController.deviceProbability);
             textArea.insertText(textArea.getText().length(), formatter.toString());
             formatter = new Formatter();
-            formatter.format("%-30s\n", "Denials: " + amountOfDenials + " p=" + MetaController.denialProbability);
+            formatter.format("%-30s\n", "Denials: " + amountOfDenials + " p=" + MetaController.denialProbability * MetaController.deviceProbability);
             textArea.insertText(textArea.getText().length(), formatter.toString());
         });
     }

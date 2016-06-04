@@ -38,7 +38,7 @@ public class SetRandomController {
     double denialProb;
     double prob;
     int amountofdev;
-    boolean flag=true;
+    boolean flag = true;
 
 
     public MetaController metaController;
@@ -65,73 +65,72 @@ public class SetRandomController {
             }
         } catch (NumberFormatException e) {
             number.setText("Неверно!");
-            flag=false;
+            flag = false;
         }
 
         String s2 = generationProbability.getText();
         try {
             generationProb = Double.parseDouble(s2);
-            if(generationProb>1)
+            if (generationProb > 1 || generationProb < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException f) {
             generationProbability.setText("Неверно!");
-            flag=false;
+            flag = false;
         }
 
 
         String s3 = faultProbability.getText();
         try {
             faultProb = Double.parseDouble(s3);
-            if(generationProb+faultProb>1)
+            if (generationProb + faultProb > 1 || faultProb < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException d) {
             faultProbability.setText("Неверно!");
-            flag=false;
+            flag = false;
         }
 
         String s4 = denialProbability.getText();
         try {
             denialProb = Double.parseDouble(s4);
-            if(generationProb+faultProb+denialProb!=1)
+            if (generationProb + faultProb + denialProb != 1 || denialProb < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException g) {
             denialProbability.setText("Неверно!");
-            flag=false;
+            flag = false;
         }
 
         String s5 = probability.getText();
         try {
             prob = Double.parseDouble(s5);
-            if(prob>1)
+            if (prob > 1 || prob < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException h) {
             probability.setText("Неверно!");
-            flag=false;
+            flag = false;
         }
 
         String s6 = AmountOfDataMessages.getText();
         try {
             amountofdev = Integer.parseInt(s6);
-            if(amountofdev>32 || amountofdev<0)
+            if (amountofdev > 32 || amountofdev < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException h) {
             AmountOfDataMessages.setText("Неверно!");
-            flag=false;
+            flag = false;
         }
 
-        if (flag==true){
-            if (ShortLogs.isSelected()){
+        if (flag == true) {
+            if (ShortLogs.isSelected()) {
                 metaController.setAmountOfDataMessages(amountofdev);
                 metaController.performTests(num, generationProb, faultProb, denialProb, prob, true);
-            }
-            else{
+            } else {
                 metaController.setAmountOfDataMessages(amountofdev);
                 metaController.performTests(num, generationProb, faultProb, denialProb, prob, false);
             }
 
             stage.close();
         }
-        flag=true;
+        flag = true;
 
     }
 
