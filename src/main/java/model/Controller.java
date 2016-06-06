@@ -104,10 +104,12 @@ public class Controller implements Device {
 
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
-            Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
+//            sendData(address);
+
+            Answer answer = sendData(address);
             if (answer == null) {
                 TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
-                answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
+                answer = sendData(address);
 
                 if (answer == null) {
                     notResponseAddresses.add(address);
@@ -116,10 +118,14 @@ public class Controller implements Device {
                         answers = testMKO(amountOfEndDevices);
                     }
                 } else {
-                    sendData(answer, address);
+//                    sendData(/*answer,*/ address);
                 }
             } else {
-                sendData(answer, address);
+                 if (!isEdReady(answer)) {
+                     sendData(address); // занятость
+                 }
+
+//                sendData(/*answer,*/ address);
             }
         }
 
@@ -128,7 +134,7 @@ public class Controller implements Device {
         }
 
         for (int i = 0; i < notResponseAddresses.size(); i++) {
-            sendData(answers.get(i), notResponseAddresses.get(i));
+            sendData(/*answers.get(i),*/ notResponseAddresses.get(i));
         }
     }
 
@@ -143,7 +149,7 @@ public class Controller implements Device {
                 changeLine(address);
             }
         }
-    return answers;
+        return answers;
     }
 
     private void findGenerationObject(int amountOfDevices) {
@@ -193,18 +199,20 @@ public class Controller implements Device {
         this.amountOfDataMessages = amountOfDataMessages;
     }
 
-    private void sendData(Answer answer, Address address) {
-        if (isEdReady(answer)) {
-            sendMessage(new CommandMessage(address, Command.PREPARE_TO_RECIEVE));
-            for (int j = 0; j < amountOfDataMessages; j++) {
-                DataMessage dataMessage = new DataMessage(address);
-                if (j + 1 == amountOfDataMessages) {
-                    dataMessage.setEndMessage(true);
-                    sendAndHandleMessage(dataMessage);
-                } else {
-                    sendMessage(dataMessage);
-                }
+    private Answer sendData(/*Answer answer,*/ Address address) {
+//        if (isEdReady(answer)) {
+        Answer result = null;
+        sendMessage(new CommandMessage(address, Command.PREPARE_TO_RECIEVE));
+        for (int j = 0; j < amountOfDataMessages; j++) {
+            DataMessage dataMessage = new DataMessage(address);
+            if (j + 1 == amountOfDataMessages) {
+                dataMessage.setEndMessage(true);
+                result = sendAndHandleMessage(dataMessage);
+            } else {
+                sendMessage(dataMessage);
             }
         }
+        return result;
+//        }
     }
 }
