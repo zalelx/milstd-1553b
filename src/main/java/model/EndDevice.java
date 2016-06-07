@@ -40,26 +40,22 @@ public class EndDevice implements Device {
                     break;
                 case GIVE_ANSWER:
                     TimeLogger.delay(ED_DELAY);
-                    if (isReady)
-                        sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
-                    else
-                        sendMessage(new AnswerMessage(controllerAddress, Answer.BUSY));
+                    sendMessage(new AnswerMessage(controllerAddress, isReady ? Answer.READY : Answer.BUSY));
+                    isReady = true;
                     break;
                 case GIVE_INFORMATION:
                     TimeLogger.delay(ED_DELAY);
-                    if (isReady) {
-                        sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
-                        for (int i = 0; i < dataMessageAmount; i++) sendMessage(new DataMessage(controllerAddress));
-                    }
+//                    if (isReady) {
+//                        sendMessage(new AnswerMessage(controllerAddress, Answer.READY));
+//                        for (int i = 0; i < dataMessageAmount; i++) sendMessage(new DataMessage(controllerAddress));
+//                    }
                     break;
-                case PREPARE_TO_RECIEVE:
-                    return;
             }
         }
-        if (message instanceof DataMessage && ((DataMessage) message).isEndMessage()) {
-            TimeLogger.delay(ED_DELAY);
-            sendMessage(new AnswerMessage(controllerAddress, isReady ? Answer.READY : Answer.BUSY));
-        }
+//        if (message instanceof DataMessage) {
+//            TimeLogger.delay(ED_DELAY);
+//            sendMessage(new AnswerMessage(controllerAddress, isReady ? Answer.READY : Answer.BUSY));
+//        }
     }
 
     public Port getReservePort() {

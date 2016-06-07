@@ -15,6 +15,7 @@ public class Controller implements Device {
     private int amountOfDataMessages = 4;
     private final static int ED_DELAY = EndDevice.ED_DELAY;
     private final static int CTRL_DELAY = 50;
+    private final static int NOT_RESPONSE_LIMIT = 3;
 
     public Controller(AddressBook addressBook) {
         this.addressBook = addressBook;
@@ -65,11 +66,11 @@ public class Controller implements Device {
         return ret;
     }
 
-    public ArrayList<Answer> testMKO(int amountOfEndDevices) {
+    public void testMKO(int amountOfEndDevices) {
         TimeLogger.log("START TEST_MKO", 0);
-        notResponseAddresses.clear();
+        int startIndex = notResponseAddresses.size() != 0 ? notResponseAddresses.get(notResponseAddresses.size() - 1).getValue() + 1 : Address.MIN_ADDRESS;
 
-        for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
+        for (int i = startIndex; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
             if (answer == null) {
@@ -84,27 +85,16 @@ public class Controller implements Device {
                         TimeLogger.log("START SEARCHING GENERATOR", 0);
                         findGenerationObject(amountOfEndDevices);
                     }
-                } else {
-                    isEdReady(answer);
                 }
-            } else {
-                isEdReady(answer);
             }
         }
-
-        if (notResponseAddresses.size() > 0) {
-            return restore();
-        }
-        return null;
     }
 
     public void connectToAll(int amountOfEndDevices) {
         TimeLogger.log("START TO BROADCAST", 0);
-        ArrayList<Answer> answers = null;
 
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
-//            sendData(address);
 
             Answer answer = sendData(address);
             if (answer == null) {
@@ -114,42 +104,34 @@ public class Controller implements Device {
                 if (answer == null) {
                     notResponseAddresses.add(address);
                     TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
-                    if (notResponseAddresses.size() >= 3) {
-                        answers = testMKO(amountOfEndDevices);
+                    if (notResponseAddresses.size() >= NOT_RESPONSE_LIMIT) {
+                        testMKO(amountOfEndDevices);
+                        break;
                     }
                 } else {
-//                    sendData(/*answer,*/ address);
+                    handleData(answer, address);
                 }
             } else {
-                 if (!isEdReady(answer)) {
-                     sendData(address); // занятость
-                 }
-
-//                sendData(/*answer,*/ address);
+                handleData(answer, address);
             }
         }
-
-        if (answers == null) {
-            answers = restore();
-        }
-
-        for (int i = 0; i < notResponseAddresses.size(); i++) {
-            sendData(/*answers.get(i),*/ notResponseAddresses.get(i));
+        restore();
+        for (Address address : notResponseAddresses) {
+            handleData(sendData(address), address);
         }
     }
 
-    private ArrayList<Answer> restore() {
-        ArrayList<Answer> answers = new ArrayList<>(notResponseAddresses.size());
+    private void restore() {
         for (Address address : notResponseAddresses) {
             changeLine(address);
             Answer answer = sendAndHandleMessage(new CommandMessage(address, Command.GIVE_ANSWER));
-            answers.add(answer);
             if (answer == null) {
-                TimeLogger.log("ED NOT RESPONDING AT RESERVE LINE ED#" + address.getValue(), ED_DELAY);
+                TimeLogger.log("NOT RESPONDING AT RESERVE LINE ED#" + address.getValue(), ED_DELAY);
                 changeLine(address);
+            } else {
+                TimeLogger.log("ONLINE ED#" + address.getValue(), 0);
             }
         }
-        return answers;
     }
 
     private void findGenerationObject(int amountOfDevices) {
@@ -175,11 +157,7 @@ public class Controller implements Device {
                     sendMessage(new CommandMessage(address, Command.BLOCK));
                     changeLine(address);
                     notResponseAddresses.add(address);
-                } else {
-                    isEdReady(answer);
                 }
-            } else {
-                isEdReady(answer);
             }
         }
     }
@@ -199,20 +177,19 @@ public class Controller implements Device {
         this.amountOfDataMessages = amountOfDataMessages;
     }
 
-    private Answer sendData(/*Answer answer,*/ Address address) {
-//        if (isEdReady(answer)) {
-        Answer result = null;
-        sendMessage(new CommandMessage(address, Command.PREPARE_TO_RECIEVE));
-        for (int j = 0; j < amountOfDataMessages; j++) {
-            DataMessage dataMessage = new DataMessage(address);
-            if (j + 1 == amountOfDataMessages) {
-                dataMessage.setEndMessage(true);
-                result = sendAndHandleMessage(dataMessage);
-            } else {
-                sendMessage(dataMessage);
-            }
-        }
+    private Answer sendData(Address address) {
+        Answer result;
+        DataMessage dataMessage = new DataMessage(address, amountOfDataMessages, Command.GIVE_ANSWER);
+        result = sendAndHandleMessage(dataMessage);
         return result;
-//        }
+    }
+
+    private void handleData(Answer answer, Address address) {
+        if (isEdReady(answer)) {
+            TimeLogger.log("DATA SEND ED#" + address.getValue(), 0);
+        } else {
+            TimeLogger.log("BUSY ED#" + address.getValue(), -45);
+            handleData(sendData(address), address);
+        }
     }
 }

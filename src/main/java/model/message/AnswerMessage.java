@@ -26,7 +26,4 @@ public class AnswerMessage implements Message {
         return answer;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 }

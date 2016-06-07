@@ -8,5 +8,4 @@ public interface Message {
     int getTime();
     Address getAddress();
     Status getStatus();
-    void setAddress(Address address);
 }

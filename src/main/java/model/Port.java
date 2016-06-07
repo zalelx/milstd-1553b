@@ -60,8 +60,10 @@ public class Port {
                     case FAILURE:
                         status = PortStatus.OK;
                         TimeLogger.logChangePortStatus(myAddress.getValue(), line.lineNumber, status);
+                        TimeLogger.delay(Message.MESSAGE_TIME);
                         break;
                     default:
+                        TimeLogger.delay(Message.MESSAGE_TIME);
                         break;
                 }
                 return true;

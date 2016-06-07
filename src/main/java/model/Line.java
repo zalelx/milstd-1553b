@@ -29,7 +29,7 @@ public class Line {
                     break;
             }
         } else {
-            TimeLogger.delay(message.getTime());
+            TimeLogger.delay(message.getTime() + Message.MESSAGE_TIME);
         }
     }
 

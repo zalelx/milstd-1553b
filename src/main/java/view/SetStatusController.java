@@ -33,6 +33,7 @@ public class SetStatusController{
         this.LineB.setItems(statuses);
         this.LineA.setValue("Исправен");
         this.LineB.setValue("Исправен");
+        this.busy.setSelected(false);
     }
 
     void setMetaController(MetaController metaController) {
@@ -59,8 +60,8 @@ public class SetStatusController{
             metaController.setPortStatusLineA(portNumber, parseStatus(LineA));
             metaController.setPortStatusLineB(portNumber, parseStatus(LineB));
 //            if(busy.isSelected())
-//                metaController.setPreparedToSendInfo(portNumber,false);
-//            else metaController.setPreparedToSendInfo(portNumber,true);
+                metaController.setPreparedToSendInfo(portNumber, !busy.isSelected());
+////            else metaController.setPreparedToSendInfo(portNumber,true);
             stage.close();
         }
     }

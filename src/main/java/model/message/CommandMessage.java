@@ -15,10 +15,6 @@ public class CommandMessage implements Message {
         return command;
     }
 
-    public void setCommand(Command command) {
-        this.command = command;
-    }
-
     @Override
     public int getTime() {
         return MESSAGE_TIME;
@@ -34,7 +30,4 @@ public class CommandMessage implements Message {
         return command;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 }
