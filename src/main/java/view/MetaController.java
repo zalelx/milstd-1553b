@@ -12,10 +12,12 @@ class MetaController {
     static double deviceProbability;
     static double generationProbability;
     static double denialProbability;
+    static double busyProbability;
     private int amountOfGenerations;
     private int amountOfDenials;
     private int amountOFFaults;
     private NewMenuController newMenuController;
+    private int amountOfBusies;
 
     void init(int amountOfEndDevices) {
         amountOfEd = amountOfEndDevices;
@@ -98,14 +100,16 @@ class MetaController {
             MetaController.deviceProbability = deviceProbability;
     }
 
-    private void initTest(double generationProbability, double faultProbability, double denialProbability, double probability) {
+    private void initTest(double generationProbability, double faultProbability, double denialProbability, double probability, double busyProbability) {
         double rand;
         MetaController.faultProbability = faultProbability;
         MetaController.generationProbability = generationProbability;
         MetaController.denialProbability = denialProbability;
+        MetaController.busyProbability = busyProbability;
         this.amountOFFaults = 0;
         this.amountOfDenials = 0;
         this.amountOfGenerations = 0;
+        this.amountOfBusies = 0;
         setDeviceProbability(probability);
 
         boolean wasGeneration = false;
@@ -129,14 +133,19 @@ class MetaController {
                     setPortStatusLineA(i, status);
                 }
             }
+            rand = Math.random();
+            if (rand < busyProbability) {
+                setPreparedToSendInfo(i, false);
+                amountOfBusies ++;
+            }
         }
     }
 
-    void performTests(int amountOfTests, double generationProbability, double faultProbability, double denialProbability, double probability, boolean isShortLogs) {
+    void performTests(int amountOfTests, double generationProbability, double faultProbability, double denialProbability, double busyProbability, double probability, boolean isShortLogs) {
         for (int j = 1; j <= amountOfTests; j++) {
-            initTest(generationProbability, faultProbability, denialProbability, probability);
+            initTest(generationProbability, faultProbability, denialProbability, probability, busyProbability);
             connectToAll();
-            TimeLogger.logStart(amountOfGenerations, amountOFFaults, amountOfDenials);
+            TimeLogger.logStart(amountOfGenerations, amountOFFaults, amountOfDenials, amountOfBusies);
             init(amountOfEd);
         }
         if (!isShortLogs) {
@@ -150,7 +159,7 @@ class MetaController {
         controller.setAmountOfDataMessages(value);
     }
 
-    public void setNewMenuController(NewMenuController newMenuController) {
+    void setNewMenuController(NewMenuController newMenuController) {
         this.newMenuController = newMenuController;
     }
 }

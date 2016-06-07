@@ -19,6 +19,7 @@ public class TimeLogger {
     private static int amountOfFaults = 0;
     private static int amountOfGenerations = 0;
     private static int amountOfEd = 0;
+    private static int amountOfBusies = 0;
     private static ArrayList<Integer> times = new ArrayList<>();
     private static Button b1;
     private static Button b2;
@@ -118,13 +119,14 @@ public class TimeLogger {
         logs.offer(new GenerationEvent(lineNumber, hasGeneration, numberOfGenerator, currentTime));
     }
 
-    static void logStart(Integer generations, Integer faluts, Integer denials) {
+    static void logStart(Integer generations, Integer faults, Integer denials, int busies) {
         times.add(currentTime);
         currentTime = 0;
         amountOfDenials += denials;
-        amountOfFaults += faluts;
+        amountOfFaults += faults;
         amountOfGenerations += generations;
         amountOfEd = MetaController.amountOfEd;
+        amountOfBusies += busies;
 
         logs.offer(new StartEvent(currentTime));
         for (int i = 1; i <= amountOfEd; i++) {
@@ -132,19 +134,19 @@ public class TimeLogger {
         }
     }
 
-    public static void setB1(Button b1) {
+    static void setB1(Button b1) {
         TimeLogger.b1 = b1;
     }
 
-    public static void setB2(Button b2) {
+    static void setB2(Button b2) {
         TimeLogger.b2 = b2;
     }
 
-    public static void setB3(Button b3) {
+    static void setB3(Button b3) {
         TimeLogger.b3 = b3;
     }
 
-    public static void setB4(Button b4) {
+    static void setB4(Button b4) {
         TimeLogger.b4 = b4;
     }
 
@@ -168,6 +170,9 @@ public class TimeLogger {
             textArea.insertText(textArea.getText().length(), formatter.toString());
             formatter = new Formatter();
             formatter.format("%-30s\n", "Denials: " + amountOfDenials + " p=" + MetaController.denialProbability * MetaController.deviceProbability);
+            textArea.insertText(textArea.getText().length(), formatter.toString());
+            formatter = new Formatter();
+            formatter.format("%-30s\n", "Busies: " + amountOfBusies + " p=" + MetaController.busyProbability);
             textArea.insertText(textArea.getText().length(), formatter.toString());
         });
     }

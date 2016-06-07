@@ -9,134 +9,140 @@ import javafx.stage.Stage;
 public class SetRandomController {
 
     @FXML
-    TextField number;
+    TextField amountOfTestsField;
 
     @FXML
-    TextField generationProbability;
+    TextField generationProbabilityField;
 
     @FXML
-    TextField faultProbability;
+    TextField faultProbabilityField;
 
     @FXML
-    TextField denialProbability;
+    TextField denialProbabilityField;
 
     @FXML
-    TextField probability;
+    TextField probabilityField;
 
     @FXML
-    TextField AmountOfDataMessages;
+    TextField amountOfDataMessagesField;
 
     @FXML
-    CheckBox ShortLogs;
+    CheckBox shortLogs;
+
+    @FXML
+    TextField busyProbabilityField;
 
 
-    Stage stage;
+    private Stage stage;
 
-    int num;
-    double generationProb;
-    double faultProb;
-    double denialProb;
-    double prob;
-    int amountofdev;
-    boolean flag = true;
+    private int amountOfTests;
+    private double generationProbability;
+    private double faultProbability;
+    private double denialProbability;
+    private double busyProbability;
+    private double probability;
+    private int amountOfDataMessages;
+    private boolean flag = true;
 
 
-    public MetaController metaController;
+    private MetaController metaController;
 
     void setMetaController(MetaController metaController) {
         this.metaController = metaController;
-        generationProbability.setText("0.05");
-        faultProbability.setText("0.7");
-        denialProbability.setText("0.25");
-        probability.setText("0.5");
-        AmountOfDataMessages.setText("4");
-        number.setText("100");
-        ShortLogs.setSelected(true);
+//        generationProbabilityField.setText("0.05");`
+//        faultProbabilityField.setText("0.7");
+//        denialProbabilityField.setText("0.25");
+//        probabilityField.setText("0.5");
+//        amountOfDataMessagesField.setText("4");
+//        amountOfTestsField.setText("100");
+//        shortLogs.setSelected(true);
     }
 
 
     @FXML
-    void OkClicked() {
-        String s1 = number.getText();
+    void okClicked() {
+        String s1 = amountOfTestsField.getText();
         try {
-            num = Integer.parseInt(s1);
-            if (num < 0) {
+            amountOfTests = Integer.parseInt(s1);
+            if (amountOfTests < 0) {
                 throw new NumberFormatException();
             }
         } catch (NumberFormatException e) {
-            number.setText("Неверно!");
+            amountOfTestsField.setText("Неверно!");
             flag = false;
         }
 
-        String s2 = generationProbability.getText();
+        String s2 = generationProbabilityField.getText();
         try {
-            generationProb = Double.parseDouble(s2);
-            if (generationProb > 1 || generationProb < 0)
+            generationProbability = Double.parseDouble(s2);
+            if (generationProbability > 1 || generationProbability < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException f) {
-            generationProbability.setText("Неверно!");
+            generationProbabilityField.setText("Неверно!");
             flag = false;
         }
 
-
-        String s3 = faultProbability.getText();
         try {
-            faultProb = Double.parseDouble(s3);
-            if (generationProb + faultProb > 1 || faultProb < 0)
+            busyProbability = Math.abs(Double.parseDouble(busyProbabilityField.getText()));
+            if (busyProbability > 1 || busyProbability < 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            busyProbabilityField.setText("Неверно!");
+            flag = false;
+        }
+
+        String s3 = faultProbabilityField.getText();
+        try {
+            faultProbability = Double.parseDouble(s3);
+            if (generationProbability + faultProbability > 1 || faultProbability < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException d) {
-            faultProbability.setText("Неверно!");
+            faultProbabilityField.setText("Неверно!");
             flag = false;
         }
 
-        String s4 = denialProbability.getText();
+        String s4 = denialProbabilityField.getText();
         try {
-            denialProb = Double.parseDouble(s4);
-            if (generationProb + faultProb + denialProb != 1 || denialProb < 0)
+            denialProbability = Double.parseDouble(s4);
+            if (generationProbability + faultProbability + denialProbability != 1 || denialProbability < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException g) {
-            denialProbability.setText("Неверно!");
+            denialProbabilityField.setText("Неверно!");
             flag = false;
         }
 
-        String s5 = probability.getText();
+        String s5 = probabilityField.getText();
         try {
-            prob = Double.parseDouble(s5);
-            if (prob > 1 || prob < 0)
+            probability = Double.parseDouble(s5);
+            if (probability > 1 || probability < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException h) {
-            probability.setText("Неверно!");
+            probabilityField.setText("Неверно!");
             flag = false;
         }
 
-        String s6 = AmountOfDataMessages.getText();
+        String s6 = amountOfDataMessagesField.getText();
         try {
-            amountofdev = Integer.parseInt(s6);
-            if (amountofdev > 32 || amountofdev < 0)
+            amountOfDataMessages = Integer.parseInt(s6);
+            if (amountOfDataMessages > 32 || amountOfDataMessages < 0)
                 throw new NumberFormatException();
         } catch (NumberFormatException h) {
-            AmountOfDataMessages.setText("Неверно!");
+            amountOfDataMessagesField.setText("Неверно!");
             flag = false;
         }
 
-        if (flag == true) {
-            if (ShortLogs.isSelected()) {
-                metaController.setAmountOfDataMessages(amountofdev);
-                metaController.performTests(num, generationProb, faultProb, denialProb, prob, true);
-            } else {
-                metaController.setAmountOfDataMessages(amountofdev);
-                metaController.performTests(num, generationProb, faultProb, denialProb, prob, false);
-            }
-
+        if (flag) {
+            metaController.setAmountOfDataMessages(amountOfDataMessages);
+            metaController.performTests(amountOfTests, generationProbability, faultProbability, denialProbability, busyProbability, probability, shortLogs.isSelected());
             stage.close();
         }
         flag = true;
-
     }
 
 
     @FXML
-    void CancelClicked() {
+    void cancelClicked() {
         stage.close();
     }
 

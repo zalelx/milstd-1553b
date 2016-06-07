@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import model.PortStatus;
 
 
-public class SetStatusController{
+public class SetStatusController {
 
     @FXML
     public ComboBox<String> LineA;
@@ -55,24 +55,24 @@ public class SetStatusController{
     }
 
     @FXML
-    void OkClicked(){
+    void OkClicked() {
         if (isValid()) {
             metaController.setPortStatusLineA(portNumber, parseStatus(LineA));
             metaController.setPortStatusLineB(portNumber, parseStatus(LineB));
 //            if(busy.isSelected())
-                metaController.setPreparedToSendInfo(portNumber, !busy.isSelected());
+            metaController.setPreparedToSendInfo(portNumber, !busy.isSelected());
 ////            else metaController.setPreparedToSendInfo(portNumber,true);
             stage.close();
         }
     }
 
     @FXML
-    void CancelClicked(){
+    void CancelClicked() {
         stage.close();
     }
 
-    private PortStatus parseStatus(ComboBox<String> input){
-        switch (input.getValue()){
+    private PortStatus parseStatus(ComboBox<String> input) {
+        switch (input.getValue()) {
             case "Исправен":
                 return PortStatus.OK;
             case "Генерация":
@@ -88,7 +88,7 @@ public class SetStatusController{
         }
     }
 
-    void setStage(Stage stage){
+    void setStage(Stage stage) {
         this.stage = stage;
     }
 
