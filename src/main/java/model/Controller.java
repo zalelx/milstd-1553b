@@ -66,9 +66,10 @@ public class Controller implements Device {
         return ret;
     }
 
-    public void testMKO(int amountOfEndDevices) {
+    public boolean testMKO(int amountOfEndDevices) {
         TimeLogger.log("START TEST_MKO", 0);
         int startIndex = notResponseAddresses.size() != 0 ? notResponseAddresses.get(notResponseAddresses.size() - 1).getValue() + 1 : Address.MIN_ADDRESS;
+        boolean wasGeneration = false;
 
         for (int i = startIndex; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
@@ -82,6 +83,7 @@ public class Controller implements Device {
                     TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
                     if (notResponseAddresses.size() >= amountOfEndDevices) {
                         notResponseAddresses.clear();
+                        wasGeneration = true;
                         TimeLogger.log("START SEARCHING GENERATOR", 0);
                         findGenerationObject(amountOfEndDevices);
                     }
@@ -89,6 +91,7 @@ public class Controller implements Device {
             }
         }
         restore();
+        return wasGeneration;
     }
 
     public void connectToAll(int amountOfEndDevices) {
@@ -106,7 +109,10 @@ public class Controller implements Device {
                     notResponseAddresses.add(address);
                     TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
                     if (notResponseAddresses.size() >= NOT_RESPONSE_LIMIT) {
-                        testMKO(amountOfEndDevices);
+                        if (testMKO(amountOfEndDevices)) {
+                            i = Address.MIN_ADDRESS - 1;
+                            notResponseAddresses.clear();
+                        }
                         wasTest = true;
 //                        break;
                     }
