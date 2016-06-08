@@ -88,11 +88,12 @@ public class Controller implements Device {
                 }
             }
         }
+        restore();
     }
 
     public void connectToAll(int amountOfEndDevices) {
         TimeLogger.log("START TO BROADCAST", 0);
-
+        boolean wasTest = false;
         for (int i = Address.MIN_ADDRESS; i <= amountOfEndDevices; i++) {
             Address address = new Address(i);
 
@@ -106,7 +107,8 @@ public class Controller implements Device {
                     TimeLogger.log("NOT RESPONSE ED#" + i, ED_DELAY);
                     if (notResponseAddresses.size() >= NOT_RESPONSE_LIMIT) {
                         testMKO(amountOfEndDevices);
-                        break;
+                        wasTest = true;
+//                        break;
                     }
                 } else {
                     handleData(answer, address);
@@ -115,7 +117,9 @@ public class Controller implements Device {
                 handleData(answer, address);
             }
         }
-        restore();
+        if (!wasTest) {
+            restore();
+        }
         for (Address address : notResponseAddresses) {
             handleData(sendData(address), address);
         }
