@@ -28,6 +28,8 @@ public class Address {
         Address address = (Address) o;
 
         return value == address.value;
+        //another useless commit
+
     }
 
     @Override
