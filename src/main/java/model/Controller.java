@@ -68,6 +68,7 @@ public class Controller implements Device {
 
     public boolean testMKO(int amountOfEndDevices) {
         TimeLogger.log("START TEST_MKO", 0);
+        //useless comment
         int startIndex = notResponseAddresses.size() != 0 ? notResponseAddresses.get(notResponseAddresses.size() - 1).getValue() + 1 : Address.MIN_ADDRESS;
         boolean wasGeneration = false;
 
